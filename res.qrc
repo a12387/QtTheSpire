@@ -8,5 +8,32 @@
         <file>game/resource/ui/map.png</file>
         <file>game/resource/creature/ironclad.png</file>
         <file>game/resource/creature/shield.png</file>
+        <file>game/resource/cards/armaments.png</file>
+        <file>game/resource/cards/barricade.png</file>
+        <file>game/resource/cards/bash.png</file>
+        <file>game/resource/cards/battle_trance.png</file>
+        <file>game/resource/cards/body_slam.png</file>
+        <file>game/resource/cards/burn.png</file>
+        <file>game/resource/cards/burning_pact.png</file>
+        <file>game/resource/cards/corruption.png</file>
+        <file>game/resource/cards/dark_embrace.png</file>
+        <file>game/resource/cards/dazed.png</file>
+        <file>game/resource/cards/demon_form.png</file>
+        <file>game/resource/cards/exhume.png</file>
+        <file>game/resource/cards/feel_no_pain.png</file>
+        <file>game/resource/cards/finesse.png</file>
+        <file>game/resource/cards/flash_of_steel.png</file>
+        <file>game/resource/cards/inflame.png</file>
+        <file>game/resource/cards/limit_break.png</file>
+        <file>game/resource/cards/offering.png</file>
+        <file>game/resource/cards/pommel_strike.png</file>
+        <file>game/resource/cards/second_wind.png</file>
+        <file>game/resource/cards/shrug_it_off.png</file>
+        <file>game/resource/cards/slimed.png</file>
+        <file>game/resource/cards/spot_weakness.png</file>
+        <file>game/resource/cards/true_grit.png</file>
+        <file>game/resource/cards/void.png</file>
+        <file>game/resource/cards/whirlwind.png</file>
+        <file>game/resource/cards/wound.png</file>
     </qresource>
 </RCC>
