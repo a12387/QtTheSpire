@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>game/resource/cards/strike.png</file>
+        <file>game/resource/bg_attack.png</file>
+        <file>game/resource/bg_energy.png</file>
+        <file>game/resource/frame_attack_common.png</file>
+        <file>game/resource/banner_common.png</file>
+        <file>game/resource/ui/map.png</file>
+        <file>game/resource/creature/ironclad.png</file>
+        <file>game/resource/creature/shield.png</file>
+    </qresource>
+</RCC>
