@@ -28,6 +28,13 @@ void UseCard::update()
     int n = mw->d.player->hand.group.size();
     ui->scrollAreaWidgetContents->setMinimumWidth(150 * n);
     auto it = mw->d.player->hand.group.begin();
+    for(auto &i:ui->scrollAreaWidgetContents->children())
+    {
+        if(dynamic_cast<CardButton*>(i)!=nullptr)
+        {
+            delete i;
+        }
+    }
     for(int i = 0; i < n; i++)
     {
         cards.push_back(new CardButton(*it,ui->scrollAreaWidgetContents,143,200));

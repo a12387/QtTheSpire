@@ -8,7 +8,7 @@ class Dark_embrace : public AbstractCard
 {
 public:
     Dark_embrace();
-    void use(AbstractPlayer &p,AbstractMonster &m);
+    void use(AbstractPlayer *p,AbstractMonster *m);
     AbstractCard *makeCopy();
 };
 

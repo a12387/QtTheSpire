@@ -20,7 +20,7 @@ public:
     AbstractPlayer(std::string imgUrl,std::string name, std::string id, int health);
 
 
-    void useCard(AbstractCard &card,AbstractMonster &m,int energyUse);
+    void useCard(AbstractCard &card,AbstractMonster *m,int energyUse);
 
     void preBattle();
 

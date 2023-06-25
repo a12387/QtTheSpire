@@ -8,7 +8,7 @@ class Limit_break_Red : public AbstractCard
 {
 public:
     Limit_break_Red();
-    void use(AbstractPlayer &p,AbstractMonster &m);
+    void use(AbstractPlayer *p,AbstractMonster *m);
     AbstractCard *makeCopy();
 };
 

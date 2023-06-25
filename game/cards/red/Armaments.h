@@ -7,7 +7,7 @@ class Armaments : public AbstractCard
 {
 public:
     Armaments();
-    void use(AbstractPlayer &p,AbstractMonster &m);
+    void use(AbstractPlayer *p,AbstractMonster *m);
     AbstractCard *makeCopy();
 };
 #endif // ARMAMENTS_H

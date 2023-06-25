@@ -8,7 +8,7 @@ class True_grit_Red : public AbstractCard
 {
 public:
     True_grit_Red();
-    void use(AbstractPlayer &p,AbstractMonster &m);
+    void use(AbstractPlayer *p,AbstractMonster *m);
     AbstractCard *makeCopy();
 };
 

@@ -49,7 +49,7 @@ void CombatRoom::initalize()
 void CombatRoom::playerAction()
 {
     //onStartOfTurn();
-    mw->d.player->drawCard(8);
+    mw->d.player->drawCard(5);
     //showMonsterIntent()
     uc->update();
 }

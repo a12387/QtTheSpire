@@ -8,7 +8,7 @@ class Shrug_it_off_Red : public AbstractCard
 {
 public:
     Shrug_it_off_Red();
-    void use(AbstractPlayer &p,AbstractMonster &m);
+    void use(AbstractPlayer *p,AbstractMonster *m);
     AbstractCard *makeCopy();
 };
 

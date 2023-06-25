@@ -8,7 +8,7 @@ class Finesse : public AbstractCard
 {
 public:
     Finesse();
-    void use(AbstractPlayer &p,AbstractMonster &m);
+    void use(AbstractPlayer *p,AbstractMonster *m);
     AbstractCard *makeCopy();
 };
 

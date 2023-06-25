@@ -7,7 +7,7 @@ class Body_slam : public AbstractCard
 {
 public:
     Body_slam();
-    void use(AbstractPlayer &p,AbstractMonster &m);
+    void use(AbstractPlayer *p,AbstractMonster *m);
     AbstractCard *makeCopy();
 };
 #endif // BODY_SLAM_H

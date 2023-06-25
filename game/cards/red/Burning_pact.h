@@ -8,7 +8,7 @@ class Burning_pact : public AbstractCard
 {
 public:
     Burning_pact();
-    void use(AbstractPlayer &p,AbstractMonster &m);
+    void use(AbstractPlayer *p,AbstractMonster *m);
     AbstractCard *makeCopy();
 };
 
