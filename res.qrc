@@ -35,5 +35,11 @@
         <file>game/resource/cards/void.png</file>
         <file>game/resource/cards/whirlwind.png</file>
         <file>game/resource/cards/wound.png</file>
+        <file>game/resource/creature/spear.png</file>
+        <file>game/resource/intents/attack.png</file>
+        <file>game/resource/intents/attackDebuff.png</file>
+        <file>game/resource/intents/buff.png</file>
+        <file>game/resource/intents/debuff.png</file>
+        <file>game/resource/intents/defend.png</file>
     </qresource>
 </RCC>

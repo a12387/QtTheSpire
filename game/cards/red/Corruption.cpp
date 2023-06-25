@@ -18,10 +18,10 @@ Corruption::Corruption() :
     tags.push_back(CardTags::STRIKE);
 }
 
-void Corruption::use(AbstractPlayer *p,AbstractMonster *m)
+void Corruption::use(AbstractPlayer &p,AbstractMonster &m)
 {
-    DamageInfo tmp = DamageInfo(*p,this->damage,this->dType);
-    m->damage(tmp);
+    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
+    m.damage(tmp);
 }
 AbstractCard *Corruption::makeCopy()
 {

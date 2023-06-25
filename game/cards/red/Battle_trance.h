@@ -12,7 +12,7 @@ class Battle_trance : public AbstractCard
 {
 public:
     Battle_trance();
-    void use(AbstractPlayer *p,AbstractMonster *m);
+    void use(AbstractPlayer &p,AbstractMonster &m);
     AbstractCard *makeCopy();
 };
 

@@ -8,7 +8,7 @@ class Demon_form : public AbstractCard
 {
 public:
     Demon_form();
-    void use(AbstractPlayer *p,AbstractMonster *m);
+    void use(AbstractPlayer &p,AbstractMonster &m);
     AbstractCard *makeCopy();
 };
 

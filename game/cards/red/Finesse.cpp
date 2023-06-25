@@ -18,10 +18,10 @@ Finesse::Finesse() :
     tags.push_back(CardTags::STRIKE);
 }
 
-void Finesse::use(AbstractPlayer *p,AbstractMonster *m)
+void Finesse::use(AbstractPlayer &p,AbstractMonster &m)
 {
-    DamageInfo tmp = DamageInfo(*p,this->damage,this->dType);
-    m->damage(tmp);
+    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
+    m.damage(tmp);
 }
 AbstractCard *Finesse::makeCopy()
 {

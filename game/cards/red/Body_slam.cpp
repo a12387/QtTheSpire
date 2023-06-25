@@ -18,10 +18,10 @@ Body_slam::Body_slam() :
     tags.push_back(CardTags::STRIKE);
 }
 
-void Body_slam::use(AbstractPlayer *p,AbstractMonster *m)
+void Body_slam::use(AbstractPlayer &p,AbstractMonster &m)
 {
-    DamageInfo tmp = DamageInfo(*p,this->damage,this->dType);
-    m->damage(tmp);
+    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
+    m.damage(tmp);
 }
 AbstractCard *Body_slam::makeCopy()
 {

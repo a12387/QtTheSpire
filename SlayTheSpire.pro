@@ -46,6 +46,12 @@ SOURCES += \
     game/monsters/EnemyMoveInfo.cpp \
     game/monsters/MonsterGroup.cpp \
     game/monsters/SpireShield.cpp \
+    game/monsters/SpireSpear.cpp \
+    game/powers/Artifact.cpp \
+    game/powers/BackAttack.cpp \
+    game/powers/Strength.cpp \
+    game/powers/Surrounded.cpp \
+    game/relics/AbstractRelic.cpp \
     game/rooms/AbstractRoom.cpp \
     game/rooms/CampfireRoom.cpp \
     game/rooms/EliteRoom.cpp \
@@ -98,6 +104,13 @@ HEADERS += \
     game/monsters/EnemyMoveInfo.h \
     game/monsters/MonsterGroup.h \
     game/monsters/SpireShield.h \
+    game/monsters/SpireSpear.h \
+    game/powers/AbstractPower.h \
+    game/powers/Artifact.h \
+    game/powers/BackAttack.h \
+    game/powers/Strength.h \
+    game/powers/Surrounded.h \
+    game/relics/AbstractRelic.h \
     game/rooms/AbstractRoom.h \
     game/rooms/CampfireRoom.h \
     game/rooms/EliteRoom.h \

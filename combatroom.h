@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "usecard.h"
 #include "creaturewidget.h"
+
 namespace Ui {
 class CombatRoom;
 }
@@ -15,7 +16,6 @@ class CombatRoom : public QWidget
 public:
     explicit CombatRoom(QWidget *parent = nullptr);
     ~CombatRoom();
-
     UseCard *uc;
     MainWindow *mw;
     QVector<CreatureWidget*> monstersWidget;
@@ -27,7 +27,7 @@ signals:
 private slots:
     void initalize();
     void playerAction();
-//    void monsterAction();
+    void monsterAction();
 private:
     Ui::CombatRoom *ui;
 };

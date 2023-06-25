@@ -18,10 +18,10 @@ Dark_embrace::Dark_embrace() :
     tags.push_back(CardTags::STRIKE);
 }
 
-void Dark_embrace::use(AbstractPlayer *p,AbstractMonster *m)
+void Dark_embrace::use(AbstractPlayer &p,AbstractMonster &m)
 {
-    DamageInfo tmp = DamageInfo(*p,this->damage,this->dType);
-    m->damage(tmp);
+    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
+    m.damage(tmp);
 }
 AbstractCard *Dark_embrace::makeCopy()
 {

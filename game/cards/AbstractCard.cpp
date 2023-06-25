@@ -4,7 +4,7 @@ AbstractCard::AbstractCard(std::string id, std::string name, std::string imgUrl,
     id(id),name(name),imgUrl(imgUrl),cost(cost),description(description),type(type),color(color),rarity(rarity),target(target),dType(dType){}
 AbstractCard::~AbstractCard(){}
 void AbstractCard::upgrade() {}
-void AbstractCard::use(AbstractPlayer *abstractPlayer, AbstractMonster *abstractMonster) {}
+void AbstractCard::use(AbstractPlayer &abstractPlayer, AbstractMonster &abstractMonster) {}
 
 bool AbstractCard::operator==(const AbstractCard &c)
 {

@@ -18,10 +18,10 @@ Demon_form::Demon_form() :
     tags.push_back(CardTags::STRIKE);
 }
 
-void Demon_form::use(AbstractPlayer *p,AbstractMonster *m)
+void Demon_form::use(AbstractPlayer &p,AbstractMonster &m)
 {
-    DamageInfo tmp = DamageInfo(*p,this->damage,this->dType);
-    m->damage(tmp);
+    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
+    m.damage(tmp);
 }
 AbstractCard *Demon_form::makeCopy()
 {

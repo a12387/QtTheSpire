@@ -8,7 +8,7 @@ class Whirlwind_Red : public AbstractCard
 {
 public:
     Whirlwind_Red();
-    void use(AbstractPlayer *p,AbstractMonster *m);
+    void use(AbstractPlayer &p,AbstractMonster &m);
     AbstractCard *makeCopy();
 };
 

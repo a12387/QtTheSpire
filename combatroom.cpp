@@ -21,7 +21,7 @@ CombatRoom::CombatRoom(QWidget *parent) :
     }
     for(int i = 0; i < monstersWidget.size(); i++)
     {
-        monstersWidget[i]->move(120 + 720 * i, 120);
+        monstersWidget[i]->move(120 + 600 * i, 120);
     }
 
     uc = new UseCard(this);
@@ -29,7 +29,7 @@ CombatRoom::CombatRoom(QWidget *parent) :
 
     connect(this,&CombatRoom::preBattle,this,&CombatRoom::initalize);
     connect(this,&CombatRoom::startTurn,this,&CombatRoom::playerAction);
-//    connect(this,&CombatRoom::endTurn,this,&CombatRoom::monsterAction);
+    connect(this,&CombatRoom::endTurn,this,&CombatRoom::monsterAction);
 
     //emit preBattle();
     initalize();
@@ -49,7 +49,10 @@ void CombatRoom::initalize()
 void CombatRoom::playerAction()
 {
     //onStartOfTurn();
-    mw->d.player->drawCard(5);
+    mw->d.player->drawCard(8);
     //showMonsterIntent()
     uc->update();
+}
+void CombatRoom::monsterAction(){
+
 }

@@ -18,10 +18,10 @@ Burning_pact::Burning_pact() :
     tags.push_back(CardTags::STRIKE);
 }
 
-void Burning_pact::use(AbstractPlayer *p,AbstractMonster *m)
+void Burning_pact::use(AbstractPlayer &p,AbstractMonster &m)
 {
-    DamageInfo tmp = DamageInfo(*p,this->damage,this->dType);
-    m->damage(tmp);
+    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
+    m.damage(tmp);
 }
 AbstractCard *Burning_pact::makeCopy()
 {

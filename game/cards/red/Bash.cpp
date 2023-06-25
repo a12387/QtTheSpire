@@ -18,10 +18,10 @@ Bash::Bash() :
     tags.push_back(CardTags::STRIKE);
 }
 
-void Bash::use(AbstractPlayer *p,AbstractMonster *m)
+void Bash::use(AbstractPlayer &p,AbstractMonster &m)
 {
-    DamageInfo tmp = DamageInfo(*p,this->damage,this->dType);
-    m->damage(tmp);
+    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
+    m.damage(tmp);
 }
 AbstractCard *Bash::makeCopy()
 {

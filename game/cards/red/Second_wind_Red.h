@@ -8,7 +8,7 @@ class Second_wind_Red : public AbstractCard
 {
 public:
     Second_wind_Red();
-    void use(AbstractPlayer *p,AbstractMonster *m);
+    void use(AbstractPlayer &p,AbstractMonster &m);
     AbstractCard *makeCopy();
 };
 

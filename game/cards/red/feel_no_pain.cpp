@@ -18,10 +18,10 @@ Feel_no_pain::Feel_no_pain() :
     tags.push_back(CardTags::STRIKE);
 }
 
-void Feel_no_pain::use(AbstractPlayer *p,AbstractMonster *m)
+void Feel_no_pain::use(AbstractPlayer &p,AbstractMonster &m)
 {
-    DamageInfo tmp = DamageInfo(*p,this->damage,this->dType);
-    m->damage(tmp);
+    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
+    m.damage(tmp);
 }
 AbstractCard *Feel_no_pain::makeCopy()
 {

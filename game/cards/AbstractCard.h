@@ -93,7 +93,7 @@ public:
 
     virtual void upgrade();
 
-    virtual void use(AbstractPlayer *abstractPlayer, AbstractMonster *AbstractMonster) = 0;
+    virtual void use(AbstractPlayer &abstractPlayer, AbstractMonster &AbstractMonster) = 0;
 
     AbstractCard(std::string id, std::string name, std::string imgUrl, int cost, std::string description, CardType type, CardColor color, CardRarity rarity, CardTarget target, DamageInfo::DamageType dType);
 

@@ -9,3 +9,15 @@ SpireShield::SpireShield():
 {
 
 }
+void SpireShield::createIntent(){
+    switch(round%3){
+    case 0:intent=rand()%2?DEFEND :ATTACK;break;
+    case 1:intent=lastMove?DEFEND :ATTACK;break;
+    case 2:intent=ATTACK;break;
+    }
+}
+void SpireShield::attack(AbstractPlayer&p){
+    if(intent==DEFEND){
+
+    }
+}

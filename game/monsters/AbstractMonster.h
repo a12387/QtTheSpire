@@ -1,21 +1,17 @@
 #ifndef _ABSTRACTMONSTER_
 #define _ABSTRACTMONSTER_
 #include "../core/AbstractCreature.h"
+#include "../characters/AbstractPlayer.h"
 #include "../cards/DamageInfo.h"
 //#include "AbstractPower.h"
 #include <vector>
-class EnemyMoveInfo;
 class AbstractMonster:public AbstractCreature
 {
 public:
-    int nextMove,lastMove;
+    int round,lastMove;
     std::string moveName;
     std::vector<DamageInfo*> damages;
-    enum EnemyType
-    {
-        ELITE,
-        BOSS
-    };
+
     enum Intent
     {
         ATTACK,
@@ -33,15 +29,13 @@ public:
         NONE,
         UNKNOWN
     };
-    EnemyType type;
-    Intent intent ,tipIntent;
+    Intent intent;
     int intentBaseDmg,intentMultiAmt;
     bool isMultiDmg;
-    EnemyMoveInfo *move;
     AbstractMonster(std::string ,std::string ,std::string ,int );
-    void createIntent();
+    virtual void createIntent()=0;
     void calculateDamage(int);
-    void setMove(int ,Intent ,int ,int ,bool );
+    virtual void attack(AbstractPlayer&)=0;
     void die(bool);
     void applyPowers();
 };
