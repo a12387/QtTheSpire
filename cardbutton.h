@@ -10,7 +10,7 @@ class CardButton : public QPushButton
 {
     Q_OBJECT
 public:
-    CardButton(QWidget *p = nullptr,int x = 180,int y = 252);
+    CardButton(AbstractCard *c,QWidget *p = nullptr,int x = 180,int y = 252);
 
     AbstractCard *card;
 

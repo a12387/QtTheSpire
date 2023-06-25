@@ -1,7 +1,7 @@
 #include "getcard.h"
 #include "ui_getcard.h"
 #include <QPainter>
-#include "campfire.h"
+#include "game/cards/red/Strike_Red.h"
 #include "mainwindow.h"
 #include "cardbutton.h"
 GetCard::GetCard(QWidget *parent) :
@@ -18,11 +18,11 @@ GetCard::GetCard(QWidget *parent) :
     }
     mw = (MainWindow*)tmp;
 
-    CardButton *card1 = new CardButton(this);
+    CardButton *card1 = new CardButton(new Strike_Red,this);
     card1->move(170,140);
-    CardButton *card2 = new CardButton(this);
+    CardButton *card2 = new CardButton(new Strike_Red,this);
     card2->move(450,140);
-    CardButton *card3 = new CardButton(this);
+    CardButton *card3 = new CardButton(new Strike_Red,this);
     card3->move(730,140);
 
     connect(card1,&CardButton::chooseCard,this,&GetCard::getCard);

@@ -6,7 +6,7 @@
 namespace Ui {
 class CreatureWidget;
 }
-
+class CombatRoom;
 class CreatureWidget : public QWidget
 {
     Q_OBJECT
@@ -17,10 +17,13 @@ public:
 
     QImage image;
     AbstractCreature *c;
+    CombatRoom *cr;
     bool choose = false;
 
+    void setFrameState(bool b);
     void enterEvent(QEnterEvent *e);
     void leaveEvent(QEvent *e);
+    void mouseReleaseEvent(QMouseEvent *me);
 private:
     Ui::CreatureWidget *ui;
 };
