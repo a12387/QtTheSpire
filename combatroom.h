@@ -16,6 +16,7 @@ class CombatRoom : public QWidget
 public:
     explicit CombatRoom(QWidget *parent = nullptr);
     ~CombatRoom();
+    void update();
     UseCard *uc;
     MainWindow *mw;
     QVector<CreatureWidget*> monstersWidget;

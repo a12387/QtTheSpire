@@ -30,7 +30,7 @@ public:
 
     void addBlock(int amount);
 
-    //void addPower(AbstractPower &power);
+    //void addPower(AbstractPower *power);
 
     void loseGold(int amount);
 

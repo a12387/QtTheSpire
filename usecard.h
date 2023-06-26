@@ -8,6 +8,7 @@ namespace Ui {
 class UseCard;
 }
 class MainWindow;
+class CombatRoom;
 class UseCard : public QWidget
 {
     Q_OBJECT
@@ -21,6 +22,7 @@ public:
     void setConfirmState(bool b);
 
     MainWindow *mw;
+    CombatRoom *cr;
     QVector<CardButton*> cards;
     CardButton *selectedCard;
     CreatureWidget* selectedCreature;

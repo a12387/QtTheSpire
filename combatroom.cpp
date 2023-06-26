@@ -49,10 +49,22 @@ void CombatRoom::initalize()
 void CombatRoom::playerAction()
 {
     //onStartOfTurn();
-    mw->d.player->drawCard(8);
-    //showMonsterIntent()
+    mw->d.player->drawCard(5);
+    for(auto &i:monstersWidget)
+    {
+        i->setIntent(AbstractMonster::ATTACK);
+    }
     uc->update();
 }
 void CombatRoom::monsterAction(){
 
+}
+void CombatRoom::update()
+{
+    for(auto &i:monstersWidget)
+    {
+        i->update();
+    }
+    playerWidget->update();
+    uc->update();
 }

@@ -8,7 +8,8 @@ UseCard::UseCard(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    mw = ((CombatRoom*)parent)->mw;
+    cr = (CombatRoom*)parent;
+    mw = cr->mw;
 
     selectedCard = nullptr;
     ui->confirmButton->hide();
@@ -77,7 +78,7 @@ void UseCard::confirm(AbstractCard *c)
         if(c->target == AbstractCard::ENEMY)
         {
             ui->confirmButton->setDisabled(true);
-            for(auto &i : ((CombatRoom*)parentWidget())->monstersWidget)
+            for(auto &i : cr->monstersWidget)
             {
                 i->choose = true;
             }
@@ -93,14 +94,12 @@ void UseCard::useSelectedCard()
 {
     selectedCard->card->use(mw->d.player,(AbstractMonster*)(selectedCreature->c));
 
-    qDebug()<<selectedCreature->c->currentHealth;
-
     mw->d.player->discardPile.addToTop(selectedCard->card);
     mw->d.player->hand.removeCard(selectedCard->card);
 
     cancelSelect();
 
-    update();
+    cr->update();
 }
 
 
@@ -120,7 +119,7 @@ void UseCard::cancelSelect()
         selectedCreature->setFrameState(false);
         selectedCreature = nullptr;
     }
-    for(auto &i:((CombatRoom*)parentWidget())->monstersWidget)
+    for(auto &i:cr->monstersWidget)
     {
         if(i->choose)
             i->choose = false;

@@ -23,6 +23,7 @@ public:
 
     void setIntent(AbstractMonster::Intent);
     void setFrameState(bool b);
+    void update();
     void enterEvent(QEnterEvent *e);
     void leaveEvent(QEvent *e);
     void mouseReleaseEvent(QMouseEvent *me);

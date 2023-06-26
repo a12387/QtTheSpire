@@ -13,10 +13,10 @@ CreatureWidget::CreatureWidget(AbstractCreature *c,QWidget *parent) :
     image.load(QString::fromStdString(c->imgUrl));
     ui->character->setPixmap(QPixmap::fromImage(image));
     ui->character->setScaledContents(true);
-    ui->intent->setStyleSheet("QLabel{backgroundcolor:transparent;}");
+    ui->intent->setScaledContents(true);
+    ui->healthBarText->setText(QString("%1/%2").arg(c->currentHealth).arg(c->maxHealth));
     if(c->isPlayer)
         ui->intent->hide();
-    setIntent(AbstractMonster::ATTACK);
 }
 CreatureWidget::~CreatureWidget()
 {
@@ -28,6 +28,12 @@ void CreatureWidget::setFrameState(bool b)
         ui->frame->show();
     else
         ui->frame->hide();
+}
+void CreatureWidget::update()
+{
+
+    ui->healthBar->resize(240 * c->currentHealth / c->maxHealth,20);
+    ui->healthBarText->setText(QString("%1/%2").arg(c->currentHealth).arg(c->maxHealth));
 }
 void CreatureWidget::enterEvent(QEnterEvent *e)
 {
@@ -66,6 +72,7 @@ void CreatureWidget::setIntent(AbstractMonster::Intent intent_){
     case AbstractMonster::BUFF:picture.load(":/game/resource/intents/buff.png");break;
     case AbstractMonster::DEBUFF:picture.load(":/game/resource/intents/debuff.png");break;
     case AbstractMonster::DEFEND:picture.load(":/game/resource/intents/defend.png");break;
+    default:break;
     }
     ui->intent->setPixmap(picture);
 }

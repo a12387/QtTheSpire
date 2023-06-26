@@ -34,7 +34,7 @@
     <string notr="true">background-color: rgb(255, 0, 0);</string>
    </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string/>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -59,17 +59,17 @@
   <widget class="QLabel" name="intent">
    <property name="geometry">
     <rect>
-     <x>90</x>
+     <x>97</x>
      <y>0</y>
-     <width>60</width>
-     <height>60</height>
+     <width>45</width>
+     <height>45</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(0, 0, 255);</string>
+    <string notr="true"/>
    </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string/>
    </property>
   </widget>
   <widget class="QScrollArea" name="buffArea">
@@ -113,6 +113,61 @@ border:2px solid rgb(237,237,90)
 }</string>
    </property>
   </widget>
+  <widget class="QLabel" name="healthBarText">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>240</y>
+     <width>240</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>15</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:transparent;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="healthBarBottom">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>240</y>
+     <width>240</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>15</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(117, 117, 117);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <zorder>character</zorder>
+  <zorder>intent</zorder>
+  <zorder>buffArea</zorder>
+  <zorder>frame</zorder>
+  <zorder>healthBarBottom</zorder>
+  <zorder>healthBar</zorder>
+  <zorder>healthBarText</zorder>
  </widget>
  <resources/>
  <connections/>
