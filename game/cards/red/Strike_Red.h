@@ -8,7 +8,7 @@ class Strike_Red : public AbstractCard
 {
 public:
     Strike_Red();
-    void use(AbstractPlayer &p,AbstractMonster &m);
+    void use(AbstractPlayer *p,AbstractMonster *m);
     AbstractCard *makeCopy();
 };
 

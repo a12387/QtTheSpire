@@ -1,9 +1,8 @@
 #include "cardbutton.h"
 #include "getcard.h"
-#include "game/cards/red/Strike_Red.h"
 #include <QMouseEvent>
 #include <QResizeEvent>
-CardButton::CardButton(QWidget *p,int x, int y) : QPushButton(p) , card(new Strike_Red)
+CardButton::CardButton(AbstractCard *c,QWidget *p,int x, int y) : QPushButton(p) , card(c)
 {
     QWidget *tmp = parentWidget();
     while(tmp->parentWidget()!= nullptr)

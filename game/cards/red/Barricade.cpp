@@ -18,10 +18,10 @@ Barricade::Barricade() :
     tags.push_back(CardTags::STRIKE);
 }
 
-void Barricade::use(AbstractPlayer &p,AbstractMonster &m)
+void Barricade::use(AbstractPlayer *p,AbstractMonster *m)
 {
-    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
-    m.damage(tmp);
+    DamageInfo tmp = DamageInfo(*p,this->damage,this->dType);
+    m->damage(tmp);
 }
 AbstractCard *Barricade::makeCopy()
 {

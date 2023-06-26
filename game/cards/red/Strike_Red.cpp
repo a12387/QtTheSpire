@@ -18,10 +18,10 @@ Strike_Red::Strike_Red() :
     tags.push_back(CardTags::STRIKE);
 }
 
-void Strike_Red::use(AbstractPlayer &p,AbstractMonster &m)
+void Strike_Red::use(AbstractPlayer *p,AbstractMonster *m)
 {
-    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
-    m.damage(tmp);
+    DamageInfo tmp = DamageInfo(*p,this->baseDamage,this->dType);
+    m->damage(tmp);
 }
 AbstractCard *Strike_Red::makeCopy()
 {

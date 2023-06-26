@@ -18,10 +18,10 @@ True_grit_Red::True_grit_Red() :
     tags.push_back(CardTags::STRIKE);
 }
 
-void True_grit_Red::use(AbstractPlayer &p,AbstractMonster &m)
+void True_grit_Red::use(AbstractPlayer *p,AbstractMonster *m)
 {
-    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
-    m.damage(tmp);
+    DamageInfo tmp = DamageInfo(*p,this->damage,this->dType);
+    m->damage(tmp);
 }
 AbstractCard *True_grit_Red::makeCopy()
 {

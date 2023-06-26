@@ -8,7 +8,7 @@ class Pommel_strike_Red : public AbstractCard
 {
 public:
     Pommel_strike_Red();
-    void use(AbstractPlayer &p,AbstractMonster &m);
+    void use(AbstractPlayer *p,AbstractMonster *m);
     AbstractCard *makeCopy();
 };
 

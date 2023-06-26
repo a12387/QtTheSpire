@@ -8,7 +8,7 @@ class Spot_weakness_Red : public AbstractCard
 {
 public:
     Spot_weakness_Red();
-    void use(AbstractPlayer &p,AbstractMonster &m);
+    void use(AbstractPlayer *p,AbstractMonster *m);
     AbstractCard *makeCopy();
 };
 

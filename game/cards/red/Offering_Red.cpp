@@ -18,10 +18,10 @@ Offering_Red::Offering_Red() :
     tags.push_back(CardTags::STRIKE);
 }
 
-void Offering_Red::use(AbstractPlayer &p,AbstractMonster &m)
+void Offering_Red::use(AbstractPlayer *p,AbstractMonster *m)
 {
-    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
-    m.damage(tmp);
+    DamageInfo tmp = DamageInfo(*p,this->damage,this->dType);
+    m->damage(tmp);
 }
 AbstractCard *Offering_Red::makeCopy()
 {

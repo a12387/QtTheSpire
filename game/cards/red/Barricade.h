@@ -7,7 +7,7 @@ class Barricade: public AbstractCard
 {
 public:
     Barricade();
-    void use(AbstractPlayer &p,AbstractMonster &m);
+    void use(AbstractPlayer *p,AbstractMonster *m);
     AbstractCard *makeCopy();
 };
 #endif // BARRICADE_H
