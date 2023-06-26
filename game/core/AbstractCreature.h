@@ -4,6 +4,7 @@
 #include "../cards/DamageInfo.h"
 #include <list>
 
+class MainWindow;
 class AbstractCreature
 {
 public:
@@ -18,6 +19,7 @@ public:
     bool isDying = false;
     bool isDead  = false;
     bool halfDead= false;
+    MainWindow *mw;
     //std::list<AbstractPower> buff;
 
     AbstractCreature(std::string imgUrl,std::string name, std::string id, int health);

@@ -18,6 +18,7 @@ CombatRoom::CombatRoom(QWidget *parent) :
     for(auto &i:mw->d.rooms[mw->d.floor]->monsters.monsters)
     {
         monstersWidget.push_back(new CreatureWidget(i,this));
+        i->mw=this->mw;
     }
     for(int i = 0; i < monstersWidget.size(); i++)
     {
@@ -52,12 +53,16 @@ void CombatRoom::playerAction()
     mw->d.player->drawCard(5);
     for(auto &i:monstersWidget)
     {
-        i->setIntent(AbstractMonster::ATTACK);
+        ((AbstractMonster*)(i->c))->createIntent();
+        i->setIntent(((AbstractMonster*)(i->c))->intent);
     }
-    uc->update();
+    update();
 }
 void CombatRoom::monsterAction(){
-
+    for(auto &i:monstersWidget)
+    {
+        ((AbstractMonster*)(i->c))->act(mw->d.player);
+    }
 }
 void CombatRoom::update()
 {

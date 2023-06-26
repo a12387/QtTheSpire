@@ -35,7 +35,7 @@ public:
     AbstractMonster(std::string ,std::string ,std::string ,int );
     virtual void createIntent()=0;
     void calculateDamage(int);
-    virtual void attack(AbstractPlayer&)=0;
+    virtual void act(AbstractPlayer*)=0;
     void die(bool);
     void applyPowers();
 };

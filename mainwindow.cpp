@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     currentScreen = new Menu(this);
     currentScreen->show();
-
+    d.player->mw=this;
     connect((Menu*)currentScreen,&Menu::intoGame,this,&MainWindow::startGame);
 }
 

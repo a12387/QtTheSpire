@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "usecard.h"
 #include "creaturewidget.h"
+#include "game/monsters/AbstractMonster.h"
 
 namespace Ui {
 class CombatRoom;

@@ -43,14 +43,22 @@ SOURCES += \
     game/core/AbstractCreature.cpp \
     game/dungeon/Dungeon.cpp \
     game/monsters/AbstractMonster.cpp \
+    game/monsters/CorruptHeart.cpp \
     game/monsters/EnemyMoveInfo.cpp \
     game/monsters/MonsterGroup.cpp \
     game/monsters/SpireShield.cpp \
     game/monsters/SpireSpear.cpp \
+    game/powers/AbstractPower.cpp \
     game/powers/Artifact.cpp \
     game/powers/BackAttack.cpp \
+    game/powers/BeatOfDeath.cpp \
+    game/powers/Frail.cpp \
+    game/powers/Invincible.cpp \
+    game/powers/PainfulStabs.cpp \
     game/powers/Strength.cpp \
     game/powers/Surrounded.cpp \
+    game/powers/Vulnerable.cpp \
+    game/powers/Weak.cpp \
     game/relics/AbstractRelic.cpp \
     game/rooms/AbstractRoom.cpp \
     game/rooms/CampfireRoom.cpp \
@@ -101,6 +109,7 @@ HEADERS += \
     game/core/AbstractCreature.h \
     game/dungeon/Dungeon.h \
     game/monsters/AbstractMonster.h \
+    game/monsters/CorruptHeart.h \
     game/monsters/EnemyMoveInfo.h \
     game/monsters/MonsterGroup.h \
     game/monsters/SpireShield.h \
@@ -108,8 +117,14 @@ HEADERS += \
     game/powers/AbstractPower.h \
     game/powers/Artifact.h \
     game/powers/BackAttack.h \
+    game/powers/BeatOfDeath.h \
+    game/powers/Frail.h \
+    game/powers/Invincible.h \
+    game/powers/PainfulStabs.h \
     game/powers/Strength.h \
     game/powers/Surrounded.h \
+    game/powers/Vulnerable.h \
+    game/powers/Weak.h \
     game/relics/AbstractRelic.h \
     game/rooms/AbstractRoom.h \
     game/rooms/CampfireRoom.h \

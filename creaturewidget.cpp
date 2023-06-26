@@ -72,6 +72,7 @@ void CreatureWidget::setIntent(AbstractMonster::Intent intent_){
     case AbstractMonster::BUFF:picture.load(":/game/resource/intents/buff.png");break;
     case AbstractMonster::DEBUFF:picture.load(":/game/resource/intents/debuff.png");break;
     case AbstractMonster::DEFEND:picture.load(":/game/resource/intents/defend.png");break;
+    case AbstractMonster::ATTACK_DEFEND:picture.load(":/game/resource/intents/attackDefend.png");break;
     default:break;
     }
     ui->intent->setPixmap(picture);

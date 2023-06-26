@@ -13,7 +13,7 @@ class SpireShield : public AbstractMonster
 public:
     SpireShield();
     void createIntent();
-    void attack(AbstractPlayer&);
+    void act(AbstractPlayer*);
 };
 
 #endif // SPIRESHIELD_H

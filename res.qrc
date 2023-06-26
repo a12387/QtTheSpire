@@ -41,5 +41,7 @@
         <file>game/resource/intents/buff.png</file>
         <file>game/resource/intents/debuff.png</file>
         <file>game/resource/intents/defend.png</file>
+        <file>game/resource/intents/attackDefend.png</file>
+        <file>game/resource/creature/CorruptHeart.png</file>
     </qresource>
 </RCC>
