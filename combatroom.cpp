@@ -30,7 +30,7 @@ CombatRoom::CombatRoom(QWidget *parent) :
 
     connect(this,&CombatRoom::preBattle,this,&CombatRoom::initalize);
     connect(this,&CombatRoom::startTurn,this,&CombatRoom::playerAction);
-    connect(this,&CombatRoom::endTurn,this,&CombatRoom::monsterAction);
+    connect(uc,&UseCard::endTurn,this,&CombatRoom::monsterAction);
 
     //emit preBattle();
     initalize();
@@ -50,6 +50,8 @@ void CombatRoom::initalize()
 void CombatRoom::playerAction()
 {
     //onStartOfTurn();
+    playerWidget->c->loseBlock();
+
     mw->d.player->drawCard(5);
     for(auto &i:monstersWidget)
     {
@@ -61,8 +63,17 @@ void CombatRoom::playerAction()
 void CombatRoom::monsterAction(){
     for(auto &i:monstersWidget)
     {
-        ((AbstractMonster*)(i->c))->act(mw->d.player);
+        i->c->loseBlock();
     }
+    for(auto &i:monstersWidget)
+    {
+
+
+        ((AbstractMonster*)(i->c))->act(mw->d.player);
+        update();
+    }
+
+    emit startTurn();
 }
 void CombatRoom::update()
 {

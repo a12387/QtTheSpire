@@ -17,6 +17,20 @@ UseCard::UseCard(QWidget *parent) :
     ui->cancelButton->hide();
     connect(ui->cancelButton,&QPushButton::clicked,this,[=](){cancelSelect();});
     ui->scrollArea->setStyleSheet("QScrollBar:horizontal{height:15px;}");
+
+    connect(ui->endTurnButton,&QPushButton::clicked,this,
+            [=]()
+            {
+                for(auto &i: mw->d.player->hand.group)
+                {
+                    mw->d.player->discardPile.addToTop(i);
+
+                }
+                mw->d.player->hand.clear();
+                update();
+                emit endTurn();
+            }
+            );
 }
 
 UseCard::~UseCard()

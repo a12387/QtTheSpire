@@ -57,6 +57,10 @@ void AbstractCreature::loseBlock(int amount)
     if(currentBlock < 0)
         currentBlock = 0;
 }
+void AbstractCreature::loseBlock()
+{
+    loseBlock(currentBlock);
+}
 
 void AbstractCreature::addBlock(int amount)
 {

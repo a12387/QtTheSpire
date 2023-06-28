@@ -26,6 +26,8 @@ public:
     QVector<CardButton*> cards;
     CardButton *selectedCard;
     CreatureWidget* selectedCreature;
+signals:
+    void endTurn();
 private slots:
     void confirm(AbstractCard *c);
     void useSelectedCard();

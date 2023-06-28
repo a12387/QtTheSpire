@@ -42,8 +42,34 @@ CardWidget::CardWidget(AbstractCard *card,QWidget *parent) :
     ui->image->setPixmap(QPixmap(QString::fromStdString(card->imgUrl)));
     ui->image->setScaledContents(true);
 
+
+    QString frameUrl = ":/game/resource/frame_";
+    switch(card->type)
+    {
+    case AbstractCard::ATTACK:
+        frameUrl += "attack_";
+        break;
+    case AbstractCard::POWER:
+        frameUrl += "power_";
+        break;
+    default:
+        frameUrl += "skill_";
+        break;
+    }
+    switch(card->rarity)
+    {
+    case AbstractCard::RARE:
+        frameUrl += "rare.png";
+        break;
+    case AbstractCard::UNCOMMON:
+        frameUrl += "uncommon.png";
+        break;
+    default:
+        frameUrl += "common.png";
+        break;
+    }
     ui->frame->setText(tr(""));
-    ui->frame->setPixmap(QPixmap(":/game/resource/frame_attack_common.png"));
+    ui->frame->setPixmap(QPixmap(frameUrl));
     ui->frame->setScaledContents(true);
 
     f.setBold(true);

@@ -161,13 +161,87 @@ border:2px solid rgb(237,237,90)
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
+  <widget class="QLabel" name="blockIcon">
+   <property name="geometry">
+    <rect>
+     <x>-5</x>
+     <y>233</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">image: url(:/game/resource/ui/block.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="scaledContents">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="blockedHealthBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>240</y>
+     <width>240</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>15</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(153, 250, 247);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="blockAmount">
+   <property name="geometry">
+    <rect>
+     <x>-5</x>
+     <y>233</y>
+     <width>31</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(255, 255, 255);</string>
+   </property>
+   <property name="text">
+    <string>1</string>
+   </property>
+   <property name="scaledContents">
+    <bool>false</bool>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
   <zorder>character</zorder>
   <zorder>intent</zorder>
   <zorder>buffArea</zorder>
   <zorder>frame</zorder>
   <zorder>healthBarBottom</zorder>
   <zorder>healthBar</zorder>
+  <zorder>blockedHealthBar</zorder>
+  <zorder>blockIcon</zorder>
   <zorder>healthBarText</zorder>
+  <zorder>blockAmount</zorder>
  </widget>
  <resources/>
  <connections/>

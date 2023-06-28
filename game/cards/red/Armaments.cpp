@@ -13,15 +13,14 @@ Armaments::Armaments() :
         AbstractCard::ENEMY,
         DamageInfo::DamageType::NORMAL)
 {
-    baseDamage = 6;
+    baseBlock = 5;
     tags.push_back(CardTags::STARTER_STRIKE);
     tags.push_back(CardTags::STRIKE);
 }
 
 void Armaments::use(AbstractPlayer *p,AbstractMonster *m)
 {
-    DamageInfo tmp = DamageInfo(*p,this->damage,this->dType);
-    m->damage(tmp);
+    p->addBlock(baseBlock);
 }
 AbstractCard *Armaments::makeCopy()
 {

@@ -43,5 +43,18 @@
         <file>game/resource/intents/defend.png</file>
         <file>game/resource/intents/attackDefend.png</file>
         <file>game/resource/creature/CorruptHeart.png</file>
+        <file>game/resource/ui/block.png</file>
+        <file>game/resource/banner_rare.png</file>
+        <file>game/resource/banner_uncommon.png</file>
+        <file>game/resource/bg_power.png</file>
+        <file>game/resource/bg_skill.png</file>
+        <file>game/resource/frame_attack_rare.png</file>
+        <file>game/resource/frame_attack_uncommon.png</file>
+        <file>game/resource/frame_power_common.png</file>
+        <file>game/resource/frame_power_rare.png</file>
+        <file>game/resource/frame_power_uncommon.png</file>
+        <file>game/resource/frame_skill_common.png</file>
+        <file>game/resource/frame_skill_rare.png</file>
+        <file>game/resource/frame_skill_uncommon.png</file>
     </qresource>
 </RCC>

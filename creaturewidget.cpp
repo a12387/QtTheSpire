@@ -17,6 +17,10 @@ CreatureWidget::CreatureWidget(AbstractCreature *c,QWidget *parent) :
     ui->healthBarText->setText(QString("%1/%2").arg(c->currentHealth).arg(c->maxHealth));
     if(c->isPlayer)
         ui->intent->hide();
+
+    ui->blockAmount->hide();
+    ui->blockIcon->hide();
+    ui->blockedHealthBar->hide();
 }
 CreatureWidget::~CreatureWidget()
 {
@@ -31,7 +35,19 @@ void CreatureWidget::setFrameState(bool b)
 }
 void CreatureWidget::update()
 {
-
+    if(c->currentBlock > 0)
+    {
+        ui->blockAmount->show();
+        ui->blockIcon->show();
+        ui->blockedHealthBar->show();
+        ui->blockAmount->setText(QString("%1").arg(c->currentBlock));
+    }
+    else
+    {
+        ui->blockAmount->hide();
+        ui->blockIcon->hide();
+        ui->blockedHealthBar->hide();
+    }
     ui->healthBar->resize(240 * c->currentHealth / c->maxHealth,20);
     ui->healthBarText->setText(QString("%1/%2").arg(c->currentHealth).arg(c->maxHealth));
 }

@@ -29,6 +29,7 @@ public:
     int decrementBlock(DamageInfo &damageInfo, int damageAmount);
 
     void loseBlock(int amount);
+    void loseBlock();
 
     void addBlock(int amount);
 
