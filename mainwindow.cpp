@@ -23,8 +23,10 @@ MainWindow::~MainWindow()
 
 void MainWindow::startGame()
 {
-    currentScreen = new Map(true,this);
-    currentScreen->move(0,50);
+    QWidget *w = new QWidget(this);
+    w->setGeometry(0,50,1080,670);
+    w->show();
+    currentScreen = new Map(true,w);
     currentScreen->show();
     stateBar = new StateBar(this);
     stateBar->show();

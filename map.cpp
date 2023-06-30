@@ -38,7 +38,7 @@ Map::Map(bool selectable,QWidget *parent)
             ((StateBar*)mw->stateBar)->map = nullptr;
         close();
     });
-    if(parentWidget()->parentWidget() == nullptr)
+    if(mw->d.floor == 0)
     {
         back->hide();
     }
@@ -46,7 +46,7 @@ Map::Map(bool selectable,QWidget *parent)
 }
 void Map::intoRoom(AbstractRoom *room)
 {
-    QWidget *former = mw->currentScreen;
+    QWidget *former = mw->currentScreen->parentWidget();
     switch(room->type)
     {
     case AbstractRoom::CAMPFIRE:

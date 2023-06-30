@@ -11,6 +11,7 @@ CONFIG += c++17
 SOURCES += \
     campfire.cpp \
     cardbutton.cpp \
+    cardgroupwidget.cpp \
     cardwidget.cpp \
     combatroom.cpp \
     creaturewidget.cpp \
@@ -77,6 +78,7 @@ SOURCES += \
 HEADERS += \
     campfire.h \
     cardbutton.h \
+    cardgroupwidget.h \
     cardwidget.h \
     combatroom.h \
     creaturewidget.h \
@@ -141,6 +143,7 @@ HEADERS += \
 
 FORMS += \
     campfire.ui \
+    cardgroupwidget.ui \
     cardwidget.ui \
     combatroom.ui \
     creaturewidget.ui \
