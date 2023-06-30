@@ -50,6 +50,11 @@ void CreatureWidget::update()
     }
     ui->healthBar->resize(240 * c->currentHealth / c->maxHealth,20);
     ui->healthBarText->setText(QString("%1/%2").arg(c->currentHealth).arg(c->maxHealth));
+
+    for(int i=0;i<powersWidget.size();i++){
+        powersWidget[i]->hide();
+    }
+
     powersWidget.clear();
     for(auto i=c->buff.begin();i!=c->buff.end();++i){
         powersWidget.push_back(new PowerWidget(*i,this));

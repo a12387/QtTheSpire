@@ -18,9 +18,6 @@ public:
     QImage image;
     AbstractPower*p;
 
-    void enterEvent(QEnterEvent*e);
-    void leaveEvent(QEvent*e);
-
 private:
     Ui::PowerWidget *ui;
 };

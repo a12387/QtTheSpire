@@ -12,6 +12,7 @@ void AbstractPlayer::preBattle()
     this->hand.clear();
     this->discardPile.clear();
     this->exhaustPile.clear();
+    this->buff.clear();
 
     for(auto &i : masterDeck.group)
     {

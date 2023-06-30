@@ -61,6 +61,7 @@ SOURCES += \
     game/powers/Weak.cpp \
     game/relics/AbstractRelic.cpp \
     game/rooms/AbstractRoom.cpp \
+    game/rooms/BossRoom.cpp \
     game/rooms/CampfireRoom.cpp \
     game/rooms/EliteRoom.cpp \
     game/rooms/ShopRoom.cpp \
@@ -132,6 +133,7 @@ HEADERS += \
     game/powers/Weak.h \
     game/relics/AbstractRelic.h \
     game/rooms/AbstractRoom.h \
+    game/rooms/BossRoom.h \
     game/rooms/CampfireRoom.h \
     game/rooms/EliteRoom.h \
     game/rooms/ShopRoom.h \

@@ -4,12 +4,12 @@ CardGroup::CardGroup(CardGroupType type) : type(type) {}
 
 void CardGroup::clear()
 {
-    auto i = group.begin();
-    while(i != group.end())
-    {
-        delete (*i);
-        i++;
-    }
+//    auto i = group.begin();
+//    while(i != group.end())
+//    {
+//        delete (*i);
+//        i++;
+//    }
     group.clear();
 }
 

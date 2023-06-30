@@ -36,6 +36,7 @@ MapWidget::MapWidget(bool selectable,QWidget *parent) :
     connect(ui->campfireButton,&QPushButton::clicked,this,&MapWidget::roomButtonClicked);
     connect(ui->shopButton,&QPushButton::clicked,this,&MapWidget::roomButtonClicked);
     connect(ui->eliteButton,&QPushButton::clicked,this,&MapWidget::roomButtonClicked);
+    connect(ui->bossButton,&QPushButton::clicked,this,&MapWidget::roomButtonClicked);
 }
 
 MapWidget::~MapWidget()

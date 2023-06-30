@@ -1,6 +1,7 @@
 #include "combatroom.h"
 #include "ui_combatroom.h"
 #include "mainwindow.h"
+#include "map.h"
 
 CombatRoom::CombatRoom(QWidget *parent) :
     QWidget(parent),
@@ -15,14 +16,22 @@ CombatRoom::CombatRoom(QWidget *parent) :
     if(mw->d.rooms[mw->d.floor]->type == AbstractRoom::MONSTER)
         playerWidget->move(420,120);
 
+    else if(mw->d.rooms[mw->d.floor]->type==AbstractRoom::BOSS)
+        playerWidget->move(120,120);
+
     for(auto &i:mw->d.rooms[mw->d.floor]->monsters.monsters)
     {
         monstersWidget.push_back(new CreatureWidget(i,this));
         i->mw=this->mw;
     }
-    for(int i = 0; i < monstersWidget.size(); i++)
+    if(mw->d.rooms[mw->d.floor]->type == AbstractRoom::MONSTER)
+        for(int i = 0; i < monstersWidget.size(); i++)
+        {
+            monstersWidget[i]->move(120 + 600 * i, 120);
+        }
+    else if(mw->d.rooms[mw->d.floor]->type==AbstractRoom::BOSS)
     {
-        monstersWidget[i]->move(120 + 600 * i, 120);
+        monstersWidget[0]->move(720,120);
     }
 
     uc = new UseCard(this);
@@ -59,26 +68,34 @@ void CombatRoom::playerAction()
         i->setIntent(((AbstractMonster*)(i->c))->intent);
     }
     update();
+    bool win=true;
+    for(auto &i:monstersWidget)
+    {
+        win&=((i->c)->currentHealth<=0);
+    }
+    if(win){
+        mw->d.floor = 3;
+        Map *map = new Map(true,this);
+        map->show();
+    }
 }
 void CombatRoom::monsterAction(){
+    mw->d.player->changePower();
+    for(auto &i:monstersWidget)
+    {
+        ((AbstractMonster*)(i->c))->changePower();
+    }
+    update();
     for(auto &i:monstersWidget)
     {
         i->c->loseBlock();
     }
     for(auto &i:monstersWidget)
     {
-
-
         ((AbstractMonster*)(i->c))->act(mw->d.player);
         update();
     }
-
     emit startTurn();
-    mw->d.player->changePower();
-    for(auto &i:monstersWidget)
-    {
-        ((AbstractMonster*)(i->c))->changePower();
-    }
 }
 void CombatRoom::update()
 {

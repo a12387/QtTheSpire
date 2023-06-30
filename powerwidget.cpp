@@ -10,19 +10,8 @@ PowerWidget::PowerWidget(AbstractPower*p_,QWidget *parent) :
     ui->img->setPixmap(QPixmap::fromImage(image));
     ui->img->setScaledContents(true);
     ui->amount->setText(QString::number(p->amount));
-    ui->amount->hide();
-
-    this->setMouseTracking(true);
 }
 PowerWidget::~PowerWidget()
 {
     delete ui;
-}
-void PowerWidget::enterEvent(QEnterEvent*e){
-    QWidget::enterEvent(e);
-    ui->amount->show();
-}
-void PowerWidget::leaveEvent(QEvent*e){
-    QWidget::leaveEvent(e);
-    ui->amount->hide();
 }

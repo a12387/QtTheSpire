@@ -58,6 +58,9 @@ void Map::intoRoom(AbstractRoom *room)
     case AbstractRoom::MONSTER:
         mw->currentScreen = new CombatRoom(mw);
         break;
+    case AbstractRoom::BOSS:
+        mw->currentScreen= new CombatRoom(mw);
+        break;
     default:
         break;
     }

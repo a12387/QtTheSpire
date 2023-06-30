@@ -98,13 +98,16 @@ void AbstractCreature::addBlock(int amount)
 void AbstractCreature::ApplyPower(AbstractPower *power)
 {
     if(power->type==AbstractPower::DEBUFF){
+        bool offset=false;
         for(auto i=buff.begin();i!=buff.end();++i){
             if((*i)->name=="Artifact"){
+                offset=true;
                 (*i)->amount--;
                 if((*i)->amount==0)buff.erase(i);
                 break;
             }
         }
+        if(!offset)buff.push_back(power);
     }
     else{
         int tag=0;
@@ -124,9 +127,9 @@ void AbstractCreature::changePower(){
     for(auto i=buff.begin();i!=buff.end();++i){
         if((*i)->name=="Frail"||(*i)->name=="Vulnerable"||(*i)->name=="Weak"){
             (*i)->amount--;
-            if((*i)->amount==0)i=buff.erase(i);
+            if((*i)->amount==0&&(*i)->name!="Invincible")buff.erase(i);
         }
-        else if((*i)->name=="INvincible")(*i)->amount=300;
+        else if((*i)->name=="Invincible")(*i)->amount=300;
     }
 }
 

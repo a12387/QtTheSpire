@@ -58,7 +58,8 @@ void CorruptHeart::act(AbstractPlayer*p){
             switch(round/3){
             case 1:ApplyPower(new Artifact(2));break;
             case 2:ApplyPower(new BeatOfDeath(1));break;
-            case 3:ApplyPower(new Strength(10));break;
+            case 3:ApplyPower(new PainfulStabs);break;
+            case 4:ApplyPower(new Strength(10));break;
             default:ApplyPower(new Strength(50));break;
             }
         }
