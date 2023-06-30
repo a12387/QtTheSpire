@@ -2,6 +2,8 @@
 #include "ui_shop.h"
 #include "mainwindow.h"
 #include "map.h"
+#include "cardbutton.h"
+#include "game/cards/red/Armaments.h"
 Shop::Shop(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Shop)
@@ -10,6 +12,7 @@ Shop::Shop(QWidget *parent) :
     move(0,50);
 
     mw = (MainWindow*)parentWidget();
+    CardButton*c=new CardButton(new Armaments,this);
 }
 
 Shop::~Shop()
@@ -20,7 +23,7 @@ Shop::~Shop()
 void Shop::on_continue_2_clicked()
 {
     mw->d.floor = 2;
-    mw->currentScreen = new Map(true,this);
-    mw->currentScreen->show();
+    Map *map = new Map(true,this);
+    map->show();
 }
 

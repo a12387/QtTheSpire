@@ -47,7 +47,7 @@ void Campfire::on_relicButton_clicked()
 void Campfire::on_continueButton_clicked()
 {
     mw->d.floor = 1;
-    mw->currentScreen = new Map(true,this);
-    mw->currentScreen->show();
+    Map *map = new Map(true,this);
+    map->show();
 }
 

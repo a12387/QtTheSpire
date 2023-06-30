@@ -4,7 +4,7 @@
 #include "AbstractMonster.h"
 #include "../cards/DamageInfo.h"
 #include "../powers/Artifact.h"
-#include "../powers/BackAttack.h"
+#include "../powers/BackAttackLeft.h"
 #include "../powers/Strength.h"
 #include "../powers/Surrounded.h"
 

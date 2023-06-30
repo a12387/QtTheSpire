@@ -20,7 +20,7 @@ Offering_Red::Offering_Red() :
 
 void Offering_Red::use(AbstractPlayer *p,AbstractMonster *m)
 {
-    DamageInfo tmp = DamageInfo(*p,this->damage,this->dType);
+    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
     m->damage(tmp);
 }
 AbstractCard *Offering_Red::makeCopy()

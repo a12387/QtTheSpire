@@ -20,7 +20,7 @@ Inflame_Red::Inflame_Red() :
 
 void Inflame_Red::use(AbstractPlayer *p,AbstractMonster *m)
 {
-    DamageInfo tmp = DamageInfo(*p,this->damage,this->dType);
+    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
     m->damage(tmp);
 }
 AbstractCard *Inflame_Red::makeCopy()

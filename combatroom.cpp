@@ -74,6 +74,11 @@ void CombatRoom::monsterAction(){
     }
 
     emit startTurn();
+    mw->d.player->changePower();
+    for(auto &i:monstersWidget)
+    {
+        ((AbstractMonster*)(i->c))->changePower();
+    }
 }
 void CombatRoom::update()
 {

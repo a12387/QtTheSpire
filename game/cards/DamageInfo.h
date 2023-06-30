@@ -18,9 +18,9 @@ public:
     DamageType type;
     int baseValue;
     int outputValue;
-    AbstractCreature &owner;
+    AbstractCreature *owner;
 
-    DamageInfo(AbstractCreature &damageSource, int baseValue, DamageType type);
+    DamageInfo(AbstractCreature *damageSource, int baseValue, DamageType type);
 };
 
 #endif

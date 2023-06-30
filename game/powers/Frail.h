@@ -2,13 +2,13 @@
 #ifndef FRAIL_H
 #define FRAIL_H
 
+#include "AbstractPower.h"
 
 
-
-class Frail
+class Frail:public AbstractPower
 {
 public:
-    Frail();//易伤
+    Frail(int);//脆弱
 };
 
 #endif // FRAIL_H

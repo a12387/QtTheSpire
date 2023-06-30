@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "game/core/AbstractCreature.h"
 #include "game/monsters/AbstractMonster.h"
+#include "powerwidget.h"
 namespace Ui {
 class CreatureWidget;
 }
@@ -20,6 +21,7 @@ public:
     AbstractCreature *c;
     bool choose = false;
     CombatRoom *cr;
+    QVector<PowerWidget*>powersWidget;
 
     void setIntent(AbstractMonster::Intent);
     void setFrameState(bool b);

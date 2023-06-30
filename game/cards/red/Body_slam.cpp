@@ -20,7 +20,7 @@ Body_slam::Body_slam() :
 
 void Body_slam::use(AbstractPlayer *p,AbstractMonster *m)
 {
-    DamageInfo tmp = DamageInfo(*p,this->damage,this->dType);
+    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
     m->damage(tmp);
 }
 AbstractCard *Body_slam::makeCopy()

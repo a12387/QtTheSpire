@@ -1,5 +1,6 @@
 #include "statebar.h"
 #include "ui_statebar.h"
+#include "map.h"
 #include "mainwindow.h"
 #include <QPainter>
 StateBar::StateBar(QWidget *parent) :
@@ -26,68 +27,15 @@ void StateBar::paintEvent(QPaintEvent *pe)
 
 void StateBar::on_mapButton_clicked()
 {
-    if(dynamic_cast<Map*>(mw->currentScreen))
-    {
-        if(mw->currentScreen->parentWidget()!=mw)
-        {
-            mw->currentScreen = mw->currentScreen->parentWidget();
-            delete map;
-            map = nullptr;
-        }
-    }
-    else if(mw->currentScreen&&mw->currentScreen->parentWidget() == mw)
+    if(!dynamic_cast<Map*>(mw->currentScreen) && map == nullptr)
     {
         map = new Map(false,mw->currentScreen);
-        mw->currentScreen = map;
         map->show();
     }
-    else
+    else if(map != nullptr)
     {
-        if(mw->currentScreen)
-            mw->currentScreen = mw->currentScreen->parentWidget();
-        if(cgw)
-        {
-            delete cgw;
-            cgw = nullptr;
-        }
-
-        map = new Map(false,mw->currentScreen);
-        mw->currentScreen = map;
-        map->show();
-    }
-}
-
-
-void StateBar::on_deckButton_clicked()
-{
-    if(dynamic_cast<CardGroupWidget*>(mw->currentScreen))
-    {
-        if(mw->currentScreen->parentWidget()!=mw)
-        {
-            mw->currentScreen = mw->currentScreen->parentWidget();
-            delete cgw;
-            cgw = nullptr;
-        }
-    }
-    else if(mw->currentScreen&&mw->currentScreen->parentWidget() == mw)
-    {
-        cgw = new CardGroupWidget(&(mw->d.player->masterDeck),mw->currentScreen);
-        mw->currentScreen = cgw;
-        cgw->show();
-    }
-    else
-    {
-        if(mw->currentScreen)
-            mw->currentScreen = mw->currentScreen->parentWidget();
-        if(map)
-        {
-            delete map;
-            map = nullptr;
-        }
-
-        cgw = new CardGroupWidget(&(mw->d.player->masterDeck),mw->currentScreen);
-        mw->currentScreen = cgw;
-        cgw->show();
+        map->close();
+        map = nullptr;
     }
 }
 

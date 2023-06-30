@@ -20,7 +20,7 @@ Corruption::Corruption() :
 
 void Corruption::use(AbstractPlayer *p,AbstractMonster *m)
 {
-    DamageInfo tmp = DamageInfo(*p,this->damage,this->dType);
+    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
     m->damage(tmp);
 }
 AbstractCard *Corruption::makeCopy()

@@ -3,12 +3,12 @@
 #define VULNERABLE_H
 
 
+#include "AbstractPower.h"
 
-
-class Vulnerable
+class Vulnerable:public AbstractPower
 {
 public:
-    Vulnerable();
+    Vulnerable(int);//易伤
 };
 
 #endif // VULNERABLE_H

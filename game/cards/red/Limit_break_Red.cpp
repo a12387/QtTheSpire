@@ -20,7 +20,7 @@ Limit_break_Red::Limit_break_Red() :
 
 void Limit_break_Red::use(AbstractPlayer *p,AbstractMonster *m)
 {
-    DamageInfo tmp = DamageInfo(*p,this->damage,this->dType);
+    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
     m->damage(tmp);
 }
 AbstractCard *Limit_break_Red::makeCopy()

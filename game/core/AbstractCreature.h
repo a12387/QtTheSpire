@@ -5,6 +5,7 @@
 #include <list>
 
 class MainWindow;
+class AbstractPower;
 class AbstractCreature
 {
 public:
@@ -20,7 +21,7 @@ public:
     bool isDead  = false;
     bool halfDead= false;
     MainWindow *mw;
-    //std::list<AbstractPower> buff;
+    std::list<AbstractPower*> buff;
 
     AbstractCreature(std::string imgUrl,std::string name, std::string id, int health);
 
@@ -33,7 +34,9 @@ public:
 
     void addBlock(int amount);
 
-    //void addPower(AbstractPower *power);
+    void ApplyPower(AbstractPower *power);
+
+    void changePower();
 
     void loseGold(int amount);
 

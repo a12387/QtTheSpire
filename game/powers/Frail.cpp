@@ -1,8 +1,6 @@
-
 #include "Frail.h"
 
-Frail::Frail()
-{
-
+Frail::Frail(int a):AbstractPower(a,"Frail"){
+    type=DEBUFF;
+    imgPath=":/game/resource/powers/Frail.png";
 }
-

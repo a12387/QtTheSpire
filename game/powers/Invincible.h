@@ -3,9 +3,9 @@
 #define INVINCIBLE_H
 
 
+#include "AbstractPower.h"
 
-
-class Invincible
+class Invincible:public AbstractPower
 {
 public:
     Invincible();

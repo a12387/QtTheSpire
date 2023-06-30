@@ -11,7 +11,6 @@ CONFIG += c++17
 SOURCES += \
     campfire.cpp \
     cardbutton.cpp \
-    cardgroupwidget.cpp \
     cardwidget.cpp \
     combatroom.cpp \
     creaturewidget.cpp \
@@ -45,13 +44,13 @@ SOURCES += \
     game/dungeon/Dungeon.cpp \
     game/monsters/AbstractMonster.cpp \
     game/monsters/CorruptHeart.cpp \
-    game/monsters/EnemyMoveInfo.cpp \
     game/monsters/MonsterGroup.cpp \
     game/monsters/SpireShield.cpp \
     game/monsters/SpireSpear.cpp \
     game/powers/AbstractPower.cpp \
     game/powers/Artifact.cpp \
-    game/powers/BackAttack.cpp \
+    game/powers/BackAttackLeft.cpp \
+    game/powers/BackAttackRight.cpp \
     game/powers/BeatOfDeath.cpp \
     game/powers/Frail.cpp \
     game/powers/Invincible.cpp \
@@ -71,6 +70,7 @@ SOURCES += \
     map.cpp \
     mapwidget.cpp \
     menu.cpp \
+    powerwidget.cpp \
     shop.cpp \
     statebar.cpp \
     usecard.cpp
@@ -78,7 +78,6 @@ SOURCES += \
 HEADERS += \
     campfire.h \
     cardbutton.h \
-    cardgroupwidget.h \
     cardwidget.h \
     combatroom.h \
     creaturewidget.h \
@@ -112,13 +111,17 @@ HEADERS += \
     game/dungeon/Dungeon.h \
     game/monsters/AbstractMonster.h \
     game/monsters/CorruptHeart.h \
-    game/monsters/EnemyMoveInfo.h \
     game/monsters/MonsterGroup.h \
     game/monsters/SpireShield.h \
     game/monsters/SpireSpear.h \
     game/powers/AbstractPower.h \
+    game/powers/AbstractPower.h \
     game/powers/Artifact.h \
-    game/powers/BackAttack.h \
+    game/powers/Artifact.h \
+    game/powers/BackAttackLeft.h \
+    game/powers/BackAttackLeft.h \
+    game/powers/BackAttackRight.h \
+    game/powers/BeatOfDeath.h \
     game/powers/BeatOfDeath.h \
     game/powers/Frail.h \
     game/powers/Invincible.h \
@@ -137,13 +140,13 @@ HEADERS += \
     map.h \
     mapwidget.h \
     menu.h \
+    powerwidget.h \
     shop.h \
     statebar.h \
     usecard.h
 
 FORMS += \
     campfire.ui \
-    cardgroupwidget.ui \
     cardwidget.ui \
     combatroom.ui \
     creaturewidget.ui \
@@ -151,6 +154,98 @@ FORMS += \
     mainwindow.ui \
     mapwidget.ui \
     menu.ui \
+    powerwidget.ui \
+    shop.ui \
+    statebar.ui \
+    usecard.ui
+
+# Default rules for deployment.
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    res.qrc
+
+
+HEADERS += \
+    campfire.h \
+    cardbutton.h \
+    cardwidget.h \
+    combatroom.h \
+    creaturewidget.h \
+    game/cards/AbstractCard.h \
+    game/cards/CardGroup.h \
+    game/cards/DamageInfo.h \
+    game/cards/red/Armaments.h \
+    game/cards/red/Barricade.h \
+    game/cards/red/Bash.h \
+    game/cards/red/Battle_trance.h \
+    game/cards/red/Body_slam.h \
+    game/cards/red/Burning_pact.h \
+    game/cards/red/Corruption.h \
+    game/cards/red/Dark_embrace.h \
+    game/cards/red/Demon_form.h \
+    game/cards/red/Feel_no_pain.h \
+    game/cards/red/Finesse.h \
+    game/cards/red/Inflame_Red.h \
+    game/cards/red/Limit_break_Red.h \
+    game/cards/red/Offering_Red.h \
+    game/cards/red/Pommel_strike_Red.h \
+    game/cards/red/Second_wind_Red.h \
+    game/cards/red/Shrug_it_off_Red.h \
+    game/cards/red/Spot_weakness_Red.h \
+    game/cards/red/Strike_Red.h \
+    game/cards/red/True_grit_Red.h \
+    game/cards/red/Whirlwind_Red.h \
+    game/characters/AbstractPlayer.h \
+    game/characters/Ironclad.h \
+    game/core/AbstractCreature.h \
+    game/dungeon/Dungeon.h \
+    game/monsters/AbstractMonster.h \
+    game/monsters/CorruptHeart.h \
+    game/monsters/MonsterGroup.h \
+    game/monsters/SpireShield.h \
+    game/monsters/SpireSpear.h \
+    game/powers/AbstractPower.h \
+    game/powers/AbstractPower.h \
+    game/powers/Artifact.h \
+    game/powers/Artifact.h \
+    game/powers/BackAttackLeft.h \
+    game/powers/BeatOfDeath.h \
+    game/powers/BeatOfDeath.h \
+    game/powers/Frail.h \
+    game/powers/Invincible.h \
+    game/powers/PainfulStabs.h \
+    game/powers/Strength.h \
+    game/powers/Surrounded.h \
+    game/powers/Vulnerable.h \
+    game/powers/Weak.h \
+    game/relics/AbstractRelic.h \
+    game/rooms/AbstractRoom.h \
+    game/rooms/CampfireRoom.h \
+    game/rooms/EliteRoom.h \
+    game/rooms/ShopRoom.h \
+    getcard.h \
+    mainwindow.h \
+    map.h \
+    mapwidget.h \
+    menu.h \
+    powerwidget.h \
+    shop.h \
+    statebar.h \
+    usecard.h
+
+FORMS += \
+    campfire.ui \
+    cardwidget.ui \
+    combatroom.ui \
+    creaturewidget.ui \
+    getcard.ui \
+    mainwindow.ui \
+    mapwidget.ui \
+    menu.ui \
+    powerwidget.ui \
     shop.ui \
     statebar.ui \
     usecard.ui

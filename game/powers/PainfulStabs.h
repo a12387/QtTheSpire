@@ -2,10 +2,10 @@
 #ifndef PAINFULSTABS_H
 #define PAINFULSTABS_H
 
+#include "AbstractPower.h"
 
 
-
-class PainfulStabs
+class PainfulStabs:public AbstractPower
 {
 public:
     PainfulStabs();

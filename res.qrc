@@ -56,5 +56,16 @@
         <file>game/resource/frame_skill_common.png</file>
         <file>game/resource/frame_skill_rare.png</file>
         <file>game/resource/frame_skill_uncommon.png</file>
+        <file>game/resource/powers/Artifact.png</file>
+        <file>game/resource/powers/BackAttackLeft.png</file>
+        <file>game/resource/powers/BackAttackRight.png</file>
+        <file>game/resource/powers/BeatOfDeath.png</file>
+        <file>game/resource/powers/Frail.png</file>
+        <file>game/resource/powers/Invincible.png</file>
+        <file>game/resource/powers/PainfulStab.png</file>
+        <file>game/resource/powers/Strength.png</file>
+        <file>game/resource/powers/Surrounded.png</file>
+        <file>game/resource/powers/Vulnerable.png</file>
+        <file>game/resource/powers/Weak.png</file>
     </qresource>
 </RCC>

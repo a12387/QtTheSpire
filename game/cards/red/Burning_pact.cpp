@@ -20,7 +20,7 @@ Burning_pact::Burning_pact() :
 
 void Burning_pact::use(AbstractPlayer *p,AbstractMonster *m)
 {
-    DamageInfo tmp = DamageInfo(*p,this->damage,this->dType);
+    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
     m->damage(tmp);
 }
 AbstractCard *Burning_pact::makeCopy()

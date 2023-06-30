@@ -20,7 +20,7 @@ True_grit_Red::True_grit_Red() :
 
 void True_grit_Red::use(AbstractPlayer *p,AbstractMonster *m)
 {
-    DamageInfo tmp = DamageInfo(*p,this->damage,this->dType);
+    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
     m->damage(tmp);
 }
 AbstractCard *True_grit_Red::makeCopy()

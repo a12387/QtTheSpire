@@ -9,5 +9,5 @@ Ironclad::Ironclad()
     this->isPlayer  = true;
     this->gold = 300;
 
-    masterDeck.addToTop(new Strike_Red);
+    for(int i=0;i<100;i++)masterDeck.addToTop(new Strike_Red);
 }

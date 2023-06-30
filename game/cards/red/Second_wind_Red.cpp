@@ -20,7 +20,7 @@ Second_wind_Red::Second_wind_Red() :
 
 void Second_wind_Red::use(AbstractPlayer *p,AbstractMonster *m)
 {
-    DamageInfo tmp = DamageInfo(*p,this->damage,this->dType);
+    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
     m->damage(tmp);
 }
 AbstractCard *Second_wind_Red::makeCopy()

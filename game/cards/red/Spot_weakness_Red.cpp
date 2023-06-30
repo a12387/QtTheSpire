@@ -20,7 +20,7 @@ Spot_weakness_Red::Spot_weakness_Red() :
 
 void Spot_weakness_Red::use(AbstractPlayer *p,AbstractMonster *m)
 {
-    DamageInfo tmp = DamageInfo(*p,this->damage,this->dType);
+    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
     m->damage(tmp);
 }
 AbstractCard *Spot_weakness_Red::makeCopy()

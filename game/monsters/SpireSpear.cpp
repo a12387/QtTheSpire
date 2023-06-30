@@ -1,4 +1,4 @@
-
+#include "mainwindow.h"
 #include "SpireSpear.h"
 
 SpireSpear::SpireSpear():
@@ -7,7 +7,9 @@ SpireSpear::SpireSpear():
         std::string("Spire Spear"),
         std::string("SpireSpear"),
         160)
-{}
+{
+    ApplyPower(new Artifact(1));
+}
 void SpireSpear::createIntent(){
     switch(round%3){
     case 1:intent=ATTACK;break;
@@ -20,18 +22,19 @@ void SpireSpear::createIntent(){
 void SpireSpear::act(AbstractPlayer*p){
     if(intent== ATTACK)
     {
-        DamageInfo dmg=DamageInfo(*this,10,DamageInfo::NORMAL);
+        DamageInfo dmg=DamageInfo(this,10,DamageInfo::NORMAL);
         for(int i=0;i<3;i++)p->damage(dmg);
     }
     else if(intent==BUFF){
         lastMove=1;
-        //矛盾加两点力量
+        for(auto &i:mw->d.rooms[mw->d.floor]->monsters.monsters)i->ApplyPower(new Strength(2));
     }
     else if(intent==ATTACK_DEBUFF){
         lastMove=0;
-        DamageInfo dmg(*this,5,DamageInfo::NORMAL);
+        DamageInfo dmg(this,5,DamageInfo::NORMAL);
         for(int i=0;i<2;i++)p->damage(dmg);
         //将2张灼伤洗入弃牌堆
     }
+    round++;
 }
 

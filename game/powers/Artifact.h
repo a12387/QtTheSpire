@@ -3,12 +3,12 @@
 #define ARTIFACT_H
 
 
+#include "AbstractPower.h"
 
-
-class Artifact
+class Artifact:public AbstractPower
 {
 public:
-    Artifact();
+    Artifact(int);
 };
 
 #endif // ARTIFACT_H

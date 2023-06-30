@@ -2,13 +2,13 @@
 #ifndef STRENGTH_H
 #define STRENGTH_H
 
+#include "AbstractPower.h"
 
 
-
-class Strength
+class Strength:public AbstractPower
 {
 public:
-    Strength();
+    Strength(int);
 };
 
 #endif // STRENGTH_H

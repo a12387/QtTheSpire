@@ -20,7 +20,7 @@ Battle_trance::Battle_trance() :
 
 void Battle_trance::use(AbstractPlayer *p,AbstractMonster *m)
 {
-    DamageInfo tmp = DamageInfo(*p,this->damage,this->dType);
+    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
     m->damage(tmp);
 }
 AbstractCard *Battle_trance::makeCopy()

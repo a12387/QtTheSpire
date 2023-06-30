@@ -2,13 +2,13 @@
 #ifndef WEAK_H
 #define WEAK_H
 
+#include "AbstractPower.h"
 
 
-
-class Weak
+class Weak:public AbstractPower
 {
 public:
-    Weak();
+    Weak(int a);
 };
 
 #endif // WEAK_H

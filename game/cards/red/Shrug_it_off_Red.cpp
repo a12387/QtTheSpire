@@ -20,7 +20,7 @@ Shrug_it_off_Red::Shrug_it_off_Red() :
 
 void Shrug_it_off_Red::use(AbstractPlayer *p,AbstractMonster *m)
 {
-    DamageInfo tmp = DamageInfo(*p,this->damage,this->dType);
+    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
     m->damage(tmp);
 }
 AbstractCard *Shrug_it_off_Red::makeCopy()

@@ -20,7 +20,7 @@ Whirlwind_Red::Whirlwind_Red() :
 
 void Whirlwind_Red::use(AbstractPlayer *p,AbstractMonster *m)
 {
-    DamageInfo tmp = DamageInfo(*p,this->damage,this->dType);
+    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
     m->damage(tmp);
 }
 AbstractCard *Whirlwind_Red::makeCopy()

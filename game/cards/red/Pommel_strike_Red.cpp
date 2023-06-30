@@ -20,7 +20,7 @@ Pommel_strike_Red::Pommel_strike_Red() :
 
 void Pommel_strike_Red::use(AbstractPlayer *p,AbstractMonster *m)
 {
-    DamageInfo tmp = DamageInfo(*p,this->damage,this->dType);
+    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
     m->damage(tmp);
 }
 AbstractCard *Pommel_strike_Red::makeCopy()

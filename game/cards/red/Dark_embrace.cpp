@@ -20,7 +20,7 @@ Dark_embrace::Dark_embrace() :
 
 void Dark_embrace::use(AbstractPlayer *p,AbstractMonster *m)
 {
-    DamageInfo tmp = DamageInfo(*p,this->damage,this->dType);
+    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
     m->damage(tmp);
 }
 AbstractCard *Dark_embrace::makeCopy()

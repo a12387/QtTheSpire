@@ -20,7 +20,7 @@ Strike_Red::Strike_Red() :
 
 void Strike_Red::use(AbstractPlayer *p,AbstractMonster *m)
 {
-    DamageInfo tmp = DamageInfo(*p,this->baseDamage,this->dType);
+    DamageInfo tmp = DamageInfo(p,this->baseDamage,this->dType);
     m->damage(tmp);
 }
 AbstractCard *Strike_Red::makeCopy()
