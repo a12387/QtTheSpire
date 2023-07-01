@@ -37,6 +37,19 @@ void AbstractCreature::damage(DamageInfo& info)
             loseBlock(currentBlock);
     }
 }
+void AbstractCreature::damage(int dmg){
+    if(currentBlock>0){
+        if(dmg>currentBlock){
+            dmg-=currentBlock;
+            loseBlock();
+        }
+        else {
+            loseBlock(dmg);
+            dmg=0;
+        }
+    }
+    currentHealth-=dmg;
+}
 int AbstractCreature::decrementBlock(DamageInfo &damageInfo, int damageAmount)
 {
     for(auto i=buff.begin();i!=buff.end();++i){
@@ -107,7 +120,18 @@ void AbstractCreature::ApplyPower(AbstractPower *power)
                 break;
             }
         }
-        if(!offset)buff.push_back(power);
+        if(!offset){
+            int tag=0;
+            for(auto i=buff.begin();i!=buff.end();++i){
+                if((*i)->name==power->name){
+                    (*i)->amount+=power->amount;
+                    if((*i)->amount>999)(*i)->amount=999;
+                    if((*i)->amount==0)buff.erase(i);
+                    tag++;break;
+                }
+            }
+            if(!tag)buff.push_back(power);
+        }
     }
     else{
         int tag=0;

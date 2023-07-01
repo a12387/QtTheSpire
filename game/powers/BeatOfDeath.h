@@ -3,7 +3,7 @@
 #define BEATOFDEATH_H
 
 #include "AbstractPower.h"
-
+#include "../core/AbstractCreature.h"
 
 class BeatOfDeath:public AbstractPower
 {

@@ -2,6 +2,8 @@
 #include "ui_usecard.h"
 #include "combatroom.h"
 #include "mainwindow.h"
+#include "game/powers/BackAttackLeft.h"
+#include "game/powers/BackAttackRight.h"
 UseCard::UseCard(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::UseCard)
@@ -110,6 +112,27 @@ void UseCard::useSelectedCard()
 
     mw->d.player->discardPile.addToTop(selectedCard->card);
     mw->d.player->hand.removeCard(selectedCard->card);
+
+    switch(mw->d.floor){
+    case 2:if(!selectedCreature->c->isPlayer){
+            if(selectedCreature->c->id=="SpireShield"){
+                cr->playerWidget->turnLeft();
+                for(auto &i:mw->d.rooms[2]->monsters.monsters){
+                    if(i->id=="SpireShield")i->buff.pop_front();
+                    else if(i->id=="SpireSpear")i->buff.push_front(new BackAttackRight);
+                }
+            }
+            else if(selectedCreature->c->id=="SpireSpear"){
+                cr->playerWidget->turnRight();
+                for(auto &i:mw->d.rooms[2]->monsters.monsters){
+                    if(i->id=="SpireSpear")i->buff.pop_front();
+                    else if(i->id=="SpireShield")i->buff.push_front(new BackAttackLeft);
+                }
+            }
+        }break;
+    case 3:mw->d.player->damage(mw->d.rooms[3]->monsters.monsters.front()->buff.front()->amount);break;
+    default:break;
+    }
 
     cancelSelect();
 

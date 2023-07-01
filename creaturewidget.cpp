@@ -106,3 +106,13 @@ void CreatureWidget::setIntent(AbstractMonster::Intent intent_){
     }
     ui->intent->setPixmap(picture);
 }
+void CreatureWidget::turnLeft(){
+    image.load(":/game/resource/creature/ironclad_.png");
+    ui->character->setPixmap(QPixmap::fromImage(image));
+    ui->character->setScaledContents(true);
+}
+void CreatureWidget::turnRight(){
+    image.load(":/game/resource/creature/ironclad.png");
+    ui->character->setPixmap(QPixmap::fromImage(image));
+    ui->character->setScaledContents(true);
+}

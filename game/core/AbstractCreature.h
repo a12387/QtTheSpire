@@ -26,6 +26,7 @@ public:
     AbstractCreature(std::string imgUrl,std::string name, std::string id, int health);
 
     void damage(DamageInfo &damageInfo);
+    void damage(int dmg);
 
     int decrementBlock(DamageInfo &damageInfo, int damageAmount);
 

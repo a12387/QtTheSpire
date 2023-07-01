@@ -76,5 +76,6 @@
         <file>game/resource/creature/corpse.png</file>
         <file>game/resource/creature/shoulder.png</file>
         <file>game/resource/ui/title.png</file>
+        <file>game/resource/creature/ironclad_.png</file>
     </qresource>
 </RCC>

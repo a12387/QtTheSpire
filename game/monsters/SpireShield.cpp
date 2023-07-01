@@ -8,13 +8,13 @@ SpireShield::SpireShield():
         std::string("SpireShield"),6)
         //110)
 {
-    ApplyPower(new Artifact(1));
     ApplyPower(new BackAttackLeft());
+    ApplyPower(new Artifact(1));
 }
 void SpireShield::createIntent(){
     switch(round%3){
-    case 0:intent=rand()%2?DEFEND :ATTACK;break;
-    case 1:intent=lastMove?DEFEND :ATTACK;break;
+    case 0:intent=rand()%2?DEFEND :ATTACK_DEBUFF;break;
+    case 1:intent=lastMove?DEFEND :ATTACK_DEBUFF;break;
     case 2:intent=ATTACK_DEFEND;break;
     }
 }
@@ -23,7 +23,7 @@ void SpireShield::act(AbstractPlayer*p){
         lastMove=0;
         for(auto &i:mw->d.rooms[mw->d.floor]->monsters.monsters)i->addBlock(30);
     }
-    else if(intent==ATTACK){
+    else if(intent==ATTACK_DEBUFF){
         lastMove=1;
         DamageInfo dmg(this,12,DamageInfo::NORMAL);
         p->damage(dmg);

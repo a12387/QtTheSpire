@@ -29,6 +29,8 @@ public:
     void enterEvent(QEnterEvent *e);
     void leaveEvent(QEvent *e);
     void mouseReleaseEvent(QMouseEvent *me);
+    void turnLeft();
+    void turnRight();
 private:
 
     Ui::CreatureWidget *ui;
