@@ -26,6 +26,7 @@ SOURCES += \
     game/cards/red/Corruption.cpp \
     game/cards/red/Dark_embrace.cpp \
     game/cards/red/Demon_form.cpp \
+    game/cards/red/Exhume.cpp \
     game/cards/red/Feel_no_pain.cpp \
     game/cards/red/Finesse.cpp \
     game/cards/red/Inflame_Red.cpp \
@@ -94,6 +95,7 @@ HEADERS += \
     game/cards/red/Corruption.h \
     game/cards/red/Dark_embrace.h \
     game/cards/red/Demon_form.h \
+    game/cards/red/Exhume.h \
     game/cards/red/Feel_no_pain.h \
     game/cards/red/Finesse.h \
     game/cards/red/Inflame_Red.h \

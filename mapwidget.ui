@@ -39,14 +39,18 @@ background-color: rgba(0, 0, 0, 200);</string>
    </property>
    <property name="geometry">
     <rect>
-     <x>500</x>
-     <y>660</y>
-     <width>91</width>
-     <height>71</height>
+     <x>470</x>
+     <y>640</y>
+     <width>131</width>
+     <height>121</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">image: url(:/game/resource/ui/rest.png);
+background-color: rgba(255, 255, 255, 0);</string>
+   </property>
    <property name="text">
-    <string>PushButton</string>
+    <string/>
    </property>
   </widget>
   <widget class="QPushButton" name="shopButton">
@@ -55,14 +59,18 @@ background-color: rgba(0, 0, 0, 200);</string>
    </property>
    <property name="geometry">
     <rect>
-     <x>500</x>
-     <y>520</y>
-     <width>91</width>
-     <height>61</height>
+     <x>490</x>
+     <y>510</y>
+     <width>101</width>
+     <height>71</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">image: url(:/game/resource/ui/shop.png);
+background-color: rgba(255, 255, 255, 0);</string>
+   </property>
    <property name="text">
-    <string>PushButton</string>
+    <string/>
    </property>
   </widget>
   <widget class="QPushButton" name="eliteButton">
@@ -77,8 +85,12 @@ background-color: rgba(0, 0, 0, 200);</string>
      <height>71</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">image: url(:/game/resource/ui/eliteOutline.png);
+background-color: rgba(255, 255, 255, 0);</string>
+   </property>
    <property name="text">
-    <string>PushButton</string>
+    <string/>
    </property>
   </widget>
   <widget class="QPushButton" name="bossButton">
@@ -93,8 +105,12 @@ background-color: rgba(0, 0, 0, 200);</string>
      <height>191</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">image: url(:/game/resource/ui/elite.png);
+background-color: rgba(255, 255, 255, 0);</string>
+   </property>
    <property name="text">
-    <string>PushButton</string>
+    <string/>
    </property>
   </widget>
  </widget>

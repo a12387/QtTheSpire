@@ -1,4 +1,6 @@
 #include "AbstractPlayer.h"
+#include "mainwindow.h"
+#include "../powers/Surrounded.h"
 
 AbstractPlayer::AbstractPlayer(std::string imgUrl,std::string name, std::string id, int health)
     :AbstractCreature(imgUrl,name,id, health)
@@ -19,7 +21,7 @@ void AbstractPlayer::preBattle()
         drawPile.addToBottom(i->makeCopy());
     }
 
-
+    if(mw->d.floor==2)ApplyPower(new Surrounded);
     //relic;
 }
 

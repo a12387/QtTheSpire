@@ -67,5 +67,14 @@
         <file>game/resource/powers/Surrounded.png</file>
         <file>game/resource/powers/Vulnerable.png</file>
         <file>game/resource/powers/Weak.png</file>
+        <file>game/resource/ui/cursor.png</file>
+        <file>game/resource/ui/elite.png</file>
+        <file>game/resource/ui/eliteOutline.png</file>
+        <file>game/resource/ui/eng.png</file>
+        <file>game/resource/ui/rest.png</file>
+        <file>game/resource/ui/shop.png</file>
+        <file>game/resource/creature/corpse.png</file>
+        <file>game/resource/creature/shoulder.png</file>
+        <file>game/resource/ui/title.png</file>
     </qresource>
 </RCC>
