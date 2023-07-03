@@ -18,6 +18,7 @@ public:
     ~MainWindow();
 
     QWidget *currentScreen;
+    QWidget *subScreen;
     QWidget *stateBar;
     Dungeon d;
 

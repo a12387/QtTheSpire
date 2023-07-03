@@ -8,6 +8,14 @@ CardGroupWidget::CardGroupWidget(CardGroup *cg, QWidget *parent) :
 {
     ui->setupUi(this);
 
+    QPushButton *back = new QPushButton(this);
+    back->setGeometry(40,500,180,75);
+    back->setText("Back");
+    back->setStyleSheet("font:bold 20px;");
+    connect(back,&QPushButton::clicked,this,[=](){
+        close();
+    });
+
     int s = cg->group.size();
     ui->scrollAreaWidgetContents->setMinimumHeight(s/5 * 282 + 30 );
     auto it = cg->group.begin();

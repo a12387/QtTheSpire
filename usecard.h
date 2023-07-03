@@ -31,6 +31,12 @@ signals:
 private slots:
     void confirm(AbstractCard *c);
     void useSelectedCard();
+    void on_drawPileButton_clicked();
+
+    void on_discardPile_clicked();
+
+    void on_exhaustPile_clicked();
+
 private:
     Ui::UseCard *ui;
 

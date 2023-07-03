@@ -651,7 +651,6 @@ Shop::~Shop()
 
 void Shop::on_continue_2_clicked()
 {
-    mw->d.floor = 2;
     Map *map = new Map(true,this);
     map->show();
 }

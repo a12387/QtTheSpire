@@ -27,15 +27,51 @@ void StateBar::paintEvent(QPaintEvent *pe)
 
 void StateBar::on_mapButton_clicked()
 {
-    if(!dynamic_cast<Map*>(mw->currentScreen) && map == nullptr)
+    if(mw->subScreen == nullptr)
     {
-        map = new Map(false,mw->currentScreen);
-        map->show();
+        mw->subScreen = new Map(false,mw->currentScreen);
+        mw->subScreen->show();
     }
-    else if(map != nullptr)
+    else
+    {   if(mw->d.floor != 0)
+        {
+            mw->subScreen->close();
+            if(dynamic_cast<Map*>(mw->subScreen))
+            {
+                mw->subScreen = nullptr;
+            }
+            else
+            {
+                mw->subScreen = new Map(false,mw->currentScreen);
+                mw->subScreen->show();
+            }
+        }
+    }
+}
+
+
+void StateBar::on_deckButton_clicked()
+{
+    if(mw->subScreen == nullptr)
     {
-        map->close();
-        map = nullptr;
+        mw->subScreen = new CardGroupWidget(&(mw->d.player->masterDeck),mw->currentScreen);
+        mw->subScreen->show();
+    }
+    else
+    {
+        if(mw->d.floor != 0)
+        {
+            mw->subScreen->close();
+            if(dynamic_cast<CardGroupWidget*>(mw->subScreen))
+            {
+                mw->subScreen = nullptr;
+            }
+            else
+            {
+                mw->subScreen = new CardGroupWidget(&(mw->d.player->masterDeck),mw->currentScreen);
+                mw->subScreen->show();
+            }
+        }
     }
 }
 

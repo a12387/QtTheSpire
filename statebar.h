@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "map.h"
+#include "cardgroupwidget.h"
 namespace Ui {
 class StateBar;
 }
@@ -18,9 +19,10 @@ public:
     void paintEvent(QPaintEvent *pe);
 
     MainWindow* mw;
-    Map *map = nullptr;
 private slots:
     void on_mapButton_clicked();
+
+    void on_deckButton_clicked();
 
 private:
     Ui::StateBar *ui;

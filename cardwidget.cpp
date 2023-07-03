@@ -51,6 +51,7 @@ CardWidget::CardWidget(AbstractCard *card,QWidget *parent) :
         break;
     case AbstractCard::POWER:
         frameUrl += "power_";
+        ui->frame->setGeometry(10,0,162,145);
         break;
     default:
         frameUrl += "skill_";

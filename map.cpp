@@ -34,18 +34,19 @@ Map::Map(bool selectable,QWidget *parent)
     back->setText("Back");
     back->setStyleSheet("font:bold 20px;");
     connect(back,&QPushButton::clicked,this,[=](){
-        if(((StateBar*)mw->stateBar)->map)
-            ((StateBar*)mw->stateBar)->map = nullptr;
         close();
     });
-    if(parentWidget()->parentWidget() == nullptr)
+
+    if(mw->d.floor == 0)
     {
         back->hide();
     }
+
     connect(mapWid,&MapWidget::room,this,&Map::intoRoom);
 }
 void Map::intoRoom(AbstractRoom *room)
 {
+    mw->d.floor++;
     QWidget *former = mw->currentScreen;
     switch(room->type)
     {
@@ -67,6 +68,7 @@ void Map::intoRoom(AbstractRoom *room)
     mw->currentScreen->move(0,50);
     mw->currentScreen->show();
     room->screen = mw->currentScreen;
+    mw->subScreen = nullptr;
     delete former;
 }
 

@@ -17,7 +17,7 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>5</y>
+     <y>0</y>
      <width>180</width>
      <height>50</height>
     </rect>
@@ -43,9 +43,9 @@
    <property name="geometry">
     <rect>
      <x>12</x>
-     <y>26</y>
+     <y>24</y>
      <width>160</width>
-     <height>120</height>
+     <height>122</height>
     </rect>
    </property>
    <property name="text">
@@ -94,10 +94,10 @@
   <widget class="QLabel" name="frame">
    <property name="geometry">
     <rect>
-     <x>12</x>
+     <x>10</x>
      <y>35</y>
-     <width>160</width>
-     <height>121</height>
+     <width>162</width>
+     <height>113</height>
     </rect>
    </property>
    <property name="text">
@@ -108,7 +108,7 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>8</y>
+     <y>3</y>
      <width>180</width>
      <height>30</height>
     </rect>

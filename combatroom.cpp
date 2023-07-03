@@ -13,23 +13,23 @@ CombatRoom::CombatRoom(QWidget *parent) :
     mw = (MainWindow*)parent;
 
     playerWidget = new CreatureWidget(mw->d.player,this);
-    if(mw->d.rooms[mw->d.floor]->type == AbstractRoom::MONSTER)
+    if(mw->d.rooms[mw->d.floor-1]->type == AbstractRoom::MONSTER)
         playerWidget->move(420,120);
 
-    else if(mw->d.rooms[mw->d.floor]->type==AbstractRoom::BOSS)
+    else if(mw->d.rooms[mw->d.floor-1]->type==AbstractRoom::BOSS)
         playerWidget->move(120,120);
 
-    for(auto &i:mw->d.rooms[mw->d.floor]->monsters.monsters)
+    for(auto &i:mw->d.rooms[mw->d.floor-1]->monsters.monsters)
     {
         monstersWidget.push_back(new CreatureWidget(i,this));
         i->mw=this->mw;
     }
-    if(mw->d.rooms[mw->d.floor]->type == AbstractRoom::MONSTER)
+    if(mw->d.rooms[mw->d.floor-1]->type == AbstractRoom::MONSTER)
         for(int i = 0; i < monstersWidget.size(); i++)
         {
             monstersWidget[i]->move(120 + 600 * i, 120);
         }
-    else if(mw->d.rooms[mw->d.floor]->type==AbstractRoom::BOSS)
+    else if(mw->d.rooms[mw->d.floor-1]->type==AbstractRoom::BOSS)
     {
         monstersWidget[0]->move(720,120);
     }
@@ -74,7 +74,6 @@ void CombatRoom::playerAction()
         win&=((i->c)->currentHealth<=0);
     }
     if(win){
-        mw->d.floor = 3;
         Map *map = new Map(true,this);
         map->show();
     }

@@ -42,7 +42,7 @@
     </rect>
    </property>
    <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
+    <cursorShape>ArrowCursor</cursorShape>
    </property>
    <property name="styleSheet">
     <string notr="true">font: 40pt &quot;Microsoft YaHei UI&quot;;</string>

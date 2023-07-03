@@ -2,6 +2,7 @@
 #include "ui_usecard.h"
 #include "combatroom.h"
 #include "mainwindow.h"
+#include "cardgroupwidget.h"
 #include "game/powers/BackAttackLeft.h"
 #include "game/powers/BackAttackRight.h"
 UseCard::UseCard(QWidget *parent) :
@@ -113,7 +114,7 @@ void UseCard::useSelectedCard()
     mw->d.player->discardPile.addToTop(selectedCard->card);
     mw->d.player->hand.removeCard(selectedCard->card);
 
-    switch(mw->d.floor){
+    switch(mw->d.floor-1){
     case 2:if(!selectedCreature->c->isPlayer){
             if(selectedCreature->c->id=="SpireShield"){
                 cr->playerWidget->turnLeft();
@@ -168,3 +169,24 @@ void UseCard::changeSelect(CardButton *c)
     c->bg->setStyleSheet("border:5px solid rgb(255,255,0)");
     selectedCard = c;
 }
+
+void UseCard::on_drawPileButton_clicked()
+{
+    mw->subScreen = new CardGroupWidget(&(mw->d.player->drawPile),mw->currentScreen);
+    mw->subScreen->show();
+}
+
+
+void UseCard::on_discardPile_clicked()
+{
+    mw->subScreen = new CardGroupWidget(&(mw->d.player->discardPile),mw->currentScreen);
+    mw->subScreen->show();
+}
+
+
+void UseCard::on_exhaustPile_clicked()
+{
+    mw->subScreen = new CardGroupWidget(&(mw->d.player->exhaustPile),mw->currentScreen);
+    mw->subScreen->show();
+}
+
