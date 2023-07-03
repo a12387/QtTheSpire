@@ -28,8 +28,10 @@ Campfire::~Campfire()
 void Campfire::on_cardButton_clicked()
 {
     //Get Card
+    //for(int i=0;i<15;i++){
     GetCard *gc = new GetCard(this);
     gc->show();
+    //}
 
 
     ui->cardButton->setDisabled(true);

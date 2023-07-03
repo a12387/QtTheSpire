@@ -41,3 +41,11 @@ void CardGroup::addToBottom(AbstractCard *card)
 {
     group.push_back(card);
 }
+void CardGroup::shuffle(int n){
+    if(n<=2)return;
+    auto i=group.begin(),j=group.end();
+    std::advance(i,rand()%(n-1));
+    j--;
+    std::iter_swap(i,j);
+    shuffle(n-1);
+}

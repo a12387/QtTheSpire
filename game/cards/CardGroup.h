@@ -32,7 +32,7 @@ public:
 
     void addToBottom(AbstractCard *card);
     
-    
+    void shuffle(int);
 };
 
 #endif

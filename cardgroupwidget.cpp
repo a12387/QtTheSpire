@@ -17,6 +17,7 @@ CardGroupWidget::CardGroupWidget(CardGroup *cg, QWidget *parent) :
     });
 
     int s = cg->group.size();
+    cg->group.sort();
     ui->scrollAreaWidgetContents->setMinimumHeight(s/5 * 282 + 30 );
     auto it = cg->group.begin();
     for(int i = 0; i < cg->group.size(); i++)
