@@ -13,6 +13,7 @@ public:
     CardGroup hand       = CardGroup(CardGroup::HAND);
     CardGroup discardPile= CardGroup(CardGroup::DISCARD_PILE);
     CardGroup exhaustPile= CardGroup(CardGroup::EXHAUST_PILE);
+    int direction;
 
     //std::list<AbstractRelic> relics;
     //std::list<AbstractPotion> potions;

@@ -117,17 +117,23 @@ void UseCard::useSelectedCard()
     switch(mw->d.floor-1){
     case 2:if(!selectedCreature->c->isPlayer){
             if(selectedCreature->c->id=="SpireShield"){
+                if(mw->d.player->direction==1){
                 cr->playerWidget->turnLeft();
+                mw->d.player->direction=0;
                 for(auto &i:mw->d.rooms[2]->monsters.monsters){
                     if(i->id=="SpireShield")i->buff.pop_front();
                     else if(i->id=="SpireSpear")i->buff.push_front(new BackAttackRight);
                 }
+                }
             }
             else if(selectedCreature->c->id=="SpireSpear"){
+                if(mw->d.player->direction==0){
                 cr->playerWidget->turnRight();
+                mw->d.player->direction=1;
                 for(auto &i:mw->d.rooms[2]->monsters.monsters){
                     if(i->id=="SpireSpear")i->buff.pop_front();
                     else if(i->id=="SpireShield")i->buff.push_front(new BackAttackLeft);
+                }
                 }
             }
         }break;
