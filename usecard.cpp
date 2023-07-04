@@ -5,6 +5,8 @@
 #include "cardgroupwidget.h"
 #include "game/powers/BackAttackLeft.h"
 #include "game/powers/BackAttackRight.h"
+#include <algorithm>
+
 UseCard::UseCard(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::UseCard)
@@ -14,11 +16,16 @@ UseCard::UseCard(QWidget *parent) :
     cr = (CombatRoom*)parent;
     mw = cr->mw;
 
-    selectedCard = nullptr;
     ui->confirmButton->hide();
     connect(ui->confirmButton,&QPushButton::clicked,this,&UseCard::useSelectedCard);
     ui->cancelButton->hide();
-    connect(ui->cancelButton,&QPushButton::clicked,this,[=](){cancelSelect();});
+    connect(ui->cancelButton,&QPushButton::clicked,this,
+            [=]()
+            {
+                cancelSingleSelect();
+            }
+    );
+    ui->multiConfirmButton->hide();
     ui->scrollArea->setStyleSheet("QScrollBar:horizontal{height:15px;}");
 
     connect(ui->endTurnButton,&QPushButton::clicked,this,
@@ -33,7 +40,7 @@ UseCard::UseCard(QWidget *parent) :
                 update();
                 emit endTurn();
             }
-            );
+    );
 }
 
 UseCard::~UseCard()
@@ -59,17 +66,8 @@ void UseCard::update()
         it++;
         auto c = cards.back();
         c->move(i * 150,0);
-        connect(c,&CardButton::chooseCard,this,
-                [=]()
-                {
-                    if(selectedCard == nullptr)
-                        cardSelect(c);
-                    else if(selectedCard == c)
-                        cancelSelect();
-                    else
-                        changeSelect(c);
-                });
-        connect(c,&CardButton::chooseCard,this,&UseCard::confirm);
+        connect(c,&CardButton::chooseCardButton,this,&UseCard::selectCardButton);
+
         c->show();
     }
 }
@@ -86,33 +84,53 @@ void UseCard::setConfirmState(bool b)
     ui->confirmButton->setEnabled(b);
 }
 
-void UseCard::confirm(AbstractCard *c)
+void UseCard::selectCardButton(CardButton *c)
 {
-    if(selectedCard != nullptr)
+    if(multiSelect == false)
     {
-        ui->confirmButton->show();
-        ui->cancelButton->show();
-        if(c->target == AbstractCard::ENEMY)
+        if(selectedSingleCard == nullptr)
+            cardSelect(c);
+        else if(selectedSingleCard == c)
+            cancelSingleSelect();
+        else
+            changeSelect(c);
+        if(selectedSingleCard != nullptr)
         {
-            ui->confirmButton->setDisabled(true);
-            for(auto &i : cr->monstersWidget)
+            ui->confirmButton->show();
+            ui->cancelButton->show();
+            if(c->card->target == AbstractCard::ENEMY)
             {
-                i->choose = true;
+                ui->confirmButton->setDisabled(true);
+                for(auto &i : cr->monstersWidget)
+                {
+                    i->choose = true;
+                }
             }
+        }
+        else
+        {
+            ui->confirmButton->hide();
+            ui->cancelButton->hide();
+
         }
     }
     else
     {
-        ui->confirmButton->hide();
-        ui->cancelButton->hide();
+
+        if(selectedMultiCard.indexOf(c) != -1)
+            cancelMultiSelect(c);
+        else if(selectedMultiCard.size() < maxNum)
+            cardSelect(c);
     }
 }
 void UseCard::useSelectedCard()
 {
-    selectedCard->card->use(mw->d.player,(AbstractMonster*)(selectedCreature->c));
+    mw->d.player->discardPile.addToTop(selectedSingleCard->card);
+    mw->d.player->hand.removeCard(selectedSingleCard->card);
 
-    mw->d.player->discardPile.addToTop(selectedCard->card);
-    mw->d.player->hand.removeCard(selectedCard->card);
+    c = selectedSingleCard->card;
+
+    c->use(mw->d.player,(AbstractMonster*)(selectedCreature->c));
 
     switch(mw->d.floor-1){
     case 2:if(!selectedCreature->c->isPlayer){
@@ -141,7 +159,8 @@ void UseCard::useSelectedCard()
     default:break;
     }
 
-    cancelSelect();
+    if(!multiSelect)
+        cancelSingleSelect();
 
     cr->update();
 }
@@ -150,14 +169,25 @@ void UseCard::useSelectedCard()
 void UseCard::cardSelect(CardButton *c)
 {
     c->bg->setStyleSheet("border:5px solid rgb(255,255,0)");
-    selectedCard = c;
+    if(multiSelect)
+    {
+        selectedMultiCard.push_back(c);
+        if(selectedMultiCard.size()>=minNum)
+        {
+            ui->multiConfirmButton->setEnabled(true);
+        }
+    }
+
+    else
+        selectedSingleCard = c;
 }
-void UseCard::cancelSelect()
+void UseCard::cancelSingleSelect()
 {
+    selectedSingleCard->bg->setStyleSheet("");
+    selectedSingleCard = nullptr;
+
     ui->confirmButton->hide();
     ui->cancelButton->hide();
-    selectedCard->bg->setStyleSheet("");
-    selectedCard = nullptr;
     if(selectedCreature)
     {
         selectedCreature->setFrameState(false);
@@ -169,11 +199,34 @@ void UseCard::cancelSelect()
             i->choose = false;
     }
 }
+
+void UseCard::cancelMultiSelect(CardButton *c)
+{
+    c->bg->setStyleSheet("");
+    selectedMultiCard.removeAll(c);
+
+    if(selectedMultiCard.size() < minNum)
+    {
+        ui->multiConfirmButton->setDisabled(true);
+    }
+}
 void UseCard::changeSelect(CardButton *c)
 {
-    selectedCard->bg->setStyleSheet("");
+    selectedSingleCard->bg->setStyleSheet("");
     c->bg->setStyleSheet("border:5px solid rgb(255,255,0)");
-    selectedCard = c;
+    selectedSingleCard = c;
+}
+
+void UseCard::callCardMultiSelection(int min_,int max_)
+{
+    multiSelect = true;
+    minNum = min_;
+    maxNum = max_;
+    ui->confirmButton->hide();
+    ui->cancelButton->hide();
+    ui->multiConfirmButton->show();
+    ui->multiConfirmButton->setDisabled(true);
+    ui->endTurnButton->setDisabled(true);
 }
 
 void UseCard::on_drawPileButton_clicked()
@@ -181,18 +234,21 @@ void UseCard::on_drawPileButton_clicked()
     mw->subScreen = new CardGroupWidget(&(mw->d.player->drawPile),mw->currentScreen);
     mw->subScreen->show();
 }
-
-
 void UseCard::on_discardPile_clicked()
 {
     mw->subScreen = new CardGroupWidget(&(mw->d.player->discardPile),mw->currentScreen);
     mw->subScreen->show();
 }
-
-
 void UseCard::on_exhaustPile_clicked()
 {
     mw->subScreen = new CardGroupWidget(&(mw->d.player->exhaustPile),mw->currentScreen);
     mw->subScreen->show();
+}
+void UseCard::on_multiConfirmButton_clicked()
+{
+    for(auto &i : selectedMultiCard)
+    {
+        c->effect(i);
+    }
 }
 

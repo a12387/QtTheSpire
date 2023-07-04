@@ -5,7 +5,6 @@
 #include "game/cards/red/Strike_Red.h"
 #include "game/cards/red/Inflame_Red.h"
 #include "mainwindow.h"
-#include "cardbutton.h"
 GetCard::GetCard(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::GetCard)
@@ -27,9 +26,9 @@ GetCard::GetCard(QWidget *parent) :
     CardButton *card3 = new CardButton(new Inflame_Red,this);
     card3->move(730,140);
 
-    connect(card1,&CardButton::chooseCard,this,&GetCard::getCard);
-    connect(card2,&CardButton::chooseCard,this,&GetCard::getCard);
-    connect(card3,&CardButton::chooseCard,this,&GetCard::getCard);
+    connect(card1,&CardButton::chooseCardButton,this,&GetCard::getCard);
+    connect(card2,&CardButton::chooseCardButton,this,&GetCard::getCard);
+    connect(card3,&CardButton::chooseCardButton,this,&GetCard::getCard);
 }
 GetCard::~GetCard()
 {
@@ -44,9 +43,9 @@ void GetCard::paintEvent(QPaintEvent *pe)
     p.drawRect(this->rect());
     QWidget::paintEvent(pe);
 }
-void GetCard::getCard(AbstractCard *card)
+void GetCard::getCard(CardButton *card)
 {
-    mw->d.player->masterDeck.addToTop(card);
+    mw->d.player->masterDeck.addToTop(card->card);
     if(mw->d.player->masterDeck.group.size()<15)
     {
         GetCard *gc = new GetCard(parentWidget());

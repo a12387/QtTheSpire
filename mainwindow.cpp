@@ -4,6 +4,7 @@
 #include "menu.h"
 #include "statebar.h"
 #include "map.h"
+#include "game/cards/AbstractCard.h"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -24,6 +25,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::startGame()
 {
+    AbstractCard::mw = this;
     currentScreen = new QWidget(this);
     currentScreen->setGeometry(0,50,1080,670);
     subScreen = new Map(true,currentScreen);

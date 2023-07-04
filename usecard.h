@@ -17,19 +17,25 @@ public:
     explicit UseCard(QWidget *parent = nullptr);
     ~UseCard();
 
+    bool multiSelect = false;
+    int minNum,maxNum;
+
     void update();
     void clear();
     void setConfirmState(bool b);
+    void callCardMultiSelection(int min_,int max_);
 
     MainWindow *mw;
     CombatRoom *cr;
     QVector<CardButton*> cards;
-    CardButton *selectedCard;
+    CardButton *selectedSingleCard = nullptr;
+    AbstractCard *c;
+    QVector<CardButton*> selectedMultiCard;
     CreatureWidget* selectedCreature;
 signals:
     void endTurn();
 private slots:
-    void confirm(AbstractCard *c);
+    void selectCardButton(CardButton *c);
     void useSelectedCard();
     void on_drawPileButton_clicked();
 
@@ -37,11 +43,14 @@ private slots:
 
     void on_exhaustPile_clicked();
 
+    void on_multiConfirmButton_clicked();
+
 private:
     Ui::UseCard *ui;
 
     void cardSelect(CardButton *c);
-    void cancelSelect();
+    void cancelSingleSelect();
+    void cancelMultiSelect(CardButton *c);
     void changeSelect(CardButton *c);
 };
 

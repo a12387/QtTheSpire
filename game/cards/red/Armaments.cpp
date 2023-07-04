@@ -1,5 +1,6 @@
 #include "Armaments.h"
-
+#include "mainwindow.h"
+#include "combatroom.h"
 Armaments::Armaments() :
     AbstractCard(
         (std::string)"Armaments_R",
@@ -21,6 +22,7 @@ Armaments::Armaments() :
 void Armaments::use(AbstractPlayer *p,AbstractMonster *m)
 {
     p->addBlock(baseBlock);
+    ((CombatRoom*)(mw->d.rooms[mw->d.floor - 1]->screen))->uc->callCardMultiSelection(1,1);
 }
 AbstractCard *Armaments::makeCopy()
 {

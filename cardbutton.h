@@ -27,6 +27,7 @@ public:
     int originX,originY,bigX,bigY;
 signals:
     void chooseCard(AbstractCard *card);
+    void chooseCardButton(CardButton *card);
 };
 
 #endif // CARDBUTTON_H

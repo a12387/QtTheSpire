@@ -2,7 +2,7 @@
 #define GETCARD_H
 
 #include <QWidget>
-#include "game/cards/AbstractCard.h"
+#include "cardbutton.h"
 
 namespace Ui {
 class GetCard;
@@ -20,7 +20,7 @@ public:
 
     MainWindow *mw;
 private slots:
-    void getCard(AbstractCard *card);
+    void getCard(CardButton *card);
 private:
     Ui::GetCard *ui;
 };

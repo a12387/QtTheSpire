@@ -6,7 +6,7 @@
 #include "DamageInfo.h"
 class AbstractPlayer;
 class AbstractMonster;
-
+class MainWindow;
 class AbstractCard
 {
 public:
@@ -91,9 +91,13 @@ public:
     int draw            = -1;
     int discard         = -1;
 
+    static MainWindow *mw;
+
     virtual void upgrade();
 
     virtual void use(AbstractPlayer *abstractPlayer, AbstractMonster *AbstractMonster) = 0;
+
+    virtual void effect(AbstractCard *c);//for multi card selection
 
     AbstractCard(std::string id, std::string name, std::string imgUrl, int cost, std::string description, CardType type, CardColor color, CardRarity rarity, CardTarget target, DamageInfo::DamageType dType);
 

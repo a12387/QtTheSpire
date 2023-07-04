@@ -68,7 +68,7 @@ void CardButton::mouseReleaseEvent(QMouseEvent *me)
     if(me->button() == Qt::LeftButton)
     {
         move(x()-3,y()-3);
-        emit chooseCard(card);
+        emit chooseCardButton(this);
     }
 }
 
