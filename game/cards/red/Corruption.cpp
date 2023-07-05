@@ -1,4 +1,5 @@
 #include "Corruption.h"
+#include "game/powers/Corruption_.h"
 
 Corruption::Corruption() :
     AbstractCard(
@@ -20,8 +21,7 @@ Corruption::Corruption() :
 
 void Corruption::use(AbstractPlayer *p,AbstractMonster *m)
 {
-    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
-    m->damage(tmp);
+    p->ApplyPower(new Corruption_());
 }
 AbstractCard *Corruption::makeCopy()
 {

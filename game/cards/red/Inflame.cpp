@@ -1,4 +1,5 @@
 #include "Inflame.h"
+#include "game/powers/Strength.h"
 
 Inflame::Inflame() :
     AbstractCard(
@@ -20,8 +21,7 @@ Inflame::Inflame() :
 
 void Inflame::use(AbstractPlayer *p,AbstractMonster *m)
 {
-    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
-    m->damage(tmp);
+    p->ApplyPower(new Strength(2));
 }
 AbstractCard *Inflame::makeCopy()
 {

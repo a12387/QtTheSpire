@@ -1,5 +1,7 @@
 #include "AbstractCreature.h"
 #include "../powers/AbstractPower.h"
+#include "../powers/Strength.h"
+
 AbstractCreature::AbstractCreature(std::string imgUrl,std::string name,std::string id,int health)
     :imgUrl(imgUrl),name(name),id(id),currentHealth(health),maxHealth(health),currentBlock(0)
 {
@@ -149,6 +151,7 @@ void AbstractCreature::ApplyPower(AbstractPower *power)
 
 void AbstractCreature::changePower(){
     for(auto i=buff.begin();i!=buff.end();++i){
+        if((*i)->name=="DemonForm")ApplyPower(new Strength((*i)->amount));
         if((*i)->name=="Frail"||(*i)->name=="Vulnerable"||(*i)->name=="Weak"){
             (*i)->amount--;
             if((*i)->amount==0&&(*i)->name!="Invincible")buff.erase(i);

@@ -1,4 +1,5 @@
 #include "DemonForm.h"
+#include "game/powers/DemonForm_.h"
 
 DemonForm::DemonForm() :
     AbstractCard(
@@ -20,8 +21,7 @@ DemonForm::DemonForm() :
 
 void DemonForm::use(AbstractPlayer *p,AbstractMonster *m)
 {
-    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
-    m->damage(tmp);
+    p->ApplyPower(new DemonForm_(2));
 }
 AbstractCard *DemonForm::makeCopy()
 {

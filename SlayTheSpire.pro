@@ -54,7 +54,12 @@ SOURCES += \
     game/powers/Artifact.cpp \
     game/powers/BackAttackLeft.cpp \
     game/powers/BackAttackRight.cpp \
+    game/powers/Barricade_.cpp \
     game/powers/BeatOfDeath.cpp \
+    game/powers/Corruption_.cpp \
+    game/powers/DarkEmbrace_.cpp \
+    game/powers/DemonForm_.cpp \
+    game/powers/FeelNoPain_.cpp \
     game/powers/Frail.cpp \
     game/powers/Invincible.cpp \
     game/powers/PainfulStabs.cpp \
@@ -74,6 +79,7 @@ SOURCES += \
     map.cpp \
     mapwidget.cpp \
     menu.cpp \
+    messagewidget.cpp \
     powerwidget.cpp \
     shop.cpp \
     statebar.cpp \
@@ -122,14 +128,15 @@ HEADERS += \
     game/monsters/SpireShield.h \
     game/monsters/SpireSpear.h \
     game/powers/AbstractPower.h \
-    game/powers/AbstractPower.h \
     game/powers/Artifact.h \
-    game/powers/Artifact.h \
-    game/powers/BackAttackLeft.h \
     game/powers/BackAttackLeft.h \
     game/powers/BackAttackRight.h \
+    game/powers/Barricade_.h \
     game/powers/BeatOfDeath.h \
-    game/powers/BeatOfDeath.h \
+    game/powers/Corruption_.h \
+    game/powers/DarkEmbrace_.h \
+    game/powers/DemonForm_.h \
+    game/powers/FeelNoPain_.h \
     game/powers/Frail.h \
     game/powers/Invincible.h \
     game/powers/PainfulStabs.h \
@@ -148,6 +155,7 @@ HEADERS += \
     map.h \
     mapwidget.h \
     menu.h \
+    messagewidget.h \
     powerwidget.h \
     shop.h \
     statebar.h \
@@ -163,6 +171,7 @@ FORMS += \
     mainwindow.ui \
     mapwidget.ui \
     menu.ui \
+    messagewidget.ui \
     powerwidget.ui \
     shop.ui \
     statebar.ui \

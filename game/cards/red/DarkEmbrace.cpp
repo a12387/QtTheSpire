@@ -1,4 +1,5 @@
 #include "DarkEmbrace.h"
+#include "game/powers/DarkEmbrace_.h"
 
 DarkEmbrace::DarkEmbrace() :
     AbstractCard(
@@ -20,8 +21,7 @@ DarkEmbrace::DarkEmbrace() :
 
 void DarkEmbrace::use(AbstractPlayer *p,AbstractMonster *m)
 {
-    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
-    m->damage(tmp);
+    p->ApplyPower(new DarkEmbrace_());
 }
 AbstractCard *DarkEmbrace::makeCopy()
 {
