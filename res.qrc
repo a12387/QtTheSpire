@@ -77,5 +77,10 @@
         <file>game/resource/creature/shoulder.png</file>
         <file>game/resource/ui/title.png</file>
         <file>game/resource/creature/ironclad_.png</file>
+        <file>game/resource/powers/Corruption.png</file>
+        <file>game/resource/powers/DarkEmbrace.png</file>
+        <file>game/resource/powers/DemonForm.png</file>
+        <file>game/resource/powers/FeelNoPain.png</file>
+        <file>game/resource/powers/Barricade.png</file>
     </qresource>
 </RCC>

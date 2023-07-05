@@ -1,4 +1,5 @@
 #include "FeelNoPain.h"
+#include "game/powers/FeelNoPain_.h"
 
 FeelNoPain::FeelNoPain() :
     AbstractCard(
@@ -19,6 +20,7 @@ FeelNoPain::FeelNoPain() :
 void FeelNoPain::use(AbstractPlayer *p,AbstractMonster *m)
 {
     p->energy -= cost;
+    p->ApplyPower(new FeelNoPain_(baseMagicNumber));
 }
 AbstractCard *FeelNoPain::makeCopy()
 {

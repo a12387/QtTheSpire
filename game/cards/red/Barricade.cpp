@@ -1,4 +1,5 @@
 #include "Barricade.h"
+#include "game/powers/Barricade_.h"
 
 Barricade::Barricade() :
     AbstractCard(
@@ -19,6 +20,7 @@ Barricade::Barricade() :
 void Barricade::use(AbstractPlayer *p,AbstractMonster *m)
 {
     p->energy -= cost;
+    p->ApplyPower(new Barricade_());
 }
 AbstractCard *Barricade::makeCopy()
 {

@@ -1,4 +1,5 @@
 #include "DemonForm.h"
+#include "game/powers/DemonForm_.h"
 
 DemonForm::DemonForm() :
     AbstractCard(
@@ -19,6 +20,7 @@ DemonForm::DemonForm() :
 void DemonForm::use(AbstractPlayer *p,AbstractMonster *m)
 {
     p->energy -= cost;
+    p->ApplyPower(new DemonForm_(baseMagicNumber));
 }
 AbstractCard *DemonForm::makeCopy()
 {

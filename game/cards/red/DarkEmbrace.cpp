@@ -1,4 +1,5 @@
 #include "DarkEmbrace.h"
+#include "game/powers/DarkEmbrace_.h"
 
 DarkEmbrace::DarkEmbrace() :
     AbstractCard(
@@ -21,6 +22,7 @@ DarkEmbrace::DarkEmbrace() :
 void DarkEmbrace::use(AbstractPlayer *p,AbstractMonster *m)
 {
     p->energy -= cost;
+    p->ApplyPower(new DarkEmbrace_());
 }
 AbstractCard *DarkEmbrace::makeCopy()
 {

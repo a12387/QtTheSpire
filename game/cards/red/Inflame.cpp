@@ -1,5 +1,4 @@
 #include "Inflame.h"
-#include "mainwindow.h"
 #include "../../powers/Strength.h"
 Inflame::Inflame() :
     AbstractCard(
