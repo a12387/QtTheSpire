@@ -8,8 +8,8 @@ Finesse::Finesse() :
         1,
         (std::string)"攻击\n造成6点伤害",
         AbstractCard::POWER,
-        AbstractCard::RED,
-        AbstractCard::BASIC,
+        AbstractCard::COLORLESS,
+        AbstractCard::UNCOMMON,
         AbstractCard::ENEMY,
         DamageInfo::DamageType::NORMAL)
 {

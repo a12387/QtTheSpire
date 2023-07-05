@@ -9,7 +9,7 @@ Limit_break_Red::Limit_break_Red() :
         (std::string)"攻击\n造成6点伤害",
         AbstractCard::SKILL,
         AbstractCard::RED,
-        AbstractCard::BASIC,
+        AbstractCard::RARE,
         AbstractCard::ENEMY,
         DamageInfo::DamageType::NORMAL)
 {

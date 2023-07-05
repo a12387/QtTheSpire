@@ -31,7 +31,13 @@ CardWidget::CardWidget(AbstractCard *card,QWidget *parent) :
     ui->name->setAlignment(Qt::AlignHCenter);
     ui->name->setFont(f);
     ui->name->setStyleSheet("color:white;");
-    ui->banner->setPixmap(QPixmap(":/game/resource/banner_common.png"));
+
+    switch(card->rarity){
+    case AbstractCard::COMMON:ui->banner->setPixmap(QPixmap(":/game/resource/banner_common.png"));break;
+    case AbstractCard::UNCOMMON:ui->banner->setPixmap(QPixmap(":/game/resource/banner_uncommon.png"));break;
+    case AbstractCard::RARE:ui->banner->setPixmap(QPixmap(":/game/resource/banner_rare.png"));break;
+    }
+
     ui->banner->setScaledContents(true);
 
     ui->description->setText(QString::fromStdString(card->description));

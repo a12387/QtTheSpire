@@ -9,7 +9,7 @@ Battle_trance::Battle_trance() :
         (std::string)"攻击\n造成6点伤害",
         AbstractCard::SKILL,
         AbstractCard::RED,
-        AbstractCard::BASIC,
+        AbstractCard::UNCOMMON,
         AbstractCard::ENEMY,
         DamageInfo::DamageType::NORMAL)
 {
