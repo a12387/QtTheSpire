@@ -1,15 +1,15 @@
-#ifndef TRUE_GRIT_RED_H
-#define TRUE_GRIT_RED_H
+#ifndef FEELNOPAIN_H
+#define FEELNOPAIN_H
 
 #include "../AbstractCard.h"
 #include "../../characters/AbstractPlayer.h"
 #include "../../monsters/AbstractMonster.h"
-class True_grit_Red : public AbstractCard
+class FeelNoPain : public AbstractCard
 {
 public:
-    True_grit_Red();
+    FeelNoPain();
     void use(AbstractPlayer *p,AbstractMonster *m);
     AbstractCard *makeCopy();
 };
 
-#endif // TRUE_GRIT_RED_H
+#endif // FEELNOPAIN_H

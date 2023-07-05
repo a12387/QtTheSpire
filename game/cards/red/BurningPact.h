@@ -1,15 +1,15 @@
-#ifndef WHIRLWIND_RED_H
-#define WHIRLWIND_RED_H
+#ifndef BURNINGPACT_H
+#define BURNINGPACT_H
 
 #include "../AbstractCard.h"
 #include "../../characters/AbstractPlayer.h"
 #include "../../monsters/AbstractMonster.h"
-class Whirlwind_Red : public AbstractCard
+class BurningPact : public AbstractCard
 {
 public:
-    Whirlwind_Red();
+    BurningPact();
     void use(AbstractPlayer *p,AbstractMonster *m);
     AbstractCard *makeCopy();
 };
 
-#endif // WHIRLWIND_RED_H
+#endif // BURNINGPACT_H

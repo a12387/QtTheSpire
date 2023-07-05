@@ -2,15 +2,15 @@
 
 Corruption::Corruption() :
     AbstractCard(
-        (std::string)"Corruption_R",
-        (std::string)"Strike",
-        (std::string)":/game/resource/cards/strike.png",
-        1,
-        (std::string)"攻击\n造成6点伤害",
+        (std::string)"Corruption",
+        (std::string)"腐化",
+        (std::string)":/game/resource/cards/corruption.png",
+        3,
+        (std::string)"能力\n所有技能牌耗能变为0。\n所有技能牌在被打出时被消耗。",
         AbstractCard::POWER,
         AbstractCard::RED,
-        AbstractCard::BASIC,
-        AbstractCard::ENEMY,
+        AbstractCard::RARE,
+        AbstractCard::SELF,
         DamageInfo::DamageType::NORMAL)
 {
     baseDamage = 6;

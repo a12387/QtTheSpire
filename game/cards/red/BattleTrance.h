@@ -1,13 +1,19 @@
-#ifndef BODY_SLAM_H
-#define BODY_SLAM_H
+
+#ifndef BATTLETRANCE_H
+#define BATTLETRANCE_H
+
+
+
+
 #include "../AbstractCard.h"
 #include "../../characters/AbstractPlayer.h"
 #include "../../monsters/AbstractMonster.h"
-class Body_slam : public AbstractCard
+class BattleTrance : public AbstractCard
 {
 public:
-    Body_slam();
+    BattleTrance();
     void use(AbstractPlayer *p,AbstractMonster *m);
     AbstractCard *makeCopy();
 };
-#endif // BODY_SLAM_H
+
+#endif // BATTLETRANCE_H

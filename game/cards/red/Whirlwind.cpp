@@ -1,15 +1,15 @@
-#include "Whirlwind_Red.h"
+#include "Whirlwind.h"
 
-Whirlwind_Red::Whirlwind_Red() :
+Whirlwind::Whirlwind() :
     AbstractCard(
-        (std::string)"Whirlwind_R",
         (std::string)"Whirlwind",
+        (std::string)"旋风斩",
         (std::string)":/game/resource/cards/whirlwind.png",
-        1,
-        (std::string)"攻击\n造成6点伤害",
+        -1,
+        (std::string)"攻击\n对所有敌人造成基础数值为5点的伤害X次",
         AbstractCard::ATTACK,
         AbstractCard::RED,
-        AbstractCard::BASIC,
+        AbstractCard::UNCOMMON,
         AbstractCard::ENEMY,
         DamageInfo::DamageType::NORMAL)
 {
@@ -18,12 +18,12 @@ Whirlwind_Red::Whirlwind_Red() :
     tags.push_back(CardTags::STRIKE);
 }
 
-void Whirlwind_Red::use(AbstractPlayer *p,AbstractMonster *m)
+void Whirlwind::use(AbstractPlayer *p,AbstractMonster *m)
 {
     DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
     m->damage(tmp);
 }
-AbstractCard *Whirlwind_Red::makeCopy()
+AbstractCard *Whirlwind::makeCopy()
 {
-    return new Whirlwind_Red;
+    return new Whirlwind;
 }

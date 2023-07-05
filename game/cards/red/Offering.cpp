@@ -1,16 +1,16 @@
-#include "Offering_Red.h"
+#include "Offering.h"
 
-Offering_Red::Offering_Red() :
+Offering::Offering() :
     AbstractCard(
-        (std::string)"Offering_R",
         (std::string)"Offering",
+        (std::string)"祭品",
         (std::string)":/game/resource/cards/offering.png",
-        1,
-        (std::string)"攻击\n造成6点伤害",
+        0,
+        (std::string)"技能\n失去6点生命。\n获得2点能量。\n抽3张牌。\n消耗 。",
         AbstractCard::SKILL,
         AbstractCard::RED,
-        AbstractCard::BASIC,
-        AbstractCard::ENEMY,
+        AbstractCard::RARE,
+        AbstractCard::SELF,
         DamageInfo::DamageType::NORMAL)
 {
     baseDamage = 6;
@@ -18,12 +18,12 @@ Offering_Red::Offering_Red() :
     tags.push_back(CardTags::STRIKE);
 }
 
-void Offering_Red::use(AbstractPlayer *p,AbstractMonster *m)
+void Offering::use(AbstractPlayer *p,AbstractMonster *m)
 {
     DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
     m->damage(tmp);
 }
-AbstractCard *Offering_Red::makeCopy()
+AbstractCard *Offering::makeCopy()
 {
-    return new Offering_Red;
+    return new Offering;
 }

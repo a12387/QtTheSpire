@@ -1,15 +1,15 @@
-#ifndef SPOT_WEAKNESS_RED_H
-#define SPOT_WEAKNESS_RED_H
+#ifndef TRUEGRIT_H
+#define TRUEGRIT_H
 
 #include "../AbstractCard.h"
 #include "../../characters/AbstractPlayer.h"
 #include "../../monsters/AbstractMonster.h"
-class Spot_weakness_Red : public AbstractCard
+class TrueGrit : public AbstractCard
 {
 public:
-    Spot_weakness_Red();
+    TrueGrit();
     void use(AbstractPlayer *p,AbstractMonster *m);
     AbstractCard *makeCopy();
 };
 
-#endif // SPOT_WEAKNESS_RED_H
+#endif // TRUEGRIT_H

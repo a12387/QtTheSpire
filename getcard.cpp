@@ -1,9 +1,7 @@
 #include "getcard.h"
 #include "ui_getcard.h"
 #include <QPainter>
-#include "game/cards/red/Armaments.h"
-#include "game/cards/red/Strike_Red.h"
-#include "game/cards/red/Inflame_Red.h"
+#include "game/cards/RandomCard.h"
 #include "mainwindow.h"
 GetCard::GetCard(QWidget *parent) :
     QWidget(parent),
@@ -19,16 +17,12 @@ GetCard::GetCard(QWidget *parent) :
     }
     mw = (MainWindow*)tmp;
 
-    CardButton *card1 = new CardButton(new Armaments,this);
-    card1->move(170,140);
-    CardButton *card2 = new CardButton(new Strike_Red,this);
-    card2->move(450,140);
-    CardButton *card3 = new CardButton(new Inflame_Red,this);
-    card3->move(730,140);
 
-    connect(card1,&CardButton::chooseCardButton,this,&GetCard::getCard);
-    connect(card2,&CardButton::chooseCardButton,this,&GetCard::getCard);
-    connect(card3,&CardButton::chooseCardButton,this,&GetCard::getCard);
+    for(int i=0;i<3;i++){
+        cards[i]=new RandomCard(this);
+        cards[i]->c->move(170+i*280,140);
+        connect(cards[i]->c,&CardButton::chooseCardButton,this,&GetCard::getCard);
+    }
 }
 GetCard::~GetCard()
 {

@@ -1,12 +1,12 @@
-#include "Barricade.h"
+#include "DemonForm.h"
 
-Barricade::Barricade() :
+DemonForm::DemonForm() :
     AbstractCard(
-        (std::string)"Barricade",
-        (std::string)"壁垒",
-        (std::string)":/game/resource/cards/barricade_Red.png",
+        (std::string)"DemonForm",
+        (std::string)"恶魔形态",
+        (std::string)":/game/resource/cards/demon_form.png",
         3,
-        (std::string)"能力\n格挡不再在你的回合开始时消失。",
+        (std::string)"能力\n在每回合开始时获得\n2点力量。",
         AbstractCard::POWER,
         AbstractCard::RED,
         AbstractCard::RARE,
@@ -18,12 +18,12 @@ Barricade::Barricade() :
     tags.push_back(CardTags::STRIKE);
 }
 
-void Barricade::use(AbstractPlayer *p,AbstractMonster *m)
+void DemonForm::use(AbstractPlayer *p,AbstractMonster *m)
 {
     DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
     m->damage(tmp);
 }
-AbstractCard *Barricade::makeCopy()
+AbstractCard *DemonForm::makeCopy()
 {
-    return new Barricade;
+    return new DemonForm;
 }

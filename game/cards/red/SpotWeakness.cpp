@@ -1,15 +1,15 @@
-#include "Spot_weakness_Red.h"
+#include "SpotWeakness.h"
 
-Spot_weakness_Red::Spot_weakness_Red() :
+SpotWeakness::SpotWeakness() :
     AbstractCard(
-        (std::string)"Spot_weakness_R",
-        (std::string)"Spot_weakness",
+        (std::string)"SpotWeakness",
+        (std::string)"观察弱点",
         (std::string)":/game/resource/cards/spot_weakness.png",
         1,
-        (std::string)"攻击\n造成6点伤害",
+        (std::string)"技能\n如果一名敌人的意图是攻击，你获得3点力量。",
         AbstractCard::SKILL,
         AbstractCard::RED,
-        AbstractCard::BASIC,
+        AbstractCard::UNCOMMON,
         AbstractCard::ENEMY,
         DamageInfo::DamageType::NORMAL)
 {
@@ -18,12 +18,12 @@ Spot_weakness_Red::Spot_weakness_Red() :
     tags.push_back(CardTags::STRIKE);
 }
 
-void Spot_weakness_Red::use(AbstractPlayer *p,AbstractMonster *m)
+void SpotWeakness::use(AbstractPlayer *p,AbstractMonster *m)
 {
     DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
     m->damage(tmp);
 }
-AbstractCard *Spot_weakness_Red::makeCopy()
+AbstractCard *SpotWeakness::makeCopy()
 {
-    return new Spot_weakness_Red;
+    return new SpotWeakness;
 }

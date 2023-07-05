@@ -2,11 +2,11 @@
 
 Bash::Bash() :
     AbstractCard(
-        (std::string)"Bash_R",
         (std::string)"Bash",
+        (std::string)"痛击",
         (std::string)":/game/resource/cards/bash.png",
-        1,
-        (std::string)"攻击\n造成6点伤害",
+        2,
+        (std::string)"攻击\n造成基础数值为8点的伤害\n给予2层易伤",
         AbstractCard::ATTACK,
         AbstractCard::RED,
         AbstractCard::BASIC,

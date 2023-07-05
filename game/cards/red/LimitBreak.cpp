@@ -1,16 +1,16 @@
-#include "Limit_break_Red.h"
+#include "LimitBreak.h"
 
-Limit_break_Red::Limit_break_Red() :
+LimitBreak::LimitBreak() :
     AbstractCard(
-        (std::string)"Limit_break_R",
-        (std::string)"Limit_break",
+        (std::string)"LimitBreak",
+        (std::string)"突破极限",
         (std::string)":/game/resource/cards/limit_break.png",
         1,
-        (std::string)"攻击\n造成6点伤害",
+        (std::string)"技能\n将你的力量翻倍。\n消耗。",
         AbstractCard::SKILL,
         AbstractCard::RED,
-        AbstractCard::BASIC,
-        AbstractCard::ENEMY,
+        AbstractCard::RARE,
+        AbstractCard::SELF,
         DamageInfo::DamageType::NORMAL)
 {
     baseDamage = 6;
@@ -18,12 +18,12 @@ Limit_break_Red::Limit_break_Red() :
     tags.push_back(CardTags::STRIKE);
 }
 
-void Limit_break_Red::use(AbstractPlayer *p,AbstractMonster *m)
+void LimitBreak::use(AbstractPlayer *p,AbstractMonster *m)
 {
     DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
     m->damage(tmp);
 }
-AbstractCard *Limit_break_Red::makeCopy()
+AbstractCard *LimitBreak::makeCopy()
 {
-    return new Limit_break_Red;
+    return new LimitBreak;
 }

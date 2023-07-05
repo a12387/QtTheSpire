@@ -8,6 +8,7 @@ namespace Ui {
 class GetCard;
 }
 class MainWindow;
+class RandomCard;
 class GetCard : public QWidget
 {
     Q_OBJECT
@@ -19,8 +20,13 @@ public:
     void paintEvent(QPaintEvent* pe);
 
     MainWindow *mw;
+
+private:
+    RandomCard* cards[3]={};
 private slots:
     void getCard(CardButton *card);
+
+
 private:
     Ui::GetCard *ui;
 };

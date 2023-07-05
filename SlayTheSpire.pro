@@ -18,28 +18,29 @@ SOURCES += \
     game/cards/AbstractCard.cpp \
     game/cards/CardGroup.cpp \
     game/cards/DamageInfo.cpp \
+    game/cards/RandomCard.cpp \
     game/cards/red/Armaments.cpp \
     game/cards/red/Barricade.cpp \
     game/cards/red/Bash.cpp \
-    game/cards/red/Battle_trance.cpp \
-    game/cards/red/Body_slam.cpp \
-    game/cards/red/Burning_pact.cpp \
+    game/cards/red/BattleTrance.cpp \
+    game/cards/red/BodySlam.cpp \
+    game/cards/red/BurningPact.cpp \
     game/cards/red/Corruption.cpp \
-    game/cards/red/Dark_embrace.cpp \
-    game/cards/red/Demon_form.cpp \
+    game/cards/red/DarkEmbrace.cpp \
+    game/cards/red/DemonForm.cpp \
     game/cards/red/Exhume.cpp \
-    game/cards/red/Feel_no_pain.cpp \
+    game/cards/red/FeelNoPain.cpp \
     game/cards/red/Finesse.cpp \
-    game/cards/red/Inflame_Red.cpp \
-    game/cards/red/Limit_break_Red.cpp \
-    game/cards/red/Offering_Red.cpp \
-    game/cards/red/Pommel_strike_Red.cpp \
-    game/cards/red/Second_wind_Red.cpp \
-    game/cards/red/Shrug_it_off_Red.cpp \
-    game/cards/red/Spot_weakness_Red.cpp \
+    game/cards/red/Inflame.cpp \
+    game/cards/red/LimitBreak.cpp \
+    game/cards/red/Offering.cpp \
+    game/cards/red/PommelStrike.cpp \
+    game/cards/red/SecondWind.cpp \
+    game/cards/red/ShrugItOff.cpp \
+    game/cards/red/SpotWeakness.cpp \
     game/cards/red/Strike_Red.cpp \
-    game/cards/red/True_grit_Red.cpp \
-    game/cards/red/Whirlwind_Red.cpp \
+    game/cards/red/TrueGrit.cpp \
+    game/cards/red/Whirlwind.cpp \
     game/characters/AbstractPlayer.cpp \
     game/characters/Ironclad.cpp \
     game/core/AbstractCreature.cpp \
@@ -88,28 +89,29 @@ HEADERS += \
     game/cards/AbstractCard.h \
     game/cards/CardGroup.h \
     game/cards/DamageInfo.h \
+    game/cards/RandomCard.h \
     game/cards/red/Armaments.h \
     game/cards/red/Barricade.h \
     game/cards/red/Bash.h \
-    game/cards/red/Battle_trance.h \
-    game/cards/red/Body_slam.h \
-    game/cards/red/Burning_pact.h \
+    game/cards/red/BattleTrance.h \
+    game/cards/red/BodySlam.h \
+    game/cards/red/BurningPact.h \
     game/cards/red/Corruption.h \
-    game/cards/red/Dark_embrace.h \
-    game/cards/red/Demon_form.h \
+    game/cards/red/DarkEmbrace.h \
+    game/cards/red/DemonForm.h \
     game/cards/red/Exhume.h \
-    game/cards/red/Feel_no_pain.h \
+    game/cards/red/FeelNoPain.h \
     game/cards/red/Finesse.h \
-    game/cards/red/Inflame_Red.h \
-    game/cards/red/Limit_break_Red.h \
-    game/cards/red/Offering_Red.h \
-    game/cards/red/Pommel_strike_Red.h \
-    game/cards/red/Second_wind_Red.h \
-    game/cards/red/Shrug_it_off_Red.h \
-    game/cards/red/Spot_weakness_Red.h \
+    game/cards/red/Inflame.h \
+    game/cards/red/LimitBreak.h \
+    game/cards/red/Offering.h \
+    game/cards/red/PommelStrike.h \
+    game/cards/red/SecondWind.h \
+    game/cards/red/ShrugItOff.h \
+    game/cards/red/SpotWeakness.h \
     game/cards/red/Strike_Red.h \
-    game/cards/red/True_grit_Red.h \
-    game/cards/red/Whirlwind_Red.h \
+    game/cards/red/TrueGrit.h \
+    game/cards/red/Whirlwind.h \
     game/characters/AbstractPlayer.h \
     game/characters/Ironclad.h \
     game/core/AbstractCreature.h \

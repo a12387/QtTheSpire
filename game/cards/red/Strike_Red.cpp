@@ -2,14 +2,14 @@
 
 Strike_Red::Strike_Red() :
     AbstractCard(
-        (std::string)"Strike_R",
-        (std::string)"Strike",
+        (std::string)"Strike_Red",
+        (std::string)"打击",
         (std::string)":/game/resource/cards/strike.png",
         1,
         (std::string)"攻击\n造成6点伤害",
         AbstractCard::ATTACK,
         AbstractCard::RED,
-        AbstractCard::BASIC,
+        AbstractCard::COMMON,
         AbstractCard::ENEMY,
         DamageInfo::DamageType::NORMAL)
 {

@@ -3,13 +3,13 @@
 Finesse::Finesse() :
     AbstractCard(
         (std::string)"Finesse",
-        (std::string)"Finesse",
+        (std::string)"妙计",
         (std::string)":/game/resource/cards/finesse.png",
-        1,
-        (std::string)"攻击\n造成6点伤害",
+        0,
+        (std::string)"技能\n获得基础数值为2的格挡\n抽1张牌",
         AbstractCard::POWER,
-        AbstractCard::RED,
-        AbstractCard::BASIC,
+        AbstractCard::COLORLESS,
+        AbstractCard::UNCOMMON,
         AbstractCard::ENEMY,
         DamageInfo::DamageType::NORMAL)
 {

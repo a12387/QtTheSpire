@@ -1,15 +1,15 @@
-#include "Pommel_strike_Red.h"
+#include "PommelStrike.h"
 
-Pommel_strike_Red::Pommel_strike_Red() :
+PommelStrike::PommelStrike() :
     AbstractCard(
-        (std::string)"Pommel_strike_R",
-        (std::string)"Pommel_strike",
+        (std::string)"PommelStrike",
+        (std::string)"剑柄打击",
         (std::string)":/game/resource/cards/pommel_strike.png",
         1,
-        (std::string)"攻击\n造成6点伤害",
+        (std::string)"攻击\n造成基础数值为9点的伤害\n抽1张牌",
         AbstractCard::SKILL,
         AbstractCard::RED,
-        AbstractCard::BASIC,
+        AbstractCard::COMMON,
         AbstractCard::ENEMY,
         DamageInfo::DamageType::NORMAL)
 {
@@ -18,12 +18,12 @@ Pommel_strike_Red::Pommel_strike_Red() :
     tags.push_back(CardTags::STRIKE);
 }
 
-void Pommel_strike_Red::use(AbstractPlayer *p,AbstractMonster *m)
+void PommelStrike::use(AbstractPlayer *p,AbstractMonster *m)
 {
     DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
     m->damage(tmp);
 }
-AbstractCard *Pommel_strike_Red::makeCopy()
+AbstractCard *PommelStrike::makeCopy()
 {
-    return new Pommel_strike_Red;
+    return new PommelStrike;
 }

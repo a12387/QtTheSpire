@@ -1,15 +1,15 @@
-#ifndef DARK_EMBRACE_H
-#define DARK_EMBRACE_H
+#ifndef LIMITBREAK_H
+#define LIMITBREAK_H
 
 #include "../AbstractCard.h"
 #include "../../characters/AbstractPlayer.h"
 #include "../../monsters/AbstractMonster.h"
-class Dark_embrace : public AbstractCard
+class LimitBreak : public AbstractCard
 {
 public:
-    Dark_embrace();
+    LimitBreak();
     void use(AbstractPlayer *p,AbstractMonster *m);
     AbstractCard *makeCopy();
 };
 
-#endif // DARK_EMBRACE_H
+#endif // LIMITBREAK_H

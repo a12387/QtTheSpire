@@ -1,15 +1,15 @@
-#ifndef POMMEL_STRIKE_RED_H
-#define POMMEL_STRIKE_RED_H
+#ifndef POMMELSTRIKE_H
+#define POMMELSTRIKE_H
 
 #include "../AbstractCard.h"
 #include "../../characters/AbstractPlayer.h"
 #include "../../monsters/AbstractMonster.h"
-class Pommel_strike_Red : public AbstractCard
+class PommelStrike : public AbstractCard
 {
 public:
-    Pommel_strike_Red();
+    PommelStrike();
     void use(AbstractPlayer *p,AbstractMonster *m);
     AbstractCard *makeCopy();
 };
 
-#endif // POMMEL_STRIKE_RED_H
+#endif // POMMELSTRIKE_H

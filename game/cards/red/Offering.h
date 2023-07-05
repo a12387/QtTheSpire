@@ -1,15 +1,15 @@
-#ifndef INFLAME_RED_H
-#define INFLAME_RED_H
+#ifndef OFFERING_H
+#define OFFERING_H
 
 #include "../AbstractCard.h"
 #include "../../characters/AbstractPlayer.h"
 #include "../../monsters/AbstractMonster.h"
-class Inflame_Red : public AbstractCard
+class Offering : public AbstractCard
 {
 public:
-    Inflame_Red();
+    Offering();
     void use(AbstractPlayer *p,AbstractMonster *m);
     AbstractCard *makeCopy();
 };
 
-#endif // INFLAME_RED_H
+#endif // OFFERING_H

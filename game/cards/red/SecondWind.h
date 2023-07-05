@@ -1,15 +1,15 @@
-#ifndef LIMIT_BREAK_RED_H
-#define LIMIT_BREAK_RED_H
+#ifndef SECONDWIND_H
+#define SECONDWIND_H
 
 #include "../AbstractCard.h"
 #include "../../characters/AbstractPlayer.h"
 #include "../../monsters/AbstractMonster.h"
-class Limit_break_Red : public AbstractCard
+class SecondWind : public AbstractCard
 {
 public:
-    Limit_break_Red();
+    SecondWind();
     void use(AbstractPlayer *p,AbstractMonster *m);
     AbstractCard *makeCopy();
 };
 
-#endif // LIMIT_BREAK_RED_H
+#endif // SECONDWIND_H

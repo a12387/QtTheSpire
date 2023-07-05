@@ -1,15 +1,15 @@
-#ifndef FEEL_NO_PAIN_H
-#define FEEL_NO_PAIN_H
+#ifndef DARKEMBRACE_H
+#define DARKEMBRACE_H
 
 #include "../AbstractCard.h"
 #include "../../characters/AbstractPlayer.h"
 #include "../../monsters/AbstractMonster.h"
-class Feel_no_pain : public AbstractCard
+class DarkEmbrace : public AbstractCard
 {
 public:
-    Feel_no_pain();
+    DarkEmbrace();
     void use(AbstractPlayer *p,AbstractMonster *m);
     AbstractCard *makeCopy();
 };
 
-#endif // FEEL_NO_PAIN_H
+#endif // DARKEMBRACE_H

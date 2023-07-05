@@ -2,6 +2,7 @@
 #include "ui_cardgroupwidget.h"
 #include "game/cards/CardGroup.h"
 #include "cardbutton.h"
+#include "mainwindow.h"
 CardGroupWidget::CardGroupWidget(CardGroup *cg, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::CardGroupWidget)
@@ -13,12 +14,19 @@ CardGroupWidget::CardGroupWidget(CardGroup *cg, QWidget *parent) :
     back->setText("Back");
     back->setStyleSheet("font:bold 20px;");
     connect(back,&QPushButton::clicked,this,[=](){
+        QWidget *tmp = this->parentWidget();
+        while(!dynamic_cast<MainWindow*>(tmp)&&tmp != nullptr)
+        {
+            tmp = tmp->parentWidget();
+        }
+        if(tmp)
+            ((MainWindow*)tmp)->subScreen = nullptr;
         close();
     });
 
     int s = cg->group.size();
     cg->group.sort();
-    ui->scrollAreaWidgetContents->setMinimumHeight(s/5 * 282 + 30 );
+    ui->scrollAreaWidgetContents->setMinimumHeight((s/5+1) * 282 + 30 );
     auto it = cg->group.begin();
     for(int i = 0; i < cg->group.size(); i++)
     {

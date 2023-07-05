@@ -2,15 +2,15 @@
 
 Exhume::Exhume() :
     AbstractCard(
-        (std::string)"Exhume_R",
+        (std::string)"Exhume",
         (std::string)"Exhume",
         (std::string)":/game/resource/cards/exhume.png",
         1,
-        (std::string)"攻击\n造成6点伤害",
+        (std::string)"技能\n选择一张已消耗的牌，将其放入你的手牌。\n消耗。",
         AbstractCard::SKILL,
         AbstractCard::RED,
-        AbstractCard::BASIC,
-        AbstractCard::ENEMY,
+        AbstractCard::RARE,
+        AbstractCard::SELF,
         DamageInfo::DamageType::NORMAL)
 {
     baseDamage = 6;

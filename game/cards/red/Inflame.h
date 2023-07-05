@@ -1,15 +1,15 @@
-#ifndef DEMON_FORM_H
-#define DEMON_FORM_H
+#ifndef INFLAME_H
+#define INFLAME_H
 
 #include "../AbstractCard.h"
 #include "../../characters/AbstractPlayer.h"
 #include "../../monsters/AbstractMonster.h"
-class Demon_form : public AbstractCard
+class Inflame : public AbstractCard
 {
 public:
-    Demon_form();
+    Inflame();
     void use(AbstractPlayer *p,AbstractMonster *m);
     AbstractCard *makeCopy();
 };
 
-#endif // DEMON_FORM_H
+#endif // INFLAME_H
