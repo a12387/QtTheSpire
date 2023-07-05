@@ -2,6 +2,7 @@
 #define SHOP_H
 
 #include <QWidget>
+#include "cardbutton.h"
 
 namespace Ui {
 class Shop;
@@ -18,6 +19,7 @@ public:
     MainWindow *mw;
 private slots:
     void on_continue_2_clicked();
+    void buyCard(CardButton*);
 
 private:
     Ui::Shop *ui;

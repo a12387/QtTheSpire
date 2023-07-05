@@ -18,6 +18,7 @@ SOURCES += \
     game/cards/AbstractCard.cpp \
     game/cards/CardGroup.cpp \
     game/cards/DamageInfo.cpp \
+    game/cards/RandomCard.cpp \
     game/cards/red/Armaments.cpp \
     game/cards/red/Barricade.cpp \
     game/cards/red/Bash.cpp \
@@ -88,6 +89,7 @@ HEADERS += \
     game/cards/AbstractCard.h \
     game/cards/CardGroup.h \
     game/cards/DamageInfo.h \
+    game/cards/RandomCard.h \
     game/cards/red/Armaments.h \
     game/cards/red/Barricade.h \
     game/cards/red/Bash.h \

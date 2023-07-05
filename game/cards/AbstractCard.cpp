@@ -12,3 +12,4 @@ bool AbstractCard::operator==(const AbstractCard &c)
 {
     return (id == c.id)&&(upgraded == c.upgraded);
 }
+void AbstractCard::effect(AbstractCard*c){}

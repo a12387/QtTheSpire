@@ -1,4 +1,4 @@
-#include "Battle_trance.h""
+#include "Battle_trance.h"
 
 Battle_trance::Battle_trance() :
     AbstractCard(
