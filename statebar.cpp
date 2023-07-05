@@ -54,7 +54,7 @@ void StateBar::on_deckButton_clicked()
 {
     if(mw->subScreen == nullptr)
     {
-        mw->subScreen = new CardGroupWidget(&(mw->d.player->masterDeck),mw->currentScreen);
+        mw->subScreen = new CardGroupWidget(false,&(mw->d.player->masterDeck),mw->currentScreen);
         mw->subScreen->show();
     }
     else
@@ -68,7 +68,7 @@ void StateBar::on_deckButton_clicked()
             }
             else
             {
-                mw->subScreen = new CardGroupWidget(&(mw->d.player->masterDeck),mw->currentScreen);
+                mw->subScreen = new CardGroupWidget(false,&(mw->d.player->masterDeck),mw->currentScreen);
                 mw->subScreen->show();
             }
         }

@@ -22,7 +22,7 @@ UseCard::UseCard(QWidget *parent) :
     connect(ui->cancelButton,&QPushButton::clicked,this,
             [=]()
             {
-                cancelSingleSelect();
+                cancelSelect();
             }
     );
     ui->multiConfirmButton->hide();
@@ -86,81 +86,78 @@ void UseCard::setConfirmState(bool b)
 
 void UseCard::selectCardButton(CardButton *c)
 {
-    if(multiSelect == false)
-    {
-        if(selectedSingleCard == nullptr)
-            cardSelect(c);
-        else if(selectedSingleCard == c)
-            cancelSingleSelect();
-        else
-            changeSelect(c);
-        if(selectedSingleCard != nullptr)
-        {
-            ui->confirmButton->show();
-            ui->cancelButton->show();
-            if(c->card->target == AbstractCard::ENEMY)
-            {
-                ui->confirmButton->setDisabled(true);
-                for(auto &i : cr->monstersWidget)
-                {
-                    i->choose = true;
-                }
-            }
-        }
-        else
-        {
-            ui->confirmButton->hide();
-            ui->cancelButton->hide();
 
+    if(selectedCard == nullptr)
+        cardSelect(c);
+    else if(selectedCard == c)
+        cancelSelect();
+    else
+        changeSelect(c);
+    if(selectedCard != nullptr)
+    {
+        ui->confirmButton->show();
+        ui->cancelButton->show();
+        if(c->card->target == AbstractCard::ENEMY)
+        {
+            ui->confirmButton->setDisabled(true);
+            for(auto &i : cr->monstersWidget)
+            {
+                i->choose = true;
+            }
         }
     }
     else
     {
+        ui->confirmButton->hide();
+        ui->cancelButton->hide();
 
-        if(selectedMultiCard.indexOf(c) != -1)
-            cancelMultiSelect(c);
-        else if(selectedMultiCard.size() < maxNum)
-            cardSelect(c);
     }
+
+
 }
 void UseCard::useSelectedCard()
 {
-    mw->d.player->discardPile.addToTop(selectedSingleCard->card);
-    mw->d.player->hand.removeCard(selectedSingleCard->card);
+    mw->d.player->discardPile.addToTop(selectedCard->card);
+    mw->d.player->hand.removeCard(selectedCard->card);
 
-    c = selectedSingleCard->card;
+    c = selectedCard->card;
 
-    c->use(mw->d.player,(AbstractMonster*)(selectedCreature->c));
+    if(c->target == AbstractCard::ENEMY)
+        c->use(mw->d.player,(AbstractMonster*)(selectedCreature->c));
+    else
+        c->use(mw->d.player,nullptr);
 
     switch(mw->d.floor-1){
-    case 2:if(!selectedCreature->c->isPlayer){
+    case 2:if(c->target == AbstractCard::ENEMY){
+        if(!selectedCreature->c->isPlayer){
             if(selectedCreature->c->id=="SpireShield"){
                 if(mw->d.player->direction==1){
-                cr->playerWidget->turnLeft();
-                mw->d.player->direction=0;
-                for(auto &i:mw->d.rooms[2]->monsters.monsters){
-                    if(i->id=="SpireShield")i->buff.pop_front();
-                    else if(i->id=="SpireSpear")i->buff.push_front(new BackAttackRight);
-                }
+                    cr->playerWidget->turnLeft();
+                    mw->d.player->direction=0;
+                    for(auto &i:mw->d.rooms[2]->monsters.monsters){
+                        if(i->id=="SpireShield")i->buff.pop_front();
+                        else if(i->id=="SpireSpear")i->buff.push_front(new BackAttackRight);
+                    }
                 }
             }
             else if(selectedCreature->c->id=="SpireSpear"){
                 if(mw->d.player->direction==0){
-                cr->playerWidget->turnRight();
-                mw->d.player->direction=1;
-                for(auto &i:mw->d.rooms[2]->monsters.monsters){
-                    if(i->id=="SpireSpear")i->buff.pop_front();
-                    else if(i->id=="SpireShield")i->buff.push_front(new BackAttackLeft);
-                }
+                    cr->playerWidget->turnRight();
+                    mw->d.player->direction=1;
+                    for(auto &i:mw->d.rooms[2]->monsters.monsters){
+                        if(i->id=="SpireSpear")i->buff.pop_front();
+                        else if(i->id=="SpireShield")i->buff.push_front(new BackAttackLeft);
+                    }
                 }
             }
-        }break;
+        }
+    }break;
     case 3:mw->d.player->damage(mw->d.rooms[3]->monsters.monsters.front()->buff.front()->amount);break;
     default:break;
     }
 
-    if(!multiSelect)
-        cancelSingleSelect();
+
+    cancelSelect();
 
     cr->update();
 }
@@ -169,22 +166,12 @@ void UseCard::useSelectedCard()
 void UseCard::cardSelect(CardButton *c)
 {
     c->bg->setStyleSheet("border:5px solid rgb(255,255,0)");
-    if(multiSelect)
-    {
-        selectedMultiCard.push_back(c);
-        if(selectedMultiCard.size()>=minNum)
-        {
-            ui->multiConfirmButton->setEnabled(true);
-        }
-    }
-
-    else
-        selectedSingleCard = c;
+    selectedCard = c;
 }
-void UseCard::cancelSingleSelect()
+void UseCard::cancelSelect()
 {
-    selectedSingleCard->bg->setStyleSheet("");
-    selectedSingleCard = nullptr;
+    selectedCard->bg->setStyleSheet("");
+    selectedCard = nullptr;
 
     ui->confirmButton->hide();
     ui->cancelButton->hide();
@@ -200,55 +187,34 @@ void UseCard::cancelSingleSelect()
     }
 }
 
-void UseCard::cancelMultiSelect(CardButton *c)
-{
-    c->bg->setStyleSheet("");
-    selectedMultiCard.removeAll(c);
 
-    if(selectedMultiCard.size() < minNum)
-    {
-        ui->multiConfirmButton->setDisabled(true);
-    }
-}
 void UseCard::changeSelect(CardButton *c)
 {
-    selectedSingleCard->bg->setStyleSheet("");
+    selectedCard->bg->setStyleSheet("");
     c->bg->setStyleSheet("border:5px solid rgb(255,255,0)");
-    selectedSingleCard = c;
+    selectedCard = c;
 }
 
-void UseCard::callCardMultiSelection(int min_,int max_)
+void UseCard::callCardMultiSelection(CardGroup *c,int min_,int max_)
 {
-    multiSelect = true;
-    minNum = min_;
-    maxNum = max_;
-    ui->confirmButton->hide();
-    ui->cancelButton->hide();
-    ui->multiConfirmButton->show();
-    ui->multiConfirmButton->setDisabled(true);
-    ui->endTurnButton->setDisabled(true);
+    CardGroupWidget *selectionScreen = new CardGroupWidget(true,c,parentWidget(),min_,max_);
+    selectionScreen->show();
 }
 
 void UseCard::on_drawPileButton_clicked()
 {
-    mw->subScreen = new CardGroupWidget(&(mw->d.player->drawPile),mw->currentScreen);
+    mw->subScreen = new CardGroupWidget(false,&(mw->d.player->drawPile),mw->currentScreen);
     mw->subScreen->show();
 }
 void UseCard::on_discardPile_clicked()
 {
-    mw->subScreen = new CardGroupWidget(&(mw->d.player->discardPile),mw->currentScreen);
+    mw->subScreen = new CardGroupWidget(false,&(mw->d.player->discardPile),mw->currentScreen);
     mw->subScreen->show();
 }
 void UseCard::on_exhaustPile_clicked()
 {
-    mw->subScreen = new CardGroupWidget(&(mw->d.player->exhaustPile),mw->currentScreen);
+    mw->subScreen = new CardGroupWidget(false,&(mw->d.player->exhaustPile),mw->currentScreen);
     mw->subScreen->show();
 }
-void UseCard::on_multiConfirmButton_clicked()
-{
-    for(auto &i : selectedMultiCard)
-    {
-        c->effect(i->card);
-    }
-}
+
 

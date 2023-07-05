@@ -22,7 +22,7 @@ Armaments::Armaments() :
 void Armaments::use(AbstractPlayer *p,AbstractMonster *m)
 {
     p->addBlock(baseBlock);
-    ((CombatRoom*)(mw->d.rooms[mw->d.floor - 1]->screen))->uc->callCardMultiSelection(1,1);
+    ((CombatRoom*)(mw->d.rooms[mw->d.floor - 1]->screen))->uc->callCardMultiSelection(&p->hand,1,1);
 }
 AbstractCard *Armaments::makeCopy()
 {

@@ -29,28 +29,6 @@
     <string>获得牌组</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="relicButton">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>670</x>
-     <y>190</y>
-     <width>341</width>
-     <height>121</height>
-    </rect>
-   </property>
-   <property name="cursor">
-    <cursorShape>ArrowCursor</cursorShape>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">font: 40pt &quot;Microsoft YaHei UI&quot;;</string>
-   </property>
-   <property name="text">
-    <string>获得遗物</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="continueButton">
    <property name="geometry">
     <rect>
@@ -86,10 +64,29 @@
     <bool>true</bool>
    </property>
   </widget>
+  <widget class="QPushButton" name="relicButton">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>660</x>
+     <y>190</y>
+     <width>341</width>
+     <height>121</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 40pt &quot;Microsoft YaHei UI&quot;;</string>
+   </property>
+   <property name="text">
+    <string>获得遗物</string>
+   </property>
+  </widget>
   <zorder>label</zorder>
   <zorder>cardButton</zorder>
-  <zorder>relicButton</zorder>
   <zorder>continueButton</zorder>
+  <zorder>relicButton</zorder>
  </widget>
  <resources>
   <include location="res.qrc"/>
