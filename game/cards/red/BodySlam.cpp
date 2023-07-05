@@ -13,14 +13,13 @@ BodySlam::BodySlam() :
         AbstractCard::ENEMY,
         DamageInfo::DamageType::NORMAL)
 {
-    baseDamage = 6;
-    tags.push_back(CardTags::STARTER_STRIKE);
-    tags.push_back(CardTags::STRIKE);
+    baseDamage = 0;
 }
 
 void BodySlam::use(AbstractPlayer *p,AbstractMonster *m)
 {
-    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
+    p->energy -= cost;
+    DamageInfo tmp = DamageInfo(p,p->currentBlock,this->dType);
     m->damage(tmp);
 }
 AbstractCard *BodySlam::makeCopy()

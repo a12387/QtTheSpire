@@ -13,15 +13,14 @@ ShrugItOff::ShrugItOff() :
         AbstractCard::SELF,
         DamageInfo::DamageType::NORMAL)
 {
-    baseDamage = 6;
-    tags.push_back(CardTags::STARTER_STRIKE);
-    tags.push_back(CardTags::STRIKE);
+    baseBlock = 8;
 }
 
 void ShrugItOff::use(AbstractPlayer *p,AbstractMonster *m)
 {
-    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
-    m->damage(tmp);
+    p->energy -= cost;
+    p->addBlock(baseBlock);
+    p->drawCard(1);
 }
 AbstractCard *ShrugItOff::makeCopy()
 {

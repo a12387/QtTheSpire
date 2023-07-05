@@ -13,15 +13,16 @@ PommelStrike::PommelStrike() :
         AbstractCard::ENEMY,
         DamageInfo::DamageType::NORMAL)
 {
-    baseDamage = 6;
-    tags.push_back(CardTags::STARTER_STRIKE);
-    tags.push_back(CardTags::STRIKE);
+    baseDamage = 9;
+    baseMagicNumber = 1;
 }
 
 void PommelStrike::use(AbstractPlayer *p,AbstractMonster *m)
 {
-    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
+    p->energy -= cost;
+    DamageInfo tmp = DamageInfo(p,this->baseDamage,this->dType);
     m->damage(tmp);
+    p->drawCard(baseMagicNumber);
 }
 AbstractCard *PommelStrike::makeCopy()
 {

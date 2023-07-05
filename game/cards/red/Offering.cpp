@@ -13,15 +13,20 @@ Offering::Offering() :
         AbstractCard::SELF,
         DamageInfo::DamageType::NORMAL)
 {
-    baseDamage = 6;
-    tags.push_back(CardTags::STARTER_STRIKE);
-    tags.push_back(CardTags::STRIKE);
+    exhaust = true;
+    baseMagicNumber = 3;
 }
 
 void Offering::use(AbstractPlayer *p,AbstractMonster *m)
 {
-    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
-    m->damage(tmp);
+    p->energy -= cost;
+
+
+    p->damage(6);
+
+    p->energy += 2;
+
+    p->drawCard(baseMagicNumber);
 }
 AbstractCard *Offering::makeCopy()
 {

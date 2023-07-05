@@ -20,8 +20,7 @@ Corruption::Corruption() :
 
 void Corruption::use(AbstractPlayer *p,AbstractMonster *m)
 {
-    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
-    m->damage(tmp);
+    p->energy -= cost;
 }
 AbstractCard *Corruption::makeCopy()
 {

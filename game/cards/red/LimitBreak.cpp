@@ -1,5 +1,5 @@
 #include "LimitBreak.h"
-
+#include "../../powers/Strength.h"
 LimitBreak::LimitBreak() :
     AbstractCard(
         (std::string)"LimitBreak",
@@ -13,15 +13,19 @@ LimitBreak::LimitBreak() :
         AbstractCard::SELF,
         DamageInfo::DamageType::NORMAL)
 {
-    baseDamage = 6;
-    tags.push_back(CardTags::STARTER_STRIKE);
-    tags.push_back(CardTags::STRIKE);
+    exhaust = true;
 }
 
 void LimitBreak::use(AbstractPlayer *p,AbstractMonster *m)
 {
-    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
-    m->damage(tmp);
+    p->energy -= cost;
+    auto it = p->buff.begin();
+    while(it != p->buff.end())
+    {
+        if((*it)->name == "Strength")
+            p->ApplyPower(new Strength((*it)->amount));
+        it++;
+    }
 }
 AbstractCard *LimitBreak::makeCopy()
 {

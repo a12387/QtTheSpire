@@ -13,7 +13,4 @@ void AbstractMonster::die(bool triggerRelics)
 {
 
 }
-//void applyPowers()
-//{
 
-//}

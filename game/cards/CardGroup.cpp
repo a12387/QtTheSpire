@@ -28,6 +28,7 @@ bool CardGroup::removeCard(std::string id)
             group.erase(it);
             return true;
         }
+        it++;
     }
     return false;
 }

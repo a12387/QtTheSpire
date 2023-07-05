@@ -13,15 +13,14 @@ BattleTrance::BattleTrance() :
         AbstractCard::SELF,
         DamageInfo::DamageType::NORMAL)
 {
-    baseDamage = 6;
+    baseMagicNumber = 3;
     tags.push_back(CardTags::STARTER_STRIKE);
     tags.push_back(CardTags::STRIKE);
 }
 
 void BattleTrance::use(AbstractPlayer *p,AbstractMonster *m)
 {
-    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
-    m->damage(tmp);
+    p->energy -= cost;
 }
 AbstractCard *BattleTrance::makeCopy()
 {

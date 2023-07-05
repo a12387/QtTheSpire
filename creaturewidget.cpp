@@ -83,6 +83,8 @@ void CreatureWidget::mouseReleaseEvent(QMouseEvent *me)
     {
         if(cr->uc->selectedCreature!=this)
         {
+            if(cr->uc->selectedCreature != nullptr)
+                cr->uc->selectedCreature->setFrameState(false);
             cr->uc->selectedCreature = this;
             cr->uc->setConfirmState(true);
         }

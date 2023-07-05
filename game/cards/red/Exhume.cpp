@@ -1,5 +1,6 @@
 #include "Exhume.h"
-
+#include "mainwindow.h"
+#include "combatroom.h"
 Exhume::Exhume() :
     AbstractCard(
         (std::string)"Exhume",
@@ -13,15 +14,17 @@ Exhume::Exhume() :
         AbstractCard::SELF,
         DamageInfo::DamageType::NORMAL)
 {
-    baseDamage = 6;
-    tags.push_back(CardTags::STARTER_STRIKE);
-    tags.push_back(CardTags::STRIKE);
+    exhaust = true;
 }
 
 void Exhume::use(AbstractPlayer *p,AbstractMonster *m)
 {
-    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
-    m->damage(tmp);
+    p->energy -= cost;
+    ((CombatRoom*)(mw->d.rooms[mw->d.floor - 1]->screen))->uc->callCardMultiSelection(&p->exhaustPile,1,1);
+}
+void Exhume::effect(AbstractCard *c)
+{
+    mw->d.player->hand.addToBottom(c);
 }
 AbstractCard *Exhume::makeCopy()
 {

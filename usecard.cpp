@@ -13,6 +13,8 @@ UseCard::UseCard(QWidget *parent) :
 {
     ui->setupUi(this);
 
+
+
     cr = (CombatRoom*)parent;
     mw = cr->mw;
 
@@ -25,8 +27,8 @@ UseCard::UseCard(QWidget *parent) :
                 cancelSelect();
             }
     );
-    ui->multiConfirmButton->hide();
     ui->scrollArea->setStyleSheet("QScrollBar:horizontal{height:15px;}");
+
 
     connect(ui->endTurnButton,&QPushButton::clicked,this,
             [=]()
@@ -50,6 +52,8 @@ UseCard::~UseCard()
 
 void UseCard::update()
 {
+    ui->energy->setText(QString("%1/3").arg(mw->d.player->energy));
+
     int n = mw->d.player->hand.group.size();
     ui->scrollAreaWidgetContents->setMinimumWidth(150 * n);
     auto it = mw->d.player->hand.group.begin();
@@ -86,41 +90,50 @@ void UseCard::setConfirmState(bool b)
 
 void UseCard::selectCardButton(CardButton *c)
 {
-
-    if(selectedCard == nullptr)
-        cardSelect(c);
-    else if(selectedCard == c)
-        cancelSelect();
-    else
-        changeSelect(c);
-    if(selectedCard != nullptr)
+    if(mw->d.player->energy >= c->card->cost)
     {
-        ui->confirmButton->show();
-        ui->cancelButton->show();
-        if(c->card->target == AbstractCard::ENEMY)
+        if(selectedCard == nullptr)
+            cardSelect(c);
+        else if(selectedCard == c)
+            cancelSelect();
+        else
+            changeSelect(c);
+        if(selectedCard != nullptr)
         {
-            ui->confirmButton->setDisabled(true);
-            for(auto &i : cr->monstersWidget)
+            ui->confirmButton->show();
+            ui->cancelButton->show();
+            if(c->card->target == AbstractCard::ENEMY)
             {
-                i->choose = true;
+                ui->confirmButton->setDisabled(true);
+                for(auto &i : cr->monstersWidget)
+                {
+                    i->choose = true;
+                }
             }
         }
-    }
-    else
-    {
-        ui->confirmButton->hide();
-        ui->cancelButton->hide();
+        else
+        {
+            ui->confirmButton->hide();
+            ui->cancelButton->hide();
 
+        }
     }
+    //else show Energy Not Enough
+
 
 
 }
 void UseCard::useSelectedCard()
 {
-    mw->d.player->discardPile.addToTop(selectedCard->card);
-    mw->d.player->hand.removeCard(selectedCard->card);
-
     c = selectedCard->card;
+    mw->d.player->hand.removeCard(c);
+
+    if(c->exhaust == true)
+        mw->d.player->exhaustPile.addToTop(c);
+    else if(c->type != AbstractCard::POWER)
+        mw->d.player->discardPile.addToTop(c);
+
+
 
     if(c->target == AbstractCard::ENEMY)
         c->use(mw->d.player,(AbstractMonster*)(selectedCreature->c));

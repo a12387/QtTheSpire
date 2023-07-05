@@ -13,15 +13,25 @@ SecondWind::SecondWind() :
         AbstractCard::SELF,
         DamageInfo::DamageType::NORMAL)
 {
-    baseDamage = 6;
-    tags.push_back(CardTags::STARTER_STRIKE);
-    tags.push_back(CardTags::STRIKE);
+    baseBlock = 5;
 }
 
 void SecondWind::use(AbstractPlayer *p,AbstractMonster *m)
 {
-    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
-    m->damage(tmp);
+    p->energy -= cost;
+    auto it = p->hand.group.begin();
+    while(it != p->hand.group.end())
+    {
+        if((*it)->type != AbstractCard::ATTACK)
+        {
+            p->exhaustPile.addToTop(*it);
+            p->hand.removeCard(*it);
+            p->addBlock(baseBlock);
+            it = p->hand.group.begin();
+        }
+        else
+            it++;
+    }
 }
 AbstractCard *SecondWind::makeCopy()
 {

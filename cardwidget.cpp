@@ -116,6 +116,7 @@ void CardWidget::resizeEvent(QResizeEvent *re)
         int w = originGeometry[i].width() * ratio_x;
         int h = originGeometry[i].height() * ratio_y;
         p->setGeometry(x,y,w,h);
+
         QFont f = p->font();
         int newSize = qRound(sqrt(ratio_x * ratio_y) * originFontSize[i]);
         f.setPointSize(newSize);

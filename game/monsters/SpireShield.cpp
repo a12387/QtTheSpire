@@ -5,8 +5,9 @@ SpireShield::SpireShield():
     AbstractMonster(
         std::string(":/game/resource/creature/shield.png"),
         std::string("Spire Shield"),
-        std::string("SpireShield"),6)
-        //110)
+        std::string("SpireShield"),
+        110)
+
 {
     ApplyPower(new BackAttackLeft());
     ApplyPower(new Artifact(1));

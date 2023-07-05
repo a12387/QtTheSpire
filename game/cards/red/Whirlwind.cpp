@@ -1,5 +1,5 @@
 #include "Whirlwind.h"
-
+#include "mainwindow.h"
 Whirlwind::Whirlwind() :
     AbstractCard(
         (std::string)"Whirlwind",
@@ -10,18 +10,22 @@ Whirlwind::Whirlwind() :
         AbstractCard::ATTACK,
         AbstractCard::RED,
         AbstractCard::UNCOMMON,
-        AbstractCard::ENEMY,
+        AbstractCard::ALL_ENEMY,
         DamageInfo::DamageType::NORMAL)
 {
-    baseDamage = 6;
-    tags.push_back(CardTags::STARTER_STRIKE);
-    tags.push_back(CardTags::STRIKE);
+    baseDamage = 5;
 }
 
 void Whirlwind::use(AbstractPlayer *p,AbstractMonster *m)
 {
-    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
-    m->damage(tmp);
+    DamageInfo tmp = DamageInfo(p,baseDamage,dType);
+    while(p->energy --)
+    {
+        for(auto & i:mw->d.rooms[mw->d.floor - 1]->monsters.monsters)
+        {
+            i->damage(tmp);
+        }
+    }
 }
 AbstractCard *Whirlwind::makeCopy()
 {

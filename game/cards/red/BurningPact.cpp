@@ -1,5 +1,6 @@
 #include "BurningPact.h"
-
+#include "mainwindow.h"
+#include "combatroom.h"
 BurningPact::BurningPact() :
     AbstractCard(
         (std::string)"BurningPact",
@@ -13,16 +14,21 @@ BurningPact::BurningPact() :
         AbstractCard::SELF,
         DamageInfo::DamageType::NORMAL)
 {
-    baseDamage = 6;
-    tags.push_back(CardTags::STARTER_STRIKE);
-    tags.push_back(CardTags::STRIKE);
+    baseMagicNumber = 2;
 }
 
 void BurningPact::use(AbstractPlayer *p,AbstractMonster *m)
 {
-    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
-    m->damage(tmp);
+    p->energy -= cost;
+    ((CombatRoom*)(mw->d.rooms[mw->d.floor - 1]->screen))->uc->callCardMultiSelection(&p->hand,1,1);
 }
+void BurningPact::effect(AbstractCard *c)
+{
+    mw->d.player->hand.removeCard(c);
+    mw->d.player->exhaustPile.addToTop(c);
+    mw->d.player->drawCard(baseMagicNumber);
+}
+
 AbstractCard *BurningPact::makeCopy()
 {
     return new BurningPact;

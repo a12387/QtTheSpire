@@ -15,12 +15,11 @@ Armaments::Armaments() :
         DamageInfo::DamageType::NORMAL)
 {
     baseBlock = 5;
-    tags.push_back(CardTags::STARTER_STRIKE);
-    tags.push_back(CardTags::STRIKE);
 }
 
 void Armaments::use(AbstractPlayer *p,AbstractMonster *m)
 {
+    p->energy -= cost;
     p->addBlock(baseBlock);
     ((CombatRoom*)(mw->d.rooms[mw->d.floor - 1]->screen))->uc->callCardMultiSelection(&p->hand,1,1);
 }

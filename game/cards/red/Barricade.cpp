@@ -14,14 +14,11 @@ Barricade::Barricade() :
         DamageInfo::DamageType::NORMAL)
 {
     baseDamage = 6;
-    tags.push_back(CardTags::STARTER_STRIKE);
-    tags.push_back(CardTags::STRIKE);
 }
 
 void Barricade::use(AbstractPlayer *p,AbstractMonster *m)
 {
-    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
-    m->damage(tmp);
+    p->energy -= cost;
 }
 AbstractCard *Barricade::makeCopy()
 {

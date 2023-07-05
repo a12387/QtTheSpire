@@ -1,5 +1,5 @@
 #include "Bash.h"
-
+#include "../../powers/Vulnerable.h"
 Bash::Bash() :
     AbstractCard(
         (std::string)"Bash",
@@ -13,15 +13,16 @@ Bash::Bash() :
         AbstractCard::ENEMY,
         DamageInfo::DamageType::NORMAL)
 {
-    baseDamage = 6;
-    tags.push_back(CardTags::STARTER_STRIKE);
-    tags.push_back(CardTags::STRIKE);
+    baseDamage = 8;
+    baseMagicNumber = 2;
 }
 
 void Bash::use(AbstractPlayer *p,AbstractMonster *m)
 {
-    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
+    p->energy -= cost;
+    DamageInfo tmp = DamageInfo(p,this->baseDamage,this->dType);
     m->damage(tmp);
+    m->ApplyPower(new Vulnerable(baseMagicNumber));
 }
 AbstractCard *Bash::makeCopy()
 {

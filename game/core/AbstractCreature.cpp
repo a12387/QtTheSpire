@@ -13,7 +13,8 @@ void AbstractCreature::damage(DamageInfo& info)
     if (damageAmount <= 0)
         damageAmount = 0;
 
-    damageAmount = decrementBlock(info, damageAmount);
+    if(info.type != DamageInfo::HP_LOSS)
+        damageAmount = decrementBlock(info, damageAmount);
 
     damageAmount = damageAmount < currentHealth ? damageAmount : currentHealth;
 

@@ -14,6 +14,7 @@ public:
     CardGroup discardPile= CardGroup(CardGroup::DISCARD_PILE);
     CardGroup exhaustPile= CardGroup(CardGroup::EXHAUST_PILE);
     int direction;
+    int energy;
 
     //std::list<AbstractRelic> relics;
     //std::list<AbstractPotion> potions;

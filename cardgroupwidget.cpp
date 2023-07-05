@@ -4,7 +4,7 @@
 #include "cardbutton.h"
 #include "mainwindow.h"
 #include "combatroom.h"
-CardGroupWidget::CardGroupWidget(bool selectable,CardGroup *cg, QWidget *parent,int min,int max) :selectable(selectable),
+CardGroupWidget::CardGroupWidget(bool selectable,CardGroup *cg_, QWidget *parent,int min,int max) :selectable(selectable),
     QWidget(parent),min(min),max(max),
     ui(new Ui::CardGroupWidget)
 {
@@ -47,11 +47,12 @@ CardGroupWidget::CardGroupWidget(bool selectable,CardGroup *cg, QWidget *parent,
         btn->setDisabled(true);
     }
 
-    int s = cg->group.size();
-    cg->group.sort();
+    std::list<AbstractCard*> g(cg_->group);
+    int s = g.size();
+    g.sort([=](AbstractCard* a,AbstractCard* b){return a->id > b->id;});
     ui->scrollAreaWidgetContents->setMinimumHeight((s/5+1) * 282 + 30 );
-    auto it = cg->group.begin();
-    for(int i = 0; i < cg->group.size(); i++)
+    auto it = g.begin();
+    for(int i = 0; i < g.size(); i++)
     {
         CardButton *c = new CardButton(*it,ui->scrollAreaWidgetContents);
         c->move(210 * (i%5) + 30,282 * (i/5) + 30);

@@ -13,15 +13,13 @@ Finesse::Finesse() :
         AbstractCard::ENEMY,
         DamageInfo::DamageType::NORMAL)
 {
-    baseDamage = 6;
-    tags.push_back(CardTags::STARTER_STRIKE);
-    tags.push_back(CardTags::STRIKE);
+    baseBlock = 2;
+    baseMagicNumber = 1;
 }
 
 void Finesse::use(AbstractPlayer *p,AbstractMonster *m)
 {
-    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
-    m->damage(tmp);
+    p->energy -= cost;
 }
 AbstractCard *Finesse::makeCopy()
 {

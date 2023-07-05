@@ -20,6 +20,7 @@ Strike_Red::Strike_Red() :
 
 void Strike_Red::use(AbstractPlayer *p,AbstractMonster *m)
 {
+    p->energy -= cost;
     DamageInfo tmp = DamageInfo(p,this->baseDamage,this->dType);
     m->damage(tmp);
 }

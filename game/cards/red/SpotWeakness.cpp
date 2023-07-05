@@ -1,5 +1,5 @@
 #include "SpotWeakness.h"
-
+#include "../../powers/Strength.h"
 SpotWeakness::SpotWeakness() :
     AbstractCard(
         (std::string)"SpotWeakness",
@@ -13,15 +13,19 @@ SpotWeakness::SpotWeakness() :
         AbstractCard::ENEMY,
         DamageInfo::DamageType::NORMAL)
 {
-    baseDamage = 6;
-    tags.push_back(CardTags::STARTER_STRIKE);
-    tags.push_back(CardTags::STRIKE);
+    baseMagicNumber = 3;
 }
 
 void SpotWeakness::use(AbstractPlayer *p,AbstractMonster *m)
 {
-    DamageInfo tmp = DamageInfo(p,this->damage,this->dType);
-    m->damage(tmp);
+    p->energy -= cost;
+    if( m->intent == AbstractMonster::ATTACK_DEBUFF||
+        m->intent == AbstractMonster::ATTACK||
+        m->intent == AbstractMonster::ATTACK_DEFEND||
+        m->intent == AbstractMonster::ATTACK_BUFF)
+    {
+        p->ApplyPower(new Strength(baseMagicNumber));
+    }
 }
 AbstractCard *SpotWeakness::makeCopy()
 {

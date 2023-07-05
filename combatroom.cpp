@@ -59,7 +59,8 @@ void CombatRoom::initalize()
 void CombatRoom::playerAction()
 {
     //onStartOfTurn();
-    playerWidget->c->loseBlock();
+    mw->d.player->loseBlock();
+    mw->d.player->energy = 3;
 
     mw->d.player->drawCard(5);
     for(auto &i:monstersWidget)

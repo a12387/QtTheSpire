@@ -9,6 +9,7 @@ class Exhume : public AbstractCard
 public:
     Exhume();
     void use(AbstractPlayer *p,AbstractMonster *m);
+    void effect(AbstractCard *c);
     AbstractCard *makeCopy();
 };
 #endif // EXHUME_H
