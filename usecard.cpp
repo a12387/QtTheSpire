@@ -248,7 +248,7 @@ void UseCard::on_multiConfirmButton_clicked()
 {
     for(auto &i : selectedMultiCard)
     {
-        c->effect(i);
+        c->effect(i->card);
     }
 }
 
