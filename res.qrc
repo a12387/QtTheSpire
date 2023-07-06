@@ -89,5 +89,7 @@
         <file>game/resource/ui/endturn.png</file>
         <file>game/resource/ui/exhaust.png</file>
         <file>game/resource/ui/energyRed.png</file>
+        <file>game/resource/bg_colorless.png</file>
+        <file>game/resource/bg_energy_colorless.png</file>
     </qresource>
 </RCC>

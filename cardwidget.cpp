@@ -20,12 +20,31 @@ CardWidget::CardWidget(AbstractCard *card,QWidget *parent) :
     QFont f;
     f.setPointSize(14);
 
-    ui->bg_cost->setPixmap(QPixmap(":/game/resource/bg_energy.png"));
+    if(card->color==AbstractCard::RED)ui->bg_cost->setPixmap(QPixmap(":/game/resource/bg_energy.png"));
+    else ui->bg_cost->setPixmap(QPixmap(":/game/resource/bg_energy_colorless.png"));
     ui->bg_cost->setScaledContents(true);
-    ui->cost->setText(QString::number(card->cost));
-    ui->cost->setAlignment(Qt::AlignHCenter);
+
     ui->cost->setFont(f);
+    ui->cost->setAlignment(Qt::AlignHCenter);
     ui->cost->setStyleSheet("color:white;");
+    ui->cost_2->setAlignment(Qt::AlignHCenter);
+    ui->cost_2->setStyleSheet("color:black;");
+    if(card->cost != -1 && card->cost != 999)
+    {
+        ui->cost->setText(QString::number(card->cost));
+        ui->cost_2->setText(QString::number(card->cost));
+    }
+    else if(card->cost == -1)
+    {
+        ui->cost->setText("X");
+        ui->cost_2->setText("X");
+    }
+    else if(card->cost == 999)
+    {
+        ui->cost->hide();
+        ui->cost_2->hide();
+    }
+
 
     ui->name->setText(QString::fromStdString(card->name));
     ui->name->setAlignment(Qt::AlignHCenter);
@@ -85,10 +104,8 @@ CardWidget::CardWidget(AbstractCard *card,QWidget *parent) :
 
     f.setBold(true);
     f.setPointSize(15);
-    ui->cost_2->setText(QString::number(card->cost));
-    ui->cost_2->setAlignment(Qt::AlignHCenter);
     ui->cost_2->setFont(f);
-    ui->cost_2->setStyleSheet("color:black;");
+
 
     for(auto &i : children())
     {

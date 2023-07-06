@@ -1,6 +1,10 @@
 
 #include "CorruptHeart.h"
-
+#include "../cards/colorless/Burn.h"
+#include "../cards/colorless/Dazed.h"
+#include "../cards/colorless/Slimed.h"
+#include "../cards/colorless/Void.h"
+#include "../cards/colorless/Wound.h"
 CorruptHeart::CorruptHeart():
     AbstractMonster(
         std::string(":/game/resource/creature/CorruptHeart.png"),
@@ -47,7 +51,12 @@ void CorruptHeart::act(AbstractPlayer*p){
             p->ApplyPower(new Frail(2));
             p->ApplyPower(new Weak(2));
             p->ApplyPower(new Vulnerable(2));
-        //抽牌堆加5张牌
+            p->drawPile.addToTop(new Burn);
+            p->drawPile.addToTop(new Dazed);
+            p->drawPile.addToTop(new Slimed);
+            p->drawPile.addToTop(new Void);
+            p->drawPile.addToTop(new Wound);
+            p->drawPile.shuffle(p->drawPile.group.size());
         }
         else{
             for(auto i=buff.begin();i!=buff.end();++i){

@@ -62,9 +62,11 @@ void CombatRoom::initalize()
 void CombatRoom::playerAction()
 {
     //onStartOfTurn();
+
     mw->d.player->loseBlock();
     mw->d.player->energy = 3;
 
+    mw->d.player->changePower();
     mw->d.player->drawCard(5);
     for(auto &i:monstersWidget)
     {
@@ -74,7 +76,11 @@ void CombatRoom::playerAction()
     update();
 }
 void CombatRoom::monsterAction(){
-    mw->d.player->changePower();
+
+
+    QEventLoop l;
+    QTimer::singleShot(1000,&l,SLOT(quit()));
+    l.exec();
 
     for(auto &i:monstersWidget)
     {

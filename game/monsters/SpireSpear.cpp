@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "SpireSpear.h"
+#include "../cards/colorless/Burn.h"
 
 SpireSpear::SpireSpear():
     AbstractMonster(
@@ -32,8 +33,10 @@ void SpireSpear::act(AbstractPlayer*p){
     else if(intent==ATTACK_DEBUFF){
         lastMove=0;
         DamageInfo dmg(this,5,DamageInfo::NORMAL);
-        for(int i=0;i<2;i++)p->damage(dmg);
-        //将2张灼伤洗入弃牌堆
+        for(int i=0;i<2;i++){
+            p->damage(dmg);
+            p->discardPile.addToTop(new Burn());
+        }
     }
     round++;
 }

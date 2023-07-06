@@ -19,6 +19,11 @@ SOURCES += \
     game/cards/CardGroup.cpp \
     game/cards/DamageInfo.cpp \
     game/cards/RandomCard.cpp \
+    game/cards/colorless/Burn.cpp \
+    game/cards/colorless/Dazed.cpp \
+    game/cards/colorless/Slimed.cpp \
+    game/cards/colorless/Void.cpp \
+    game/cards/colorless/Wound.cpp \
     game/cards/red/Armaments.cpp \
     game/cards/red/Barricade.cpp \
     game/cards/red/Bash.cpp \
@@ -97,6 +102,11 @@ HEADERS += \
     game/cards/CardGroup.h \
     game/cards/DamageInfo.h \
     game/cards/RandomCard.h \
+    game/cards/colorless/Burn.h \
+    game/cards/colorless/Dazed.h \
+    game/cards/colorless/Slimed.h \
+    game/cards/colorless/Void.h \
+    game/cards/colorless/Wound.h \
     game/cards/red/Armaments.h \
     game/cards/red/Barricade.h \
     game/cards/red/Bash.h \
