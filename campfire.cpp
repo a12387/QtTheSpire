@@ -16,7 +16,8 @@ Campfire::Campfire(QWidget *parent) :
         tmp = tmp->parentWidget();
     }
     mw = (MainWindow*)tmp;
-
+    ui->bg->setPixmap(QPixmap(":/game/resource/scenes/bonfire1.jpg"));
+    ui->bg->setScaledContents(true);
     ui->continueButton->hide();
 }
 
@@ -31,9 +32,11 @@ void Campfire::on_cardButton_clicked()
     GetCard *gc = new GetCard(this);
     gc->show();
 
-
+    ui->bg->setPixmap(QPixmap(":/game/resource/scenes/bonfire2.jpg"));
+    ui->bg->setScaledContents(true);
 
     ui->cardButton->setDisabled(true);
+    ui->cardButton->hide();
 
     ui->continueButton->show();
 }
