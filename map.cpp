@@ -31,11 +31,13 @@ Map::Map(bool selectable,QWidget *parent)
 
     QPushButton *back = new QPushButton(this);
     back->setGeometry(40,500,180,75);
-    back->setText("Back");
+    back->setText("返回");
     back->setStyleSheet("font:bold 20px;");
     connect(back,&QPushButton::clicked,this,[=](){
         close();
     });
+
+    back->setStyleSheet("font: 20pt;border-image: url(:/game/resource/ui/endturn.png);color: rgb(255, 255, 255);");
 
     if(mw->d.floor == 0)
     {

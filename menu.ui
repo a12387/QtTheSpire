@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1080</width>
-    <height>670</height>
+    <height>720</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,10 +22,17 @@
      <height>81</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <family>华文彩云</family>
+     <pointsize>22</pointsize>
+     <italic>false</italic>
+     <bold>false</bold>
+     <kerning>true</kerning>
+    </font>
+   </property>
    <property name="styleSheet">
-    <string notr="true">color: qradialgradient(spread:repeat, cx:0.5, cy:0.5, radius:0.077, fx:0.5, fy:0.5, stop:0 rgba(0, 169, 255, 147), stop:0.497326 rgba(0, 0, 0, 147), stop:1 rgba(0, 169, 255, 147));
-background-color: rgba(255, 255, 255, 0);
-font: 22pt &quot;华文琥珀&quot;;</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string>开始游戏</string>
@@ -48,6 +55,25 @@ background-color: rgba(255, 255, 255, 0);</string>
     <string/>
    </property>
   </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1080</width>
+     <height>720</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/game/resource/ui/menu.jpg);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>label_2</zorder>
+  <zorder>label</zorder>
+  <zorder>pushButton</zorder>
  </widget>
  <resources/>
  <connections/>

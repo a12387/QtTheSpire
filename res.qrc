@@ -69,13 +69,11 @@
         <file>game/resource/powers/Weak.png</file>
         <file>game/resource/ui/cursor.png</file>
         <file>game/resource/ui/elite.png</file>
-        <file>game/resource/ui/eliteOutline.png</file>
         <file>game/resource/ui/eng.png</file>
         <file>game/resource/ui/rest.png</file>
         <file>game/resource/ui/shop.png</file>
         <file>game/resource/creature/corpse.png</file>
         <file>game/resource/creature/shoulder.png</file>
-        <file>game/resource/ui/title.png</file>
         <file>game/resource/creature/ironclad_.png</file>
         <file>game/resource/powers/Corruption.png</file>
         <file>game/resource/powers/DarkEmbrace.png</file>
@@ -83,5 +81,13 @@
         <file>game/resource/powers/FeelNoPain.png</file>
         <file>game/resource/powers/Barricade.png</file>
         <file>game/resource/powers/NoDraw.png</file>
+        <file>game/resource/ui/menu.jpg</file>
+        <file>game/resource/ui/heart.png</file>
+        <file>game/resource/scenes/scene.jpg</file>
+        <file>game/resource/ui/deck.png</file>
+        <file>game/resource/ui/discard.png</file>
+        <file>game/resource/ui/endturn.png</file>
+        <file>game/resource/ui/exhaust.png</file>
+        <file>game/resource/ui/energyRed.png</file>
     </qresource>
 </RCC>

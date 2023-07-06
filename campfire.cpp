@@ -27,25 +27,17 @@ Campfire::~Campfire()
 
 void Campfire::on_cardButton_clicked()
 {
-    //Get Card
-    //for(int i=0;i<15;i++){
+
     GetCard *gc = new GetCard(this);
     gc->show();
-    //}
+
 
 
     ui->cardButton->setDisabled(true);
-    ui->relicButton->setEnabled(true);
 
-
-}
-void Campfire::on_relicButton_clicked()
-{
-    /*
-     * getRelic
-     */
     ui->continueButton->show();
 }
+
 void Campfire::on_continueButton_clicked()
 {
     mw->subScreen = new Map(true,this);

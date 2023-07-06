@@ -22,8 +22,11 @@
      <height>100</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/game/resource/ui/deck.png);</string>
+   </property>
    <property name="text">
-    <string>DrawPile</string>
+    <string/>
    </property>
   </widget>
   <widget class="QLabel" name="energy">
@@ -37,11 +40,12 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>20</pointsize>
+     <pointsize>15</pointsize>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(255, 187, 51);</string>
+    <string notr="true">
+border-image: url(:/game/resource/ui/energyRed.png);</string>
    </property>
    <property name="text">
     <string>3/3</string>
@@ -59,34 +63,45 @@
      <height>100</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/game/resource/ui/discard.png);</string>
+   </property>
    <property name="text">
-    <string>DiscardPile</string>
+    <string/>
    </property>
   </widget>
   <widget class="QPushButton" name="exhaustPile">
    <property name="geometry">
     <rect>
-     <x>980</x>
-     <y>100</y>
-     <width>100</width>
-     <height>50</height>
+     <x>990</x>
+     <y>89</y>
+     <width>71</width>
+     <height>71</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/game/resource/ui/exhaust.png);</string>
+   </property>
    <property name="text">
-    <string>ExhaustPile</string>
+    <string/>
    </property>
   </widget>
   <widget class="QPushButton" name="endTurnButton">
    <property name="geometry">
     <rect>
      <x>980</x>
-     <y>50</y>
+     <y>9</y>
      <width>100</width>
-     <height>50</height>
+     <height>91</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/game/resource/ui/endturn.png);
+color: rgb(255, 255, 255);
+font: 700 11pt &quot;Microsoft YaHei UI&quot;;</string>
+   </property>
    <property name="text">
-    <string>EndTurn</string>
+    <string>结束回合</string>
    </property>
   </widget>
   <widget class="QScrollArea" name="scrollArea">
@@ -119,26 +134,34 @@
    <property name="geometry">
     <rect>
      <x>350</x>
-     <y>0</y>
+     <y>-11</y>
      <width>80</width>
-     <height>30</height>
+     <height>61</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/game/resource/ui/endturn.png);
+color: rgb(255, 255, 255);</string>
+   </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>确认</string>
    </property>
   </widget>
   <widget class="QPushButton" name="cancelButton">
    <property name="geometry">
     <rect>
      <x>550</x>
-     <y>0</y>
+     <y>-11</y>
      <width>80</width>
-     <height>30</height>
+     <height>61</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/game/resource/ui/endturn.png);
+color: rgb(255, 255, 255);</string>
+   </property>
    <property name="text">
-    <string>PushButton</string>
+    <string>取消</string>
    </property>
   </widget>
  </widget>

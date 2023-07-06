@@ -14,8 +14,7 @@ CardGroupWidget::CardGroupWidget(bool selectable,CardGroup *cg_, QWidget *parent
     {
         btn = new QPushButton(this);
         btn->setGeometry(40,500,180,75);
-        btn->setText("Back");
-        btn->setStyleSheet("font:bold 20px;");
+        btn->setText("返回");
         connect(btn,&QPushButton::clicked,this,[=](){
             QWidget *tmp = this->parentWidget();
             while(!dynamic_cast<MainWindow*>(tmp)&&tmp != nullptr)
@@ -26,13 +25,13 @@ CardGroupWidget::CardGroupWidget(bool selectable,CardGroup *cg_, QWidget *parent
                 ((MainWindow*)tmp)->subScreen = nullptr;
             close();
         });
+
     }
     else
     {
         btn = new QPushButton(this);
         btn->setGeometry(480,500,180,75);
-        btn->setText("Confirm");
-        btn->setStyleSheet("font:bold 20px;");
+        btn->setText("确定");
         connect(btn,&QPushButton::clicked,this,
                 [=]()
                 {
@@ -46,6 +45,8 @@ CardGroupWidget::CardGroupWidget(bool selectable,CardGroup *cg_, QWidget *parent
                 });
         btn->setDisabled(true);
     }
+
+    btn->setStyleSheet("font: 20pt;border-image: url(:/game/resource/ui/endturn.png);color: rgb(255, 255, 255);");
 
     std::list<AbstractCard*> g(cg_->group);
     int s = g.size();

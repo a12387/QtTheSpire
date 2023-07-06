@@ -18,7 +18,6 @@ public:
     MainWindow *mw;
 private slots:
     void on_cardButton_clicked();
-    void on_relicButton_clicked();
 
     void on_continueButton_clicked();
 

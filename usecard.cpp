@@ -19,6 +19,8 @@ UseCard::UseCard(QWidget *parent) :
     cr = (CombatRoom*)parent;
     mw = cr->mw;
 
+    setStyleSheet("background:transparent;");
+
     ui->confirmButton->hide();
     connect(ui->confirmButton,&QPushButton::clicked,this,&UseCard::useSelectedCard);
     ui->cancelButton->hide();

@@ -7,6 +7,7 @@ Menu::Menu(QWidget *parent) :
 {
     ui->setupUi(this);
 
+
     QWidget *tmp = parentWidget();
     while(tmp->parentWidget()!= nullptr)
     {

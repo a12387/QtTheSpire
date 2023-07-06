@@ -3,7 +3,7 @@
 #include "mainwindow.h"
 #include "map.h"
 #include "game/cards/RandomCard.h"
-#include "getcard.h"
+#include "statebar.h"
 
 
 using namespace std;
@@ -36,7 +36,27 @@ void Shop::on_continue_2_clicked()
     mw->subScreen->show();
 }
 void Shop::buyCard(CardButton*c){
-    mw->d.player->masterDeck.addToTop(c->card);
-    mw->d.player->gold-=c->card->cost;
-    delete c;
+    int price;
+    switch(c->card->rarity)
+    {
+    case AbstractCard::COMMON:
+        price = 50;
+        break;
+    case AbstractCard::UNCOMMON:
+        price = 100;
+        break;
+    case AbstractCard::RARE:
+        price = 150;
+        break;
+    default:
+        price = 999;
+        break;
+    }
+    if(mw->d.player->gold >= price)
+    {
+        mw->d.player->masterDeck.addToTop(c->card);
+        mw->d.player->gold-=price;
+        delete c;
+        mw->stateBar->update();
+    }
 }

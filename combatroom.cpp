@@ -2,6 +2,8 @@
 #include "ui_combatroom.h"
 #include "mainwindow.h"
 #include "map.h"
+#include "statebar.h"
+#include <QTimer>
 
 CombatRoom::CombatRoom(QWidget *parent) :
     QWidget(parent),
@@ -14,12 +16,13 @@ CombatRoom::CombatRoom(QWidget *parent) :
 
     ui->continue_2->hide();
 
+
     playerWidget = new CreatureWidget(mw->d.player,this);
     if(mw->d.rooms[mw->d.floor-1]->type == AbstractRoom::MONSTER)
-        playerWidget->move(420,120);
+        playerWidget->move(420,150);
 
     else if(mw->d.rooms[mw->d.floor-1]->type==AbstractRoom::BOSS)
-        playerWidget->move(120,120);
+        playerWidget->move(120,150);
 
     for(auto &i:mw->d.rooms[mw->d.floor-1]->monsters.monsters)
     {
@@ -29,11 +32,11 @@ CombatRoom::CombatRoom(QWidget *parent) :
     if(mw->d.rooms[mw->d.floor-1]->type == AbstractRoom::MONSTER)
         for(int i = 0; i < monstersWidget.size(); i++)
         {
-            monstersWidget[i]->move(120 + 600 * i, 120);
+            monstersWidget[i]->move(120 + 600 * i, 150);
         }
     else if(mw->d.rooms[mw->d.floor-1]->type==AbstractRoom::BOSS)
     {
-        monstersWidget[0]->move(720,120);
+        monstersWidget[0]->move(720,150);
     }
 
     uc = new UseCard(this);
@@ -72,6 +75,7 @@ void CombatRoom::playerAction()
 }
 void CombatRoom::monsterAction(){
     mw->d.player->changePower();
+
     for(auto &i:monstersWidget)
     {
         ((AbstractMonster*)(i->c))->changePower();
@@ -84,6 +88,9 @@ void CombatRoom::monsterAction(){
     {
         ((AbstractMonster*)(i->c))->act(mw->d.player);
         update();
+        QEventLoop l;
+        QTimer::singleShot(1000,&l,SLOT(quit()));
+        l.exec();
     }
     emit startTurn();
 }
@@ -95,12 +102,25 @@ void CombatRoom::update()
     }
     playerWidget->update();
     uc->update();
+    mw->stateBar->update();
 }
-
 void CombatRoom::on_continue_2_clicked()
 {
-    mw->subScreen = new Map(true,this);
-    mw->subScreen->show();
+    if(mw->d.floor == 3)
+    {
+        mw->subScreen = new Map(true,this);
+        mw->subScreen->show();
+    }
+    else if(mw->d.floor == 4)
+    {
+        QLabel *l = new QLabel(mw);
+        l->setText("You Win!");
+
+        l->setGeometry(360,400,360,100);
+        l->setAlignment(Qt::AlignHCenter);
+        l->show();
+        mw->currentScreen->close();
+    }
 }
 void CombatRoom::showContinueButton()
 {

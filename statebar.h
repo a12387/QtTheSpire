@@ -17,12 +17,14 @@ public:
     ~StateBar();
 
     void paintEvent(QPaintEvent *pe);
+    void update();
 
     MainWindow* mw;
 private slots:
     void on_mapButton_clicked();
 
     void on_deckButton_clicked();
+
 
 private:
     Ui::StateBar *ui;

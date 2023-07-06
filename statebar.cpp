@@ -25,6 +25,11 @@ void StateBar::paintEvent(QPaintEvent *pe)
     QWidget::paintEvent(pe);
 }
 
+void StateBar::update()
+{
+    ui->HP->setText(QString("HP:%1/%2").arg(mw->d.player->currentHealth).arg(mw->d.player->maxHealth));
+    ui->Gold->setText(QString("Gold:%1").arg(mw->d.player->gold));
+}
 void StateBar::on_mapButton_clicked()
 {
     if(mw->subScreen == nullptr)
