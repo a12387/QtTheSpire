@@ -25,6 +25,7 @@ void SecondWind::use(AbstractPlayer *p,AbstractMonster *m)
         if((*it)->type != AbstractCard::ATTACK)
         {
             p->exhaustPile.addToTop(*it);
+            p->exhaustcard();
             p->hand.removeCard(*it);
             p->addBlock(baseBlock);
             it = p->hand.group.begin();

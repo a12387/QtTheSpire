@@ -62,6 +62,7 @@ SOURCES += \
     game/powers/FeelNoPain_.cpp \
     game/powers/Frail.cpp \
     game/powers/Invincible.cpp \
+    game/powers/NoDraw.cpp \
     game/powers/PainfulStabs.cpp \
     game/powers/Strength.cpp \
     game/powers/Surrounded.cpp \
@@ -139,6 +140,7 @@ HEADERS += \
     game/powers/FeelNoPain_.h \
     game/powers/Frail.h \
     game/powers/Invincible.h \
+    game/powers/NoDraw.h \
     game/powers/PainfulStabs.h \
     game/powers/Strength.h \
     game/powers/Surrounded.h \

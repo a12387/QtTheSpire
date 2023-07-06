@@ -4,6 +4,6 @@
 DemonForm_::DemonForm_(int a):AbstractPower(a,"DemonForm")
 {
     type=BUFF;
-    imgPath=":/game/resource/cards/demon_form.png";
+    imgPath=":/game/resource/powers/DemonForm.png";
 }
 

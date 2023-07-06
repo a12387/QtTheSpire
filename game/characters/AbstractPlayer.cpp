@@ -28,6 +28,9 @@ void AbstractPlayer::preBattle()
 
 void AbstractPlayer::drawCard(int num)
 {
+    for(auto i=buff.begin();i!=buff.end();++i){
+        if((*i)->name=="NoDraw")return;
+    }
     for(int i = 0; i < num && hand.group.size()<=10; i++)
     {
         if(drawPile.group.empty()){
@@ -36,5 +39,11 @@ void AbstractPlayer::drawCard(int num)
         }
         hand.addToBottom(*(drawPile.group.begin()));
         drawPile.group.pop_front();
+    }
+}
+void AbstractPlayer::exhaustcard(){
+    for(auto i=buff.begin();i!=buff.end();++i){
+        if((*i)->name=="DarkEmbrace")drawCard((*i)->amount);
+        else if((*i)->name=="FeelNoPain")currentBlock+=(*i)->amount;
     }
 }

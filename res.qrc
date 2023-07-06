@@ -82,5 +82,6 @@
         <file>game/resource/powers/DemonForm.png</file>
         <file>game/resource/powers/FeelNoPain.png</file>
         <file>game/resource/powers/Barricade.png</file>
+        <file>game/resource/powers/NoDraw.png</file>
     </qresource>
 </RCC>

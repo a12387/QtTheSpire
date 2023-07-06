@@ -89,6 +89,9 @@ void AbstractCreature::loseBlock(int amount)
 }
 void AbstractCreature::loseBlock()
 {
+    for(auto i=buff.begin();i!=buff.end();++i){
+        if((*i)->name=="Barricade")return;
+    }
     loseBlock(currentBlock);
 }
 
@@ -153,11 +156,12 @@ void AbstractCreature::ApplyPower(AbstractPower *power)
 void AbstractCreature::changePower(){
     for(auto i=buff.begin();i!=buff.end();++i){
         if((*i)->name=="DemonForm")ApplyPower(new Strength((*i)->amount));
-        if((*i)->name=="Frail"||(*i)->name=="Vulnerable"||(*i)->name=="Weak"){
-            (*i)->amount--;
-            if((*i)->amount==0&&(*i)->name!="Invincible")buff.erase(i);
-        }
+        else if((*i)->name=="NoDraw")buff.erase(i);
+        else if((*i)->name=="Frail"||(*i)->name=="Vulnerable"||(*i)->name=="Weak")(*i)->amount--;
         else if((*i)->name=="Invincible")(*i)->amount=300;
+    }
+    for(auto i=buff.begin();i!=buff.end();++i){
+        if((*i)->amount==0)buff.erase(i);
     }
 }
 

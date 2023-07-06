@@ -69,12 +69,11 @@ void CombatRoom::playerAction()
         i->setIntent(((AbstractMonster*)(i->c))->intent);
     }
     update();
-    bool win=true;
-    for(auto &i:monstersWidget)
-    {
-        win&=((i->c)->currentHealth<=0);
-    }
-    if(win){
+    //for(auto i=monstersWidget.begin();i!=monstersWidget.end();++i)
+    //{
+    //    if(((*i)->c)->currentHealth<=0)monstersWidget.erase(i);
+    //}
+    if(monstersWidget.empty()){
         Map *map = new Map(true,this);
         map->show();
     }

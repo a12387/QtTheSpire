@@ -1,4 +1,5 @@
 #include "BattleTrance.h"
+#include "game/powers/NoDraw.h"
 
 BattleTrance::BattleTrance() :
     AbstractCard(
@@ -21,6 +22,8 @@ BattleTrance::BattleTrance() :
 void BattleTrance::use(AbstractPlayer *p,AbstractMonster *m)
 {
     p->energy -= cost;
+    p->drawCard(3);
+    p->ApplyPower(new NoDraw());
 }
 AbstractCard *BattleTrance::makeCopy()
 {

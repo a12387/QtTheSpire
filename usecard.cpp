@@ -5,6 +5,7 @@
 #include "cardgroupwidget.h"
 #include "game/powers/BackAttackLeft.h"
 #include "game/powers/BackAttackRight.h"
+#include "map.h"
 #include <algorithm>
 
 UseCard::UseCard(QWidget *parent) :
@@ -74,6 +75,7 @@ void UseCard::update()
 
         c->show();
     }
+
 }
 
 void UseCard::clear()
