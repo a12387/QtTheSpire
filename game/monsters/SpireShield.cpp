@@ -6,7 +6,8 @@ SpireShield::SpireShield():
         std::string(":/game/resource/creature/shield.png"),
         std::string("Spire Shield"),
         std::string("SpireShield"),
-        110)
+        6//110)
+        )
 
 {
     ApplyPower(new BackAttackLeft());
@@ -22,7 +23,7 @@ void SpireShield::createIntent(){
 void SpireShield::act(AbstractPlayer*p){
     if(intent==DEFEND){
         lastMove=0;
-        for(auto &i:mw->d.rooms[mw->d.floor]->monsters.monsters)i->addBlock(30);
+        for(auto &i:mw->d.rooms[mw->d.floor - 1]->monsters.monsters)i->addBlock(30);
     }
     else if(intent==ATTACK_DEBUFF){
         lastMove=1;

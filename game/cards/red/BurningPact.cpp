@@ -24,9 +24,7 @@ void BurningPact::use(AbstractPlayer *p,AbstractMonster *m)
 }
 void BurningPact::effect(AbstractCard *c)
 {
-    mw->d.player->hand.removeCard(c);
-    mw->d.player->exhaustPile.addToTop(c);
-    mw->d.player->exhaustcard();
+    c->exhaustCard();
     mw->d.player->drawCard(baseMagicNumber);
 }
 

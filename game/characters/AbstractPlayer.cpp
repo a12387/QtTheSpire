@@ -37,13 +37,11 @@ void AbstractPlayer::drawCard(int num)
             discardPile.shuffle(discardPile.group.size());
             drawPile.group.merge(discardPile.group);
         }
+        if(drawPile.group.empty()){
+            break;
+        }
         hand.addToBottom(*(drawPile.group.begin()));
         drawPile.group.pop_front();
     }
 }
-void AbstractPlayer::exhaustcard(){
-    for(auto i=buff.begin();i!=buff.end();++i){
-        if((*i)->name=="DarkEmbrace")drawCard((*i)->amount);
-        else if((*i)->name=="FeelNoPain")currentBlock+=(*i)->amount;
-    }
-}
+

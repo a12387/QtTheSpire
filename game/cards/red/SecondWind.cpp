@@ -19,19 +19,20 @@ SecondWind::SecondWind() :
 void SecondWind::use(AbstractPlayer *p,AbstractMonster *m)
 {
     p->energy -= cost;
+    std::list<AbstractCard*> l;
     auto it = p->hand.group.begin();
     while(it != p->hand.group.end())
     {
         if((*it)->type != AbstractCard::ATTACK)
         {
-            p->exhaustPile.addToTop(*it);
-            p->exhaustcard();
-            p->hand.removeCard(*it);
+            l.push_back((*it));
             p->addBlock(baseBlock);
-            it = p->hand.group.begin();
         }
-        else
-            it++;
+        it++;
+    }
+    for(auto &i:l)
+    {
+        i->exhaustCard();
     }
 }
 AbstractCard *SecondWind::makeCopy()

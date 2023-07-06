@@ -12,6 +12,8 @@ CombatRoom::CombatRoom(QWidget *parent) :
 
     mw = (MainWindow*)parent;
 
+    ui->continue_2->hide();
+
     playerWidget = new CreatureWidget(mw->d.player,this);
     if(mw->d.rooms[mw->d.floor-1]->type == AbstractRoom::MONSTER)
         playerWidget->move(420,120);
@@ -37,11 +39,9 @@ CombatRoom::CombatRoom(QWidget *parent) :
     uc = new UseCard(this);
     uc->move(0,420);
 
-    connect(this,&CombatRoom::preBattle,this,&CombatRoom::initalize);
     connect(this,&CombatRoom::startTurn,this,&CombatRoom::playerAction);
     connect(uc,&UseCard::endTurn,this,&CombatRoom::monsterAction);
 
-    //emit preBattle();
     initalize();
 }
 
@@ -69,14 +69,6 @@ void CombatRoom::playerAction()
         i->setIntent(((AbstractMonster*)(i->c))->intent);
     }
     update();
-    //for(auto i=monstersWidget.begin();i!=monstersWidget.end();++i)
-    //{
-    //    if(((*i)->c)->currentHealth<=0)monstersWidget.erase(i);
-    //}
-    if(monstersWidget.empty()){
-        Map *map = new Map(true,this);
-        map->show();
-    }
 }
 void CombatRoom::monsterAction(){
     mw->d.player->changePower();
@@ -84,7 +76,6 @@ void CombatRoom::monsterAction(){
     {
         ((AbstractMonster*)(i->c))->changePower();
     }
-    update();
     for(auto &i:monstersWidget)
     {
         i->c->loseBlock();
@@ -105,3 +96,14 @@ void CombatRoom::update()
     playerWidget->update();
     uc->update();
 }
+
+void CombatRoom::on_continue_2_clicked()
+{
+    mw->subScreen = new Map(true,this);
+    mw->subScreen->show();
+}
+void CombatRoom::showContinueButton()
+{
+    ui->continue_2->show();
+}
+

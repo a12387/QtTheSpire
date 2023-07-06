@@ -27,8 +27,6 @@ public:
     void preBattle();
 
     void drawCard(int num);
-
-    void exhaustcard();
 };
 
 #endif

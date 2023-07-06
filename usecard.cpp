@@ -129,23 +129,62 @@ void UseCard::useSelectedCard()
 {
     c = selectedCard->card;
     mw->d.player->hand.removeCard(c);
-
-    if(c->exhaust == true)
-        mw->d.player->exhaustPile.addToTop(c);
-    else if(c->type != AbstractCard::POWER)
-        mw->d.player->discardPile.addToTop(c);
-
-
+    mw->d.player->discardPile.addToTop(c);
 
     if(c->target == AbstractCard::ENEMY)
+    {
         c->use(mw->d.player,(AbstractMonster*)(selectedCreature->c));
+        if(selectedCreature->c->currentHealth <= 0)
+            selectedCreature = nullptr;
+    }
     else
         c->use(mw->d.player,nullptr);
 
+    if(c->exhaust)
+        c->exhaustCard();
+
+    for(int i = 0; i < cr->monstersWidget.size(); i++ )
+    {
+        if(cr->monstersWidget[i]->c->currentHealth <= 0)
+        {
+            delete cr->monstersWidget[i];
+            cr->monstersWidget.remove(i);
+            i--;
+        }
+    }
+    if(cr->monstersWidget.empty())
+    {
+        cr->showContinueButton();
+    }
+
     switch(mw->d.floor-1){
-    case 2:if(c->target == AbstractCard::ENEMY){
-        if(!selectedCreature->c->isPlayer){
-            if(selectedCreature->c->id=="SpireShield"){
+    case 2:
+        if(c->target == AbstractCard::ENEMY){
+            if(selectedCreature == nullptr )
+            {
+                if(cr->monstersWidget.size()==1)
+                {
+                    if(cr->monstersWidget[0]->c->id == "SpireShield")
+                    {
+                        cr->playerWidget->turnLeft();
+                        if(mw->d.player->direction == 1)
+                        {
+                            mw->d.player->direction = 0;
+                            cr->monstersWidget[0]->c->buff.pop_front();
+                        }
+                    }
+                    else
+                    {
+                        cr->playerWidget->turnRight();
+                        if(mw->d.player->direction == 0)
+                        {
+                            mw->d.player->direction = 1;
+                            cr->monstersWidget[0]->c->buff.pop_front();
+                        }
+                    }
+                }
+            }
+            else if(selectedCreature->c->id=="SpireShield"){
                 if(mw->d.player->direction==1){
                     cr->playerWidget->turnLeft();
                     mw->d.player->direction=0;
@@ -165,11 +204,13 @@ void UseCard::useSelectedCard()
                     }
                 }
             }
+
         }
-    }break;
+        break;
     case 3:mw->d.player->damage(mw->d.rooms[3]->monsters.monsters.front()->buff.front()->amount);break;
     default:break;
     }
+
 
 
     cancelSelect();

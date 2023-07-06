@@ -105,6 +105,8 @@ public:
 
     bool operator==(const AbstractCard &c);
 
+    void exhaustCard();
+
     virtual AbstractCard *makeCopy() = 0;
 };
 

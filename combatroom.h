@@ -17,19 +17,21 @@ class CombatRoom : public QWidget
 public:
     explicit CombatRoom(QWidget *parent = nullptr);
     ~CombatRoom();
+    void initalize();
     void update();
+    void showContinueButton();
     UseCard *uc;
     MainWindow *mw;
     QVector<CreatureWidget*> monstersWidget;
     CreatureWidget *playerWidget;
 signals:
-    void preBattle();
     void startTurn();
     void endTurn();
-private slots:
-    void initalize();
+private slots:  
     void playerAction();
     void monsterAction();
+    void on_continue_2_clicked();
+
 private:
     Ui::CombatRoom *ui;
 };

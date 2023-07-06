@@ -32,8 +32,8 @@ Shop::~Shop()
 
 void Shop::on_continue_2_clicked()
 {
-    Map *map = new Map(true,this);
-    map->show();
+    mw->subScreen = new Map(true,this);
+    mw->subScreen->show();
 }
 void Shop::buyCard(CardButton*c){
     mw->d.player->masterDeck.addToTop(c->card);

@@ -21,7 +21,7 @@ void Offering::use(AbstractPlayer *p,AbstractMonster *m)
 {
     p->energy -= cost;
 
-
+    DamageInfo tmp = DamageInfo(p,6,DamageInfo::HP_LOSS);
     p->damage(6);
 
     p->energy += 2;

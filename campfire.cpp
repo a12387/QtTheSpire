@@ -48,7 +48,7 @@ void Campfire::on_relicButton_clicked()
 }
 void Campfire::on_continueButton_clicked()
 {
-    Map *map = new Map(true,this);
-    map->show();
+    mw->subScreen = new Map(true,this);
+    mw->subScreen->show();
 }
 

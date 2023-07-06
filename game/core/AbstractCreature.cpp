@@ -100,11 +100,6 @@ void AbstractCreature::addBlock(int amount)
     float tmp = amount;
     if(isPlayer)
     {
-        /*
-        遗物加格挡
-        buff加格挡
-        not released
-        */
         for(auto i=buff.begin();i!=buff.end();++i){
             if((*i)->name=="Frail")tmp*=0.75;
         }
