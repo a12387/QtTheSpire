@@ -20,7 +20,8 @@ CardWidget::CardWidget(AbstractCard *card,QWidget *parent) :
     QFont f;
     f.setPointSize(14);
 
-    ui->bg_cost->setPixmap(QPixmap(":/game/resource/bg_energy.png"));
+    if(card->color==AbstractCard::RED)ui->bg_cost->setPixmap(QPixmap(":/game/resource/bg_energy.png"));
+    else ui->bg_cost->setPixmap(QPixmap(":/game/resource/bg_energy_colorless.png"));
     ui->bg_cost->setScaledContents(true);
     ui->cost->setText(QString::number(card->cost));
     ui->cost->setAlignment(Qt::AlignHCenter);

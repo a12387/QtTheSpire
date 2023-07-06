@@ -17,7 +17,8 @@ CardButton::CardButton(AbstractCard *c,QWidget *p,int x, int y) : QPushButton(p)
     bg->move(this->pos());
     bg->resize(this->size());
     QString bgUrl;
-    switch(card->type)
+    if(card->color==AbstractCard::RED)
+        switch(card->type)
     {
     case AbstractCard::ATTACK:
         bgUrl = tr(":/game/resource/bg_attack.png");
@@ -31,6 +32,7 @@ CardButton::CardButton(AbstractCard *c,QWidget *p,int x, int y) : QPushButton(p)
     default:
         break;
     }
+    else bgUrl=tr(":/game/resource/bg_colorless.png");
     bg->setPixmap(bgUrl);
     bg->setScaledContents(true);
 

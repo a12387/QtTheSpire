@@ -83,5 +83,7 @@
         <file>game/resource/powers/FeelNoPain.png</file>
         <file>game/resource/powers/Barricade.png</file>
         <file>game/resource/powers/NoDraw.png</file>
+        <file>game/resource/bg_colorless.png</file>
+        <file>game/resource/bg_energy_colorless.png</file>
     </qresource>
 </RCC>

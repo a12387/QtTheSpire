@@ -95,7 +95,7 @@ public:
 
     virtual void upgrade();
 
-    virtual void use(AbstractPlayer *abstractPlayer, AbstractMonster *AbstractMonster) = 0;
+    virtual void use(AbstractPlayer *abstractPlayer, AbstractMonster *AbstractMonster);
 
     virtual void effect(AbstractCard *c);//for multi card selection
 
@@ -107,7 +107,7 @@ public:
 
     void exhaustCard();
 
-    virtual AbstractCard *makeCopy() = 0;
+    virtual AbstractCard *makeCopy()=0;
 };
 
 #endif
