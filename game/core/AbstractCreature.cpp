@@ -3,6 +3,7 @@
 #include "../powers/AbstractPower.h"
 #include "../powers/Strength.h"
 #include "../cards/colorless/Wound.h"
+#include <QSoundEffect>
 
 AbstractCreature::AbstractCreature(std::string imgUrl,std::string name,std::string id,int health)
     :imgUrl(imgUrl),name(name),id(id),currentHealth(health),maxHealth(health),currentBlock(0)
@@ -12,6 +13,18 @@ AbstractCreature::AbstractCreature(std::string imgUrl,std::string name,std::stri
 
 void AbstractCreature::damage(DamageInfo& info)
 {
+    if(isPlayer){
+        QSoundEffect*e=new QSoundEffect();
+        e->setSource(QUrl("qrc:/game/resource/audio/sound/FastBlunt.wav"));
+        e->play();
+    }
+    else {
+        QSoundEffect*e=new QSoundEffect();
+        e->setSource(QUrl("qrc:/game/resource/audio/sound/IronClad_Atk.wav"));
+        e->play();
+    }
+
+
     int damageAmount = info.outputValue;
 
     if (damageAmount <= 0)
@@ -99,6 +112,9 @@ void AbstractCreature::loseBlock()
 
 void AbstractCreature::addBlock(int amount)
 {
+    QSoundEffect*e=new QSoundEffect();
+    e->setSource(QUrl("qrc:/game/resource/audio/sound/GainDefense.wav"));
+    e->play();
     float tmp = amount;
     if(isPlayer)
     {
@@ -114,6 +130,9 @@ void AbstractCreature::addBlock(int amount)
 void AbstractCreature::ApplyPower(AbstractPower *power)
 {
     if(power->type==AbstractPower::DEBUFF){
+        QSoundEffect*e=new QSoundEffect();
+        e->setSource(QUrl("qrc:/game/resource/audio/sound/Debuff.wav"));
+        e->play();
         bool offset=false;
         for(auto i=buff.begin();i!=buff.end();++i){
             if((*i)->name=="Artifact"){
@@ -138,6 +157,11 @@ void AbstractCreature::ApplyPower(AbstractPower *power)
     }
     else{
         int tag=0;
+        if(isPlayer){
+            QSoundEffect*e=new QSoundEffect();
+            e->setSource(QUrl("qrc:/game/resource/audio/sound/Buff.wav"));
+            e->play();
+        }
         for(auto i=buff.begin();i!=buff.end();++i){
             if((*i)->name==power->name){
                 (*i)->amount+=power->amount;

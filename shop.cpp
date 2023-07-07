@@ -14,6 +14,11 @@ Shop::Shop(QWidget *parent) :
     ui->setupUi(this);
     move(0,50);
 
+    e=new QSoundEffect(this);
+    e->setSource(QUrl("qrc:/game/resource/audio/music/Shop.wav"));
+    e->setLoopCount(QSoundEffect::Infinite);
+    e->play();
+
     mw = (MainWindow*)parentWidget();
 
     AbstractCard* cards[7]={};
@@ -91,11 +96,15 @@ void Shop::buyCard(CardButton*c){
         price = 999;
         break;
     }
+    QSoundEffect*d=new QSoundEffect();
     if(mw->d.player->gold >= price)
     {
         mw->d.player->masterDeck.addToTop(c->card);
         mw->d.player->gold-=price;
         delete c;
         mw->stateBar->update();
+        d->setSource(QUrl("qrc:/game/resource/audio/sound/CardSelect.wav"));
     }
+    else d->setSource(QUrl("qrc:/game/resource/audio/sound/CardReject.wav"));
+    d->play();
 }

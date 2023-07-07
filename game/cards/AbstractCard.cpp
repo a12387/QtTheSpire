@@ -1,6 +1,7 @@
 #include "AbstractCard.h"
 #include "mainwindow.h"
 #include "../powers/AbstractPower.h"
+#include <QSoundEffect>
 MainWindow *AbstractCard::mw = nullptr;
 
 AbstractCard::AbstractCard(std::string id, std::string name, std::string imgUrl, int cost, std::string description, CardType type, CardColor color, CardRarity rarity, CardTarget target, DamageInfo::DamageType dType = DamageInfo::NORMAL) :
@@ -19,6 +20,9 @@ bool AbstractCard::operator!=(const AbstractCard &c)
     return (id != c.id)||(upgraded != c.upgraded);
 }
 void AbstractCard::exhaustCard(){
+    QSoundEffect*e=new QSoundEffect();
+    e->setSource(QUrl("qrc:/game/resource/audio/sound/ExhaustCard.wav"));
+    e->play();
     mw->d.player->drawPile.removeCard(this);
     mw->d.player->discardPile.removeCard(this);
     mw->d.player->hand.removeCard(this);

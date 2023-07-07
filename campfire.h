@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "getcard.h"
+#include "QSoundEffect"
 namespace Ui {
 class Campfire;
 }
@@ -16,6 +17,7 @@ public:
     ~Campfire();
 
     MainWindow *mw;
+    QSoundEffect*e;
 private slots:
     void on_cardButton_clicked();
 

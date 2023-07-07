@@ -143,7 +143,9 @@ void UseCard::useSelectedCard()
 {
     c = selectedCard->card;
     mw->d.player->hand.removeCard(c);
-    if(c->type!=AbstractCard::POWER)mw->d.player->discardPile.addToTop(c);
+    if(c->type!=AbstractCard::POWER){
+        mw->d.player->discardPile.addToTop(c);
+    }
 
     if(c->target == AbstractCard::ENEMY)
     {
@@ -233,6 +235,9 @@ void UseCard::cardSelect(CardButton *c)
 {
     c->bg->setStyleSheet("border:5px solid rgb(255,255,0)");
     selectedCard = c;
+    QSoundEffect*e=new QSoundEffect();
+    e->setSource(QUrl("qrc:/game/resource/audio/sound/CardSelect.wav"));
+    e->play();
 }
 void UseCard::cancelSelect()
 {
@@ -241,7 +246,6 @@ void UseCard::cancelSelect()
         selectedCard->bg->setStyleSheet("");
         selectedCard = nullptr;
     }
-
     ui->confirmButton->hide();
     ui->cancelButton->hide();
     if(selectedCreature)
@@ -262,6 +266,9 @@ void UseCard::changeSelect(CardButton *c)
     selectedCard->bg->setStyleSheet("");
     c->bg->setStyleSheet("border:5px solid rgb(255,255,0)");
     selectedCard = c;
+    QSoundEffect*e=new QSoundEffect();
+    e->setSource(QUrl("qrc:/game/resource/audio/sound/CardSelect.wav"));
+    e->play();
 }
 
 void UseCard::callCardMultiSelection(CardGroup *c,int min_,int max_)

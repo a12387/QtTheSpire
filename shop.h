@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "cardbutton.h"
+#include <QSoundEffect>
 
 namespace Ui {
 class Shop;
@@ -17,6 +18,7 @@ public:
     ~Shop();
 
     MainWindow *mw;
+    QSoundEffect*e;
 private slots:
     void on_continue_2_clicked();
     void buyCard(CardButton*);

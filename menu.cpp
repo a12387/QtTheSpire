@@ -7,7 +7,10 @@ Menu::Menu(QWidget *parent) :
 {
     ui->setupUi(this);
 
-
+    e=new QSoundEffect();
+    e->setSource(QUrl("qrc:/game/resource/audio/music/Menu.wav"));
+    e->setLoopCount(QSoundEffect::Infinite);
+    e->play();
     QWidget *tmp = parentWidget();
     while(tmp->parentWidget()!= nullptr)
     {
@@ -23,12 +26,11 @@ Menu::~Menu()
 
 void Menu::on_pushButton_clicked()
 {
+    e->stop();
     emit intoGame();
 }
 
-
-void Menu::on_pushButton_2_clicked()
-{
-    mw->close();
+void Menu::on_pushButton_2_clicked(){
+    QApplication*app;
+    app->exit(0);
 }
-

@@ -75,7 +75,7 @@ background-color: rgba(255, 255, 255, 0);</string>
    <property name="geometry">
     <rect>
      <x>390</x>
-     <y>400</y>
+     <y>420</y>
      <width>311</width>
      <height>81</height>
     </rect>
@@ -84,9 +84,6 @@ background-color: rgba(255, 255, 255, 0);</string>
     <font>
      <family>华文彩云</family>
      <pointsize>22</pointsize>
-     <italic>false</italic>
-     <bold>false</bold>
-     <kerning>true</kerning>
     </font>
    </property>
    <property name="styleSheet">
@@ -94,6 +91,12 @@ background-color: rgba(255, 255, 255, 0);</string>
    </property>
    <property name="text">
     <string>退出游戏</string>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>20</width>
+     <height>20</height>
+    </size>
    </property>
   </widget>
   <zorder>label_2</zorder>

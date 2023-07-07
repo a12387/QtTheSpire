@@ -5,6 +5,7 @@
 #include "usecard.h"
 #include "creaturewidget.h"
 #include "game/monsters/AbstractMonster.h"
+#include <QSoundEffect>
 
 namespace Ui {
 class CombatRoom;
@@ -24,6 +25,7 @@ public:
     MainWindow *mw;
     QVector<CreatureWidget*> monstersWidget;
     CreatureWidget *playerWidget;
+    QSoundEffect*e,*d;
 signals:
     void startTurn();
     void endTurn();

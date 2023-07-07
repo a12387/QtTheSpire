@@ -3,6 +3,7 @@
 #include <QPainter>
 #include "game/cards/RandomCard.h"
 #include "mainwindow.h"
+#include "QSoundEffect"
 GetCard::GetCard(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::GetCard)
@@ -56,6 +57,9 @@ void GetCard::paintEvent(QPaintEvent *pe)
 void GetCard::getCard(CardButton *card)
 {
     mw->d.player->masterDeck.addToTop(card->card);
+    QSoundEffect*e=new QSoundEffect();
+    e->setSource(QUrl("qrc:/game/resource/audio/sound/CardSelect.wav"));
+    e->play();
     if(mw->d.player->masterDeck.group.size()<21)
     {
         GetCard *gc = new GetCard(parentWidget());

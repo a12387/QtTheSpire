@@ -105,5 +105,23 @@
         <file>game/resource/cards/cleave.png</file>
         <file>game/resource/cards/anger.png</file>
         <file>game/resource/cards/clothesline.png</file>
+        <file>game/resource/audio/music/Boss4.wav</file>
+        <file>game/resource/audio/music/Death.wav</file>
+        <file>game/resource/audio/music/Elite.wav</file>
+        <file>game/resource/audio/music/Menu.wav</file>
+        <file>game/resource/audio/music/Shop.wav</file>
+        <file>game/resource/audio/music/Shrine.wav</file>
+        <file>game/resource/audio/music/Victory.wav</file>
+        <file>game/resource/audio/sound/Buff.wav</file>
+        <file>game/resource/audio/sound/CardReject.wav</file>
+        <file>game/resource/audio/sound/CardSelect.wav</file>
+        <file>game/resource/audio/sound/Debuff.wav</file>
+        <file>game/resource/audio/sound/EndTurn.wav</file>
+        <file>game/resource/audio/sound/ExhaustCard.wav</file>
+        <file>game/resource/audio/sound/FastBlunt.wav</file>
+        <file>game/resource/audio/sound/GainDefense.wav</file>
+        <file>game/resource/audio/sound/IronClad_Atk.wav</file>
+        <file>game/resource/audio/sound/Magic.wav</file>
+        <file>game/resource/audio/sound/Strength.wav</file>
     </qresource>
 </RCC>

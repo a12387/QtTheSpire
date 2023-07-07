@@ -15,6 +15,15 @@ CombatRoom::CombatRoom(QWidget *parent) :
 
     mw = (MainWindow*)parent;
 
+    e=new QSoundEffect(this);
+    switch(mw->d.floor){
+    case 3:e->setSource(QUrl("qrc:/game/resource/audio/music/Elite.wav"));break;
+    case 4:e->setSource(QUrl("qrc:/game/resource/audio/music/Boss4.wav"));break;
+    default:break;
+    }
+    e->setLoopCount(QSoundEffect::Infinite);
+    //e->play();
+
     ui->continue_2->hide();
     ui->msg->hide();
     ui->returnBtn->hide();
@@ -125,6 +134,11 @@ void CombatRoom::update()
         }
         ui->msg->setText("YOU DIED");
         ui->msg->show();
+        e->stop();
+        d=new QSoundEffect(this);
+        d->setSource(QUrl("qrc:/game/resource/audio/music/Death.wav"));
+        d->setLoopCount(1);
+        d->play();
         ui->returnBtn->show();
     }
 }
@@ -139,6 +153,11 @@ void CombatRoom::on_continue_2_clicked()
     {
         ui->msg->setText("YOU WIN");
         ui->msg->show();
+        e->stop();
+        d=new QSoundEffect(this);
+        d->setSource(QUrl("qrc:/game/resource/audio/music/Victory.wav"));
+        d->setLoopCount(1);
+        d->play();
         ui->returnBtn->show();
         ui->continue_2->hide();
     }
@@ -153,6 +172,7 @@ void CombatRoom::showContinueButton()
 
 void CombatRoom::on_returnBtn_clicked()
 {
+    d->stop();
     mw->init();
     mw->stateBar->close();
     close();

@@ -6,8 +6,8 @@ SpireSpear::SpireSpear():
     AbstractMonster(
         std::string(":/game/resource/creature/spear.png"),
         std::string("Spire Spear"),
-        std::string("SpireSpear"),
-        160)
+        std::string("SpireSpear"),6)
+        //160)
 {
     ApplyPower(new Artifact(1));
 }

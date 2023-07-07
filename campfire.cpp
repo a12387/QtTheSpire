@@ -10,6 +10,10 @@ Campfire::Campfire(QWidget *parent) :
     ui->setupUi(this);
     move(0,50);
 
+    e=new QSoundEffect(this);
+    e->setSource(QUrl("qrc:/game/resource/audio/music/Shrine.wav"));
+    e->setLoopCount(QSoundEffect::Infinite);
+    e->play();
     QWidget *tmp = parentWidget();
     while(tmp->parentWidget()!= nullptr)
     {
