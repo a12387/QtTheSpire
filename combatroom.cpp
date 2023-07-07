@@ -22,7 +22,7 @@ CombatRoom::CombatRoom(QWidget *parent) :
     default:break;
     }
     e->setLoopCount(QSoundEffect::Infinite);
-    //e->play();
+    e->play();
 
     ui->continue_2->hide();
     ui->msg->hide();
