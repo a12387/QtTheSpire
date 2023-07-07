@@ -43,6 +43,7 @@ CardWidget::CardWidget(AbstractCard *card,QWidget *parent) :
     {
         ui->cost->hide();
         ui->cost_2->hide();
+        ui->bg_cost->hide();
     }
 
 
