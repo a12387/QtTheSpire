@@ -1,5 +1,4 @@
 QT       += core gui
-//QT       += multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -87,7 +86,6 @@ SOURCES += \
     map.cpp \
     mapwidget.cpp \
     menu.cpp \
-    messagewidget.cpp \
     powerwidget.cpp \
     shop.cpp \
     statebar.cpp \
@@ -170,7 +168,6 @@ HEADERS += \
     map.h \
     mapwidget.h \
     menu.h \
-    messagewidget.h \
     powerwidget.h \
     shop.h \
     statebar.h \
@@ -186,7 +183,6 @@ FORMS += \
     mainwindow.ui \
     mapwidget.ui \
     menu.ui \
-    messagewidget.ui \
     powerwidget.ui \
     shop.ui \
     statebar.ui \
