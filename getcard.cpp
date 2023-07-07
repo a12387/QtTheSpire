@@ -56,7 +56,7 @@ void GetCard::paintEvent(QPaintEvent *pe)
 void GetCard::getCard(CardButton *card)
 {
     mw->d.player->masterDeck.addToTop(card->card);
-    if(mw->d.player->masterDeck.group.size()<15)
+    if(mw->d.player->masterDeck.group.size()<21)
     {
         GetCard *gc = new GetCard(parentWidget());
         gc->show();
