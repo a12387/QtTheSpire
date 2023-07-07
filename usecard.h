@@ -20,6 +20,7 @@ public:
     void update();
     void clear();
     void setConfirmState(bool b);
+    void setEndButton(bool b);
     void callCardMultiSelection(CardGroup *c,int min_,int max_);
 
     MainWindow *mw;

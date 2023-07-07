@@ -17,3 +17,11 @@ Ironclad::Ironclad()
     masterDeck.addToBottom(new Defend_Red);
     masterDeck.addToBottom(new Bash);
 }
+
+Ironclad::~Ironclad()
+{
+    for(auto &i : masterDeck.group)
+    {
+        delete i;
+    }
+}

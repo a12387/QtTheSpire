@@ -14,6 +14,8 @@ public:
 
     Dungeon();
     ~Dungeon();
+
+    void init();
 };
 
 #endif

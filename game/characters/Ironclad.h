@@ -7,6 +7,7 @@ class Ironclad : public AbstractPlayer
 {
 public:
     Ironclad();
+    ~Ironclad();
 };
 
 #endif

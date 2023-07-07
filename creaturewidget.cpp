@@ -63,6 +63,13 @@ void CreatureWidget::update()
         powersWidget[i]->move(30*i,260);
         powersWidget[i]->show();
     }
+
+    if(c->currentHealth <=0 && c->isPlayer)
+    {
+        image.load(":/game/resource/creature/corpse.png");
+        ui->character->setPixmap(QPixmap::fromImage(image));
+    }
+
 }
 void CreatureWidget::enterEvent(QEnterEvent *e)
 {
@@ -111,10 +118,8 @@ void CreatureWidget::setIntent(AbstractMonster::Intent intent_){
 void CreatureWidget::turnLeft(){
     image.load(":/game/resource/creature/ironclad_.png");
     ui->character->setPixmap(QPixmap::fromImage(image));
-    ui->character->setScaledContents(true);
 }
 void CreatureWidget::turnRight(){
     image.load(":/game/resource/creature/ironclad.png");
     ui->character->setPixmap(QPixmap::fromImage(image));
-    ui->character->setScaledContents(true);
 }

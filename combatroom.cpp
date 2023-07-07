@@ -2,6 +2,7 @@
 #include "ui_combatroom.h"
 #include "mainwindow.h"
 #include "map.h"
+#include "menu.h"
 #include "statebar.h"
 #include <QTimer>
 
@@ -15,7 +16,8 @@ CombatRoom::CombatRoom(QWidget *parent) :
     mw = (MainWindow*)parent;
 
     ui->continue_2->hide();
-
+    ui->death->hide();
+    ui->returnBtn->hide();
 
     playerWidget = new CreatureWidget(mw->d.player,this);
     if(mw->d.rooms[mw->d.floor-1]->type == AbstractRoom::MONSTER)
@@ -62,6 +64,7 @@ void CombatRoom::initalize()
 void CombatRoom::playerAction()
 {
     //onStartOfTurn();
+    uc->setEndButton(true);
 
     mw->d.player->loseBlock();
     mw->d.player->energy = 3;
@@ -77,10 +80,12 @@ void CombatRoom::playerAction()
 }
 void CombatRoom::monsterAction(){
 
+    uc->setEndButton(false);
 
     QEventLoop l;
     QTimer::singleShot(1000,&l,SLOT(quit()));
     l.exec();
+    l.quit();
 
     for(auto &i:monstersWidget)
     {
@@ -97,6 +102,7 @@ void CombatRoom::monsterAction(){
         QEventLoop l;
         QTimer::singleShot(1000,&l,SLOT(quit()));
         l.exec();
+        l.quit();
     }
     emit startTurn();
 }
@@ -109,6 +115,17 @@ void CombatRoom::update()
     playerWidget->update();
     uc->update();
     mw->stateBar->update();
+
+    if(playerWidget->c->currentHealth <= 0)
+    {
+        uc->close();
+        for(auto &i : monstersWidget)
+        {
+            i->close();
+        }
+        ui->death->show();
+        ui->returnBtn->show();
+    }
 }
 void CombatRoom::on_continue_2_clicked()
 {
@@ -133,5 +150,13 @@ void CombatRoom::showContinueButton()
     ui->continue_2->show();
     update();
     delete uc;
+}
+
+
+void CombatRoom::on_returnBtn_clicked()
+{
+    mw->init();
+    mw->stateBar->close();
+    close();
 }
 

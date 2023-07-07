@@ -48,8 +48,48 @@
     <string/>
    </property>
   </widget>
+  <widget class="QLabel" name="death">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>20</y>
+     <width>281</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 700 40pt &quot;Microsoft YaHei UI&quot;;
+color: rgb(255, 0, 0);</string>
+   </property>
+   <property name="text">
+    <string>YOU DIED</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="returnBtn">
+   <property name="geometry">
+    <rect>
+     <x>460</x>
+     <y>520</y>
+     <width>221</width>
+     <height>141</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 20pt &quot;Microsoft YaHei UI&quot;;
+color: rgb(255, 255, 255);
+border-image: url(:/game/resource/ui/endturn.png);</string>
+   </property>
+   <property name="text">
+    <string>返回</string>
+   </property>
+  </widget>
   <zorder>background</zorder>
   <zorder>continue_2</zorder>
+  <zorder>death</zorder>
+  <zorder>returnBtn</zorder>
  </widget>
  <resources/>
  <connections/>

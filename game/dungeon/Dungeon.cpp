@@ -4,12 +4,9 @@
 #include "../rooms/EliteRoom.h"
 #include "../rooms/BossRoom.h"
 #include "../characters/Ironclad.h"
-Dungeon::Dungeon() : player(new Ironclad)
+Dungeon::Dungeon()
 {
-    rooms.push_back(new CampfireRoom);
-    rooms.push_back(new ShopRoom);
-    rooms.push_back(new EliteRoom);
-    rooms.push_back(new BossRoom);
+    init();
 }
 
 Dungeon::~Dungeon()
@@ -19,4 +16,16 @@ Dungeon::~Dungeon()
         delete i;
     }
     delete player;
+}
+
+void Dungeon::init()
+{
+    rooms.clear();
+    rooms.push_back(new CampfireRoom);
+    rooms.push_back(new ShopRoom);
+    rooms.push_back(new EliteRoom);
+    rooms.push_back(new BossRoom);
+    delete player;
+    player = new Ironclad;
+    floor = 0;
 }

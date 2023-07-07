@@ -23,6 +23,7 @@ public:
     StateBar *stateBar;
     Dungeon d;
 
+    void init();
 private slots:
     void startGame();
 private:

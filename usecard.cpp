@@ -95,7 +95,10 @@ void UseCard::setConfirmState(bool b)
 {
     ui->confirmButton->setEnabled(b);
 }
-
+void UseCard::setEndButton(bool b)
+{
+    ui->endTurnButton->setEnabled(b);
+}
 void UseCard::selectCardButton(CardButton *c)
 {
     if(mw->d.player->energy >= c->card->cost)

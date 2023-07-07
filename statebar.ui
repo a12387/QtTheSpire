@@ -76,14 +76,10 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(50, 50, 50);</string>
+    <string notr="true">border-image: url(:/game/resource/deck.png);</string>
    </property>
    <property name="text">
     <string/>
-   </property>
-   <property name="icon">
-    <iconset resource="res.qrc">
-     <normaloff>:/game/resource/deck.png</normaloff>:/game/resource/deck.png</iconset>
    </property>
    <property name="iconSize">
     <size>
@@ -102,14 +98,10 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgba(50, 50, 50, 50);</string>
+    <string notr="true">border-image: url(:/game/resource/map.png);</string>
    </property>
    <property name="text">
     <string/>
-   </property>
-   <property name="icon">
-    <iconset resource="res.qrc">
-     <normaloff>:/game/resource/map.png</normaloff>:/game/resource/map.png</iconset>
    </property>
    <property name="iconSize">
     <size>

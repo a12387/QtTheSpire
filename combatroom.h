@@ -32,6 +32,8 @@ private slots:
     void monsterAction();
     void on_continue_2_clicked();
 
+    void on_returnBtn_clicked();
+
 private:
     Ui::CombatRoom *ui;
 };

@@ -14,10 +14,8 @@ MainWindow::MainWindow(QWidget *parent)
     setCursor(*new QCursor(QPixmap(":/game/resource/ui/cursor.png"),0,0));
     setWindowTitle("Slay the Spire");
     setWindowIcon(QIcon(":/game/resource/icon.png"));
-    currentScreen = new Menu(this);
-    currentScreen->show();
-    d.player->mw=this;
-    connect((Menu*)currentScreen,&Menu::intoGame,this,&MainWindow::startGame);
+
+    init();
 }
 
 MainWindow::~MainWindow()
@@ -25,6 +23,16 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::init()
+{
+
+    currentScreen = new Menu(this);
+    currentScreen->show();
+    d.init();
+    d.player->mw=this;
+
+    connect((Menu*)currentScreen,&Menu::intoGame,this,&MainWindow::startGame);
+}
 void MainWindow::startGame()
 {
     AbstractCard::mw = this;
@@ -32,6 +40,7 @@ void MainWindow::startGame()
     currentScreen->setGeometry(0,50,1080,670);
     subScreen = new Map(true,currentScreen);
     currentScreen->show();
+    subScreen->show();
     stateBar = new StateBar(this);
     stateBar->show();
 }
