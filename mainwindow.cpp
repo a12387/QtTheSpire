@@ -12,6 +12,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     setCursor(*new QCursor(QPixmap(":/game/resource/ui/cursor.png"),0,0));
+    setWindowTitle("Slay the Spire");
+    setWindowIcon(QIcon(":/game/resource/icon.png"));
     currentScreen = new Menu(this);
     currentScreen->show();
     d.player->mw=this;
