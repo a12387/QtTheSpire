@@ -4,6 +4,6 @@
 Corruption_::Corruption_():AbstractPower(1,"Corruption")
 {
     type=BUFF;
-    imgPath=":/game/resource/cards/corruption.png";
+    imgPath=":/game/resource/powers/Corruption.png";
 }
 

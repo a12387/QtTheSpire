@@ -23,6 +23,30 @@ void Corruption::use(AbstractPlayer *p,AbstractMonster *m)
 {
     p->energy -= cost;
     p->ApplyPower(new Corruption_());
+    for(auto i:p->hand.group){
+        if(i->type==SKILL){
+            i->cost=0;
+            i->exhaust=true;
+        }
+    }
+    for(auto i:p->drawPile.group){
+        if(i->type==SKILL){
+            i->cost=0;
+            i->exhaust=true;
+        }
+    }
+    for(auto i:p->discardPile.group){
+        if(i->type==SKILL){
+            i->cost=0;
+            i->exhaust=true;
+        }
+    }
+    for(auto i:p->exhaustPile.group){
+        if(i->type==SKILL){
+            i->cost=0;
+            i->exhaust=true;
+        }
+    }
 }
 AbstractCard *Corruption::makeCopy()
 {

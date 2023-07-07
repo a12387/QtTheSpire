@@ -133,7 +133,7 @@ void UseCard::useSelectedCard()
 {
     c = selectedCard->card;
     mw->d.player->hand.removeCard(c);
-    mw->d.player->discardPile.addToTop(c);
+    if(c->type!=AbstractCard::POWER)mw->d.player->discardPile.addToTop(c);
 
     if(c->target == AbstractCard::ENEMY)
     {

@@ -27,6 +27,9 @@ public:
     void preBattle();
 
     void drawCard(int num);
+
+    void damage(DamageInfo&);
+    void damage(int dmg);
 };
 
 #endif

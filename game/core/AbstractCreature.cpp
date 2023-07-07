@@ -1,6 +1,8 @@
 #include "AbstractCreature.h"
+#include "../characters/AbstractPlayer.h"
 #include "../powers/AbstractPower.h"
 #include "../powers/Strength.h"
+#include "../cards/colorless/Wound.h"
 
 AbstractCreature::AbstractCreature(std::string imgUrl,std::string name,std::string id,int health)
     :imgUrl(imgUrl),name(name),id(id),currentHealth(health),maxHealth(health),currentBlock(0)
