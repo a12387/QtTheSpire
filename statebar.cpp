@@ -27,8 +27,8 @@ void StateBar::paintEvent(QPaintEvent *pe)
 
 void StateBar::update()
 {
-    ui->HP->setText(QString("HP:%1/%2").arg(mw->d.player->currentHealth).arg(mw->d.player->maxHealth));
-    ui->Gold->setText(QString("Gold:%1").arg(mw->d.player->gold));
+    ui->HP->setText(QString("%1/%2").arg(mw->d.player->currentHealth).arg(mw->d.player->maxHealth));
+    ui->Gold->setText(QString("%1").arg(mw->d.player->gold));
 }
 void StateBar::on_mapButton_clicked()
 {
