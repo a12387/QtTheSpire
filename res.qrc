@@ -91,5 +91,9 @@
         <file>game/resource/ui/energyRed.png</file>
         <file>game/resource/bg_colorless.png</file>
         <file>game/resource/bg_energy_colorless.png</file>
+        <file>game/resource/scenes/bonfire2.jpg</file>
+        <file>game/resource/scenes/bonfire1.jpg</file>
+        <file>game/resource/icon.png</file>
+        <file>game/resource/cards/defend.png</file>
     </qresource>
 </RCC>

@@ -4,7 +4,7 @@
 Exhume::Exhume() :
     AbstractCard(
         (std::string)"Exhume",
-        (std::string)"Exhume",
+        (std::string)"发掘",
         (std::string)":/game/resource/cards/exhume.png",
         1,
         (std::string)"技能\n选择一张已消耗的牌，将其放入你的手牌。\n消耗。",
@@ -25,6 +25,7 @@ void Exhume::use(AbstractPlayer *p,AbstractMonster *m)
 void Exhume::effect(AbstractCard *c)
 {
     mw->d.player->hand.addToBottom(c);
+    mw->d.player->exhaustPile.removeCard(c);
 }
 AbstractCard *Exhume::makeCopy()
 {

@@ -15,7 +15,7 @@ void CardGroup::clear()
 
 void CardGroup::removeCard(AbstractCard *card)
 {
-    group.remove(card);
+    group.removeAll(card);
 }
 
 bool CardGroup::removeCard(std::string id)

@@ -2,7 +2,7 @@
 #define _ABSTRACTCREATURE_H_
 
 #include "../cards/DamageInfo.h"
-#include <list>
+#include <QVector>
 
 class MainWindow;
 class AbstractPower;
@@ -21,11 +21,11 @@ public:
     bool isDead  = false;
     bool halfDead= false;
     MainWindow *mw;
-    std::list<AbstractPower*> buff;
+    QVector<AbstractPower*> buff;
 
     AbstractCreature(std::string imgUrl,std::string name, std::string id, int health);
 
-    void damage(DamageInfo &damageInfo);
+    virtual void damage(DamageInfo &damageInfo);
     void damage(int dmg);
 
     int decrementBlock(DamageInfo &damageInfo, int damageAmount);

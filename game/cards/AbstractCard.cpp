@@ -14,6 +14,10 @@ bool AbstractCard::operator==(const AbstractCard &c)
 {
     return (id == c.id)&&(upgraded == c.upgraded);
 }
+bool AbstractCard::operator!=(const AbstractCard &c)
+{
+    return (id != c.id)||(upgraded != c.upgraded);
+}
 void AbstractCard::exhaustCard(){
     mw->d.player->drawPile.removeCard(this);
     mw->d.player->discardPile.removeCard(this);

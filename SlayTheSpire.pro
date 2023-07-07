@@ -1,4 +1,5 @@
 QT       += core gui
+//QT       += multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -32,6 +33,7 @@ SOURCES += \
     game/cards/red/BurningPact.cpp \
     game/cards/red/Corruption.cpp \
     game/cards/red/DarkEmbrace.cpp \
+    game/cards/red/Defend_Red.cpp \
     game/cards/red/DemonForm.cpp \
     game/cards/red/Exhume.cpp \
     game/cards/red/FeelNoPain.cpp \
@@ -115,6 +117,7 @@ HEADERS += \
     game/cards/red/BurningPact.h \
     game/cards/red/Corruption.h \
     game/cards/red/DarkEmbrace.h \
+    game/cards/red/Defend_Red.h \
     game/cards/red/DemonForm.h \
     game/cards/red/Exhume.h \
     game/cards/red/FeelNoPain.h \
@@ -196,3 +199,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     res.qrc
+
+DISTFILES +=

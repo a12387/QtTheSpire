@@ -16,12 +16,51 @@ Shop::Shop(QWidget *parent) :
 
     mw = (MainWindow*)parentWidget();
 
-    RandomCard* cards[7]={};
+    AbstractCard* cards[7]={};
+
+    cards[0] = RandomCard::getAttackCard()->makeCopy();
+
+    while(true)
+    {
+        cards[1] = RandomCard::getAttackCard()->makeCopy();
+        if(*cards[1] != *cards[0])
+            break;
+        delete cards[1];
+    }
+
+    cards[2] = RandomCard::getSkillCard()->makeCopy();
+
+    while(true)
+    {
+        cards[3] = RandomCard::getSkillCard()->makeCopy();
+        if(*cards[3] != *cards[2])
+            break;
+        delete cards[3];
+    }
+    while(true)
+    {
+        cards[4] = RandomCard::getSkillCard()->makeCopy();
+        if(*cards[4] != *cards[3] && *cards[4] != *cards[2])
+            break;
+        delete cards[4];
+    }
+
+    cards[5] = RandomCard::getPowerCard()->makeCopy();
+
+    while(true)
+    {
+        cards[6] = RandomCard::getPowerCard()->makeCopy();
+        if(*cards[6] != *cards[5])
+            break;
+        delete cards[6];
+    }
+
+    CardButton *cardBtns[7];
     for(int i=0;i<7;i++){
-        cards[i]=new RandomCard(this);
-        if(i<5)cards[i]->c->move(220*i+10,0);
-        else cards[i]->c->move(220*(i-5)+10,330);
-        connect(cards[i]->c,&CardButton::chooseCardButton,this,&Shop::buyCard);
+        cardBtns[i]=new CardButton(cards[i],this);
+        if(i<5)cardBtns[i]->move(220*i+10,0);
+        else cardBtns[i]->move(220*(i-5)+10,330);
+        connect(cardBtns[i],&CardButton::chooseCardButton,this,&Shop::buyCard);
     }
 }
 

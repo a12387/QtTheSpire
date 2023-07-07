@@ -19,8 +19,9 @@ Whirlwind::Whirlwind() :
 void Whirlwind::use(AbstractPlayer *p,AbstractMonster *m)
 {
     DamageInfo tmp = DamageInfo(p,baseDamage,dType);
-    while(p->energy --)
+    while(p->energy > 0)
     {
+        p->energy--;
         for(auto & i:mw->d.rooms[mw->d.floor - 1]->monsters.monsters)
         {
             i->damage(tmp);

@@ -3,7 +3,7 @@
 
 #include "../core/AbstractCreature.h"
 #include "../cards/CardGroup.h"
-#include <list>
+
 
 class AbstractPlayer : public AbstractCreature
 {
@@ -16,8 +16,8 @@ public:
     int direction;
     int energy;
 
-    //std::list<AbstractRelic> relics;
-    //std::list<AbstractPotion> potions;
+    //QVector<AbstractRelic> relics;
+    //QVector<AbstractPotion> potions;
 
     AbstractPlayer(std::string imgUrl,std::string name, std::string id, int health);
 
@@ -27,6 +27,9 @@ public:
     void preBattle();
 
     void drawCard(int num);
+
+    void damage(DamageInfo&);
+    void damage(int dmg);
 };
 
 #endif

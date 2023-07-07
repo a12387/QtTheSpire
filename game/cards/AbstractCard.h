@@ -2,7 +2,8 @@
 #define _ABSTRACTCARD_H_
 
 #include <iostream>
-#include <list>
+#include <QVector>
+
 #include "DamageInfo.h"
 class AbstractPlayer;
 class AbstractMonster;
@@ -75,7 +76,7 @@ public:
     bool exhaust = false;  // 消耗
     bool ethereal= false;  // 虚无
 
-    std::list<CardTags> tags;
+    QVector<CardTags> tags;
 
     //base为原始数值，不受buff影响，受升级影响
     int baseDamage      = -1;  // 伤害
@@ -104,6 +105,7 @@ public:
     virtual ~AbstractCard();
 
     bool operator==(const AbstractCard &c);
+    bool operator!=(const AbstractCard &c);
 
     void exhaustCard();
 

@@ -2,7 +2,7 @@
 #define _CARDGROUP_H_
 
 #include "AbstractCard.h"
-#include <list>
+
 
 class CardGroup
 {
@@ -18,14 +18,13 @@ public:
         UNSPECIFIED  // 临时用
     };
     CardGroupType type;
-    std::list<AbstractCard*> group;
+    QVector<AbstractCard*> group;
 
     CardGroup(CardGroupType type);
 
     void clear();//清除牌堆
 
     void removeCard(AbstractCard *card);//通过Card移出卡牌
-
     bool removeCard(std::string id);//通过ID移出卡牌
 
     void addToTop(AbstractCard *card);

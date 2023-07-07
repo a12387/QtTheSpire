@@ -131,5 +131,7 @@ void CombatRoom::on_continue_2_clicked()
 void CombatRoom::showContinueButton()
 {
     ui->continue_2->show();
+    update();
+    delete uc;
 }
 

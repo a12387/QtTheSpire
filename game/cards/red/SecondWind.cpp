@@ -19,7 +19,7 @@ SecondWind::SecondWind() :
 void SecondWind::use(AbstractPlayer *p,AbstractMonster *m)
 {
     p->energy -= cost;
-    std::list<AbstractCard*> l;
+    QVector<AbstractCard*> l;
     auto it = p->hand.group.begin();
     while(it != p->hand.group.end())
     {

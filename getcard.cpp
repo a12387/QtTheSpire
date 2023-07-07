@@ -17,11 +17,27 @@ GetCard::GetCard(QWidget *parent) :
     }
     mw = (MainWindow*)tmp;
 
+    cards[0] = RandomCard::getAnyCard()->makeCopy();
+
+    while(true)
+    {
+        cards[1] = RandomCard::getAnyCard()->makeCopy();
+        if(*cards[1] != *cards[0])
+            break;
+        delete cards[1];
+    }
+    while(true)
+    {
+        cards[2] = RandomCard::getAnyCard()->makeCopy();
+        if(*cards[2] != *cards[1] && *cards[2] != *cards[0])
+            break;
+        delete cards[2];
+    }
 
     for(int i=0;i<3;i++){
-        cards[i]=new RandomCard(this);
-        cards[i]->c->move(170+i*280,140);
-        connect(cards[i]->c,&CardButton::chooseCardButton,this,&GetCard::getCard);
+        CardButton *c = new CardButton(cards[i],this);
+        c->move(170+i*280,140);
+        connect(c,&CardButton::chooseCardButton,this,&GetCard::getCard);
     }
 }
 GetCard::~GetCard()

@@ -10,6 +10,7 @@ PowerWidget::PowerWidget(AbstractPower*p_,QWidget *parent) :
     ui->img->setPixmap(QPixmap::fromImage(image));
     ui->img->setScaledContents(true);
     ui->amount->setText(QString::number(p->amount));
+    setStyleSheet("color:white;");
     if(p->name=="BackAttackLeft"||p->name=="BackAttackRight"||p->name=="PainfulStabs"||p->name=="Surrounded"||
         p->name=="NoDraw"||p->name=="Barricade"||p->name=="Corruption")ui->amount->hide();
 }

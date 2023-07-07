@@ -1,13 +1,13 @@
 #ifndef _MONSTERGROUP_H_
 #define _MONSTERGROUP_H_
 
-#include <list>
+
 #include "AbstractMonster.h"
 
 class MonsterGroup
 {
 public:
-    std::list<AbstractMonster *> monsters;
+    QVector<AbstractMonster *> monsters;
 
     ~MonsterGroup();
 

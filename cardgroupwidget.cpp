@@ -10,6 +10,9 @@ CardGroupWidget::CardGroupWidget(bool selectable,CardGroup *cg_, QWidget *parent
 {
     ui->setupUi(this);
 
+    CombatRoom *cr = ((CombatRoom*)parent);
+    bool flag = false;
+
     if(!selectable)
     {
         btn = new QPushButton(this);
@@ -29,13 +32,23 @@ CardGroupWidget::CardGroupWidget(bool selectable,CardGroup *cg_, QWidget *parent
     }
     else
     {
+        if(cg_->group.empty()||cg_->group.size()<=min)
+        {
+            auto t = cg_->group;
+            for(int i = 0;i < t.size(); i++)
+            {
+                cr->uc->c->effect(t[i]);
+            }
+            cr->update();
+            flag = true;
+        }
         btn = new QPushButton(this);
         btn->setGeometry(480,500,180,75);
         btn->setText("确定");
         connect(btn,&QPushButton::clicked,this,
                 [=]()
                 {
-                    CombatRoom *cr = ((CombatRoom*)parent);
+
                     for(auto &i:selectedCards)
                     {
                         cr->uc->c->effect(i->card);
@@ -48,10 +61,10 @@ CardGroupWidget::CardGroupWidget(bool selectable,CardGroup *cg_, QWidget *parent
 
     btn->setStyleSheet("font: 20pt;border-image: url(:/game/resource/ui/endturn.png);color: rgb(255, 255, 255);");
 
-    std::list<AbstractCard*> g(cg_->group);
+    QVector<AbstractCard*> g(cg_->group);
     int s = g.size();
-    g.sort([=](AbstractCard* a,AbstractCard* b){return a->id > b->id;});
-    ui->scrollAreaWidgetContents->setMinimumHeight((s/5+1) * 282 + 30 );
+    std::sort(g.begin(),g.end(),[=](AbstractCard* a,AbstractCard* b){return a->id > b->id;});
+    ui->scrollAreaWidgetContents->setMinimumHeight(((s-1)/5+1) * 282 + 30 );
     auto it = g.begin();
     for(int i = 0; i < g.size(); i++)
     {
@@ -61,6 +74,9 @@ CardGroupWidget::CardGroupWidget(bool selectable,CardGroup *cg_, QWidget *parent
         connect(c,&CardButton::chooseCardButton,this,&CardGroupWidget::select);
     }
 
+    show();
+    if(flag)
+        close();
 }
 
 CardGroupWidget::~CardGroupWidget()

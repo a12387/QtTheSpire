@@ -22,7 +22,7 @@ public:
     MainWindow *mw;
 
 private:
-    RandomCard* cards[3]={};
+    AbstractCard* cards[3]={};
 private slots:
     void getCard(CardButton *card);
 

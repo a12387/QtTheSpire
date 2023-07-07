@@ -44,7 +44,7 @@ UseCard::UseCard(QWidget *parent) :
 
                 }
                 mw->d.player->hand.clear();
-                update();
+                cr->update();
                 emit endTurn();
             }
     );
@@ -58,6 +58,8 @@ UseCard::~UseCard()
 void UseCard::update()
 {
     ui->energy->setText(QString("%1/3").arg(mw->d.player->energy));
+
+    cancelSelect();
 
     int n = mw->d.player->hand.group.size();
     ui->scrollAreaWidgetContents->setMinimumWidth(150 * n);
@@ -116,6 +118,10 @@ void UseCard::selectCardButton(CardButton *c)
                     i->choose = true;
                 }
             }
+            else
+            {
+                ui->confirmButton->setEnabled(true);
+            }
         }
         else
         {
@@ -133,7 +139,7 @@ void UseCard::useSelectedCard()
 {
     c = selectedCard->card;
     mw->d.player->hand.removeCard(c);
-    mw->d.player->discardPile.addToTop(c);
+    if(c->type!=AbstractCard::POWER)mw->d.player->discardPile.addToTop(c);
 
     if(c->target == AbstractCard::ENEMY)
     {
@@ -159,6 +165,8 @@ void UseCard::useSelectedCard()
     if(cr->monstersWidget.empty())
     {
         cr->showContinueButton();
+
+        return;
     }
 
     switch(mw->d.floor-1){
@@ -213,10 +221,6 @@ void UseCard::useSelectedCard()
     default:break;
     }
 
-
-
-    cancelSelect();
-
     cr->update();
 }
 
@@ -228,8 +232,11 @@ void UseCard::cardSelect(CardButton *c)
 }
 void UseCard::cancelSelect()
 {
-    selectedCard->bg->setStyleSheet("");
-    selectedCard = nullptr;
+    if(selectedCard)
+    {
+        selectedCard->bg->setStyleSheet("");
+        selectedCard = nullptr;
+    }
 
     ui->confirmButton->hide();
     ui->cancelButton->hide();
@@ -256,7 +263,6 @@ void UseCard::changeSelect(CardButton *c)
 void UseCard::callCardMultiSelection(CardGroup *c,int min_,int max_)
 {
     CardGroupWidget *selectionScreen = new CardGroupWidget(true,c,parentWidget(),min_,max_);
-    selectionScreen->show();
 }
 
 void UseCard::on_drawPileButton_clicked()

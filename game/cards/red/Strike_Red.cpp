@@ -6,7 +6,7 @@ Strike_Red::Strike_Red() :
         (std::string)"打击",
         (std::string)":/game/resource/cards/strike.png",
         1,
-        (std::string)"攻击\n造成6点伤害",
+        (std::string)"攻击\n造成基础数值为6点的伤害",
         AbstractCard::ATTACK,
         AbstractCard::RED,
         AbstractCard::COMMON,
