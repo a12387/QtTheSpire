@@ -6,14 +6,14 @@ SpotWeakness::SpotWeakness() :
         (std::string)"观察弱点",
         (std::string)":/game/resource/cards/spot_weakness.png",
         1,
-        (std::string)"技能\n如果一名敌人的意图是攻击，你获得3点力量。",
+        (std::string)"技能\n如果一名敌人的意图是攻击，你获得4点力量。",
         AbstractCard::SKILL,
         AbstractCard::RED,
         AbstractCard::UNCOMMON,
         AbstractCard::ENEMY,
         DamageInfo::DamageType::NORMAL)
 {
-    baseMagicNumber = 3;
+    baseMagicNumber = 4;
 }
 
 void SpotWeakness::use(AbstractPlayer *p,AbstractMonster *m)

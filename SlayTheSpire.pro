@@ -24,19 +24,22 @@ SOURCES += \
     game/cards/colorless/Slimed.cpp \
     game/cards/colorless/Void.cpp \
     game/cards/colorless/Wound.cpp \
-    game/cards/red/Armaments.cpp \
+    game/cards/red/Anger.cpp \
     game/cards/red/Barricade.cpp \
     game/cards/red/Bash.cpp \
     game/cards/red/BattleTrance.cpp \
+    game/cards/red/Bloodletting.cpp \
+    game/cards/red/Bludgeon.cpp \
     game/cards/red/BodySlam.cpp \
     game/cards/red/BurningPact.cpp \
+    game/cards/red/Cleave.cpp \
+    game/cards/red/Clothesline.cpp \
     game/cards/red/Corruption.cpp \
     game/cards/red/DarkEmbrace.cpp \
     game/cards/red/Defend_Red.cpp \
     game/cards/red/DemonForm.cpp \
     game/cards/red/Exhume.cpp \
     game/cards/red/FeelNoPain.cpp \
-    game/cards/red/Finesse.cpp \
     game/cards/red/Inflame.cpp \
     game/cards/red/LimitBreak.cpp \
     game/cards/red/Offering.cpp \
@@ -107,19 +110,22 @@ HEADERS += \
     game/cards/colorless/Slimed.h \
     game/cards/colorless/Void.h \
     game/cards/colorless/Wound.h \
-    game/cards/red/Armaments.h \
+    game/cards/red/Anger.h \
     game/cards/red/Barricade.h \
     game/cards/red/Bash.h \
     game/cards/red/BattleTrance.h \
+    game/cards/red/Bloodletting.h \
+    game/cards/red/Bludgeon.h \
     game/cards/red/BodySlam.h \
     game/cards/red/BurningPact.h \
+    game/cards/red/Cleave.h \
+    game/cards/red/Clothesline.h \
     game/cards/red/Corruption.h \
     game/cards/red/DarkEmbrace.h \
     game/cards/red/Defend_Red.h \
     game/cards/red/DemonForm.h \
     game/cards/red/Exhume.h \
     game/cards/red/FeelNoPain.h \
-    game/cards/red/Finesse.h \
     game/cards/red/Inflame.h \
     game/cards/red/LimitBreak.h \
     game/cards/red/Offering.h \

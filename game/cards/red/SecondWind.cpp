@@ -6,14 +6,14 @@ SecondWind::SecondWind() :
         (std::string)"重振精神",
         (std::string)":/game/resource/cards/second_wind.png",
         1,
-        (std::string)"技能\n消耗手牌中所有非攻击牌，每张获得5点格挡。",
+        (std::string)"技能\n消耗手牌中所有非攻击牌，每张获得7点格挡。",
         AbstractCard::SKILL,
         AbstractCard::RED,
         AbstractCard::UNCOMMON,
         AbstractCard::SELF,
         DamageInfo::DamageType::NORMAL)
 {
-    baseBlock = 5;
+    baseBlock = 7;
 }
 
 void SecondWind::use(AbstractPlayer *p,AbstractMonster *m)

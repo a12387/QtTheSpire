@@ -1,16 +1,15 @@
-#ifndef TRUEGRIT_H
-#define TRUEGRIT_H
+#ifndef CLOTHESLINE_H
+#define CLOTHESLINE_H
 
 #include "../AbstractCard.h"
 #include "../../characters/AbstractPlayer.h"
 #include "../../monsters/AbstractMonster.h"
-class TrueGrit : public AbstractCard
+class Clothesline : public AbstractCard
 {
 public:
-    TrueGrit();
+    Clothesline();
     void use(AbstractPlayer *p,AbstractMonster *m);
-    void effect(AbstractCard *c);
     AbstractCard *makeCopy();
 };
 
-#endif // TRUEGRIT_H
+#endif // CLOTHESLINE_H

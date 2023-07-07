@@ -6,8 +6,8 @@ SpireShield::SpireShield():
         std::string(":/game/resource/creature/shield.png"),
         std::string("Spire Shield"),
         std::string("SpireShield"),
-        6//110)
-        )
+        110)
+
 
 {
     ApplyPower(new BackAttackLeft());

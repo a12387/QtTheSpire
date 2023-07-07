@@ -6,14 +6,14 @@ Defend_Red::Defend_Red() :
         (std::string)"防御",
         (std::string)":/game/resource/cards/defend.png",
         1,
-        (std::string)"技能\n获得基础数值为5点的格挡",
+        (std::string)"技能\n获得基础数值为8点的格挡",
         AbstractCard::SKILL,
         AbstractCard::RED,
         AbstractCard::BASIC,
         AbstractCard::SELF,
         DamageInfo::DamageType::NORMAL)
 {
-    baseBlock = 5;
+    baseBlock = 8;
 }
 
 void Defend_Red::use(AbstractPlayer *p,AbstractMonster *m)

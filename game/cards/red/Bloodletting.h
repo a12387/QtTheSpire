@@ -1,16 +1,16 @@
-#ifndef TRUEGRIT_H
-#define TRUEGRIT_H
+#ifndef BLOODLETTING_H
+#define BLOODLETTING_H
 
 #include "../AbstractCard.h"
 #include "../../characters/AbstractPlayer.h"
 #include "../../monsters/AbstractMonster.h"
-class TrueGrit : public AbstractCard
+
+class Bloodletting : public AbstractCard
 {
 public:
-    TrueGrit();
+    Bloodletting();
     void use(AbstractPlayer *p,AbstractMonster *m);
-    void effect(AbstractCard *c);
     AbstractCard *makeCopy();
 };
 
-#endif // TRUEGRIT_H
+#endif // BLOODLETTING_H

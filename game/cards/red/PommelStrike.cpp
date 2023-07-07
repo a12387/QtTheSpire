@@ -6,15 +6,15 @@ PommelStrike::PommelStrike() :
         (std::string)"剑柄打击",
         (std::string)":/game/resource/cards/pommel_strike.png",
         1,
-        (std::string)"攻击\n造成基础数值为9点的伤害\n抽1张牌",
-        AbstractCard::SKILL,
+        (std::string)"攻击\n造成基础数值为10点的伤害\n抽2张牌",
+        AbstractCard::ATTACK,
         AbstractCard::RED,
         AbstractCard::COMMON,
         AbstractCard::ENEMY,
         DamageInfo::DamageType::NORMAL)
 {
-    baseDamage = 9;
-    baseMagicNumber = 1;
+    baseDamage = 10;
+    baseMagicNumber = 2;
 }
 
 void PommelStrike::use(AbstractPlayer *p,AbstractMonster *m)

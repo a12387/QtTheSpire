@@ -1,16 +1,15 @@
-#ifndef TRUEGRIT_H
-#define TRUEGRIT_H
+#ifndef ANGER_H
+#define ANGER_H
 
 #include "../AbstractCard.h"
 #include "../../characters/AbstractPlayer.h"
 #include "../../monsters/AbstractMonster.h"
-class TrueGrit : public AbstractCard
+class Anger : public AbstractCard
 {
 public:
-    TrueGrit();
+    Anger();
     void use(AbstractPlayer *p,AbstractMonster *m);
-    void effect(AbstractCard *c);
     AbstractCard *makeCopy();
 };
 
-#endif // TRUEGRIT_H
+#endif // ANGER_H

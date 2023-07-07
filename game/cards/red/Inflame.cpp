@@ -6,14 +6,14 @@ Inflame::Inflame() :
         (std::string)"燃烧",
         (std::string)":/game/resource/cards/inflame.png",
         1,
-        (std::string)"能力\n获得2点力量",
+        (std::string)"能力\n获得3点力量",
         AbstractCard::POWER,
         AbstractCard::RED,
         AbstractCard::UNCOMMON,
         AbstractCard::SELF,
         DamageInfo::DamageType::NORMAL)
 {
-    baseMagicNumber = 2;
+    baseMagicNumber = 3;
 }
 
 void Inflame::use(AbstractPlayer *p,AbstractMonster *m)

@@ -5,7 +5,7 @@ BodySlam::BodySlam() :
         (std::string)"BodySlam",
         (std::string)"全身撞击",
         (std::string)":/game/resource/cards/body_slam.png",
-        1,
+        0,
         (std::string)"攻击\n造成基础数值为你当前格挡值的伤害",
         AbstractCard::ATTACK,
         AbstractCard::RED,

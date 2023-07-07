@@ -39,7 +39,8 @@ UseCard::UseCard(QWidget *parent) :
                 for(auto &i: mw->d.player->hand.group)
                 {
                     if(i->id=="Burn")mw->d.player->damage(2);
-                    if(i->id=="Dazed")mw->d.player->exhaustPile.addToTop(i);
+
+                    if(i->ethereal)mw->d.player->exhaustPile.addToTop(i);
                     else mw->d.player->discardPile.addToTop(i);
 
                 }

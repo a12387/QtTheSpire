@@ -24,6 +24,5 @@ Menu::~Menu()
 void Menu::on_pushButton_clicked()
 {
     emit intoGame();
-    close();
 }
 

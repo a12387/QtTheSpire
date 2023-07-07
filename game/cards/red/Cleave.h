@@ -1,15 +1,15 @@
-#ifndef FINESSE_H
-#define FINESSE_H
+#ifndef CLEAVE_H
+#define CLEAVE_H
 
 #include "../AbstractCard.h"
 #include "../../characters/AbstractPlayer.h"
 #include "../../monsters/AbstractMonster.h"
-class Finesse : public AbstractCard
+class Cleave : public AbstractCard
 {
 public:
-    Finesse();
+    Cleave();
     void use(AbstractPlayer *p,AbstractMonster *m);
     AbstractCard *makeCopy();
 };
 
-#endif // FINESSE_H
+#endif // CLEAVE_H

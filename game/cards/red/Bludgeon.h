@@ -1,13 +1,15 @@
-#ifndef ARMAMENTS_H
-#define ARMAMENTS_H
+#ifndef BLUDGEON_H
+#define BLUDGEON_H
+
 #include "../AbstractCard.h"
 #include "../../characters/AbstractPlayer.h"
 #include "../../monsters/AbstractMonster.h"
-class Armaments : public AbstractCard
+class Bludgeon : public AbstractCard
 {
 public:
-    Armaments();
+    Bludgeon();
     void use(AbstractPlayer *p,AbstractMonster *m);
     AbstractCard *makeCopy();
 };
-#endif // ARMAMENTS_H
+
+#endif // BLUDGEON_H

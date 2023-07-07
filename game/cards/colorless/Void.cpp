@@ -14,7 +14,9 @@ Void::Void():
         AbstractCard::NONE,
         DamageInfo::DamageType::NORMAL)
 
-{}
+{
+    ethereal = true;
+}
 AbstractCard*Void::makeCopy(){
     return new Void;
 }

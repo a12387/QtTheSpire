@@ -36,9 +36,9 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>-100</y>
+     <y>-200</y>
      <width>1080</width>
-     <height>770</height>
+     <height>870</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -48,7 +48,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="death">
+  <widget class="QLabel" name="msg">
    <property name="geometry">
     <rect>
      <x>420</x>
@@ -88,7 +88,7 @@ border-image: url(:/game/resource/ui/endturn.png);</string>
   </widget>
   <zorder>background</zorder>
   <zorder>continue_2</zorder>
-  <zorder>death</zorder>
+  <zorder>msg</zorder>
   <zorder>returnBtn</zorder>
  </widget>
  <resources/>

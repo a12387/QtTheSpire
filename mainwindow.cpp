@@ -35,6 +35,7 @@ void MainWindow::init()
 }
 void MainWindow::startGame()
 {
+    delete currentScreen;
     AbstractCard::mw = this;
     currentScreen = new QWidget(this);
     currentScreen->setGeometry(0,50,1080,670);

@@ -100,5 +100,10 @@
         <file>game/resource/panelGoldBag.png</file>
         <file>game/resource/panelHeart.png</file>
         <file>game/resource/gold.png</file>
+        <file>game/resource/cards/bludgeon.png</file>
+        <file>game/resource/cards/bloodletting.png</file>
+        <file>game/resource/cards/cleave.png</file>
+        <file>game/resource/cards/anger.png</file>
+        <file>game/resource/cards/clothesline.png</file>
     </qresource>
 </RCC>

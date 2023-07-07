@@ -10,7 +10,7 @@ CorruptHeart::CorruptHeart():
         std::string(":/game/resource/creature/CorruptHeart.png"),
         std::string("Corrupt Heart"),
         std::string("CorruptHeart"),
-        7)
+        750)
 {
     ApplyPower(new BeatOfDeath(1));
     ApplyPower(new Invincible());

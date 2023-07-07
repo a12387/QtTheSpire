@@ -1,8 +1,11 @@
-#include "game/cards/red/Armaments.h"
 #include "game/cards/red/PommelStrike.h"
+#include "game/cards/red/Bludgeon.h"
+#include "game/cards/red/Cleave.h"
+#include "game/cards/red/Anger.h"
+#include "game/cards/red/Clothesline.h"
+#include "game/cards/red/Bloodletting.h"
 #include "game/cards/red/ShrugItOff.h"
 #include "game/cards/red/TrueGrit.h"
-#include "game/cards/red/Armaments.h"
 #include "game/cards/red/BodySlam.h"
 #include "game/cards/red/BattleTrance.h"
 #include "game/cards/red/BurningPact.h"
@@ -23,11 +26,14 @@
 std::vector<AbstractCard*> RandomCard::attack =  {
     new BodySlam,
     new PommelStrike,
-    new Whirlwind
+    new Whirlwind,
+    new Bludgeon,
+    new Cleave,
+    new Anger,
+    new Clothesline
 };
 
 std::vector<AbstractCard*> RandomCard::skill  = {
-    new Armaments,
     new BurningPact,
     new BattleTrance,
     new Exhume,
@@ -36,7 +42,8 @@ std::vector<AbstractCard*> RandomCard::skill  = {
     new SecondWind,
     new ShrugItOff,
     new SpotWeakness,
-    new TrueGrit
+    new TrueGrit,
+    new Bloodletting
 };
 
 std::vector<AbstractCard*> RandomCard::power =  {
@@ -52,7 +59,10 @@ std::vector<AbstractCard*> RandomCard::pool  =  {
     new BodySlam,
     new PommelStrike,
     new Whirlwind,
-    new Armaments,
+    new Bludgeon,
+    new Cleave,
+    new Anger,
+    new Clothesline,
     new BurningPact,
     new BattleTrance,
     new Exhume,
@@ -62,6 +72,7 @@ std::vector<AbstractCard*> RandomCard::pool  =  {
     new ShrugItOff,
     new SpotWeakness,
     new TrueGrit,
+    new Bloodletting,
     new Barricade,
     new Corruption,
     new DarkEmbrace,

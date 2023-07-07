@@ -6,7 +6,7 @@ Exhume::Exhume() :
         (std::string)"Exhume",
         (std::string)"发掘",
         (std::string)":/game/resource/cards/exhume.png",
-        1,
+        0,
         (std::string)"技能\n选择一张已消耗的牌，将其放入你的手牌。\n消耗。",
         AbstractCard::SKILL,
         AbstractCard::RED,

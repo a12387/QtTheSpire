@@ -6,14 +6,14 @@ Whirlwind::Whirlwind() :
         (std::string)"旋风斩",
         (std::string)":/game/resource/cards/whirlwind.png",
         -1,
-        (std::string)"攻击\n对所有敌人造成基础数值为5点的伤害X次",
+        (std::string)"攻击\n对所有敌人造成基础数值为8点的伤害X次",
         AbstractCard::ATTACK,
         AbstractCard::RED,
         AbstractCard::UNCOMMON,
         AbstractCard::ALL_ENEMY,
         DamageInfo::DamageType::NORMAL)
 {
-    baseDamage = 5;
+    baseDamage = 8;
 }
 
 void Whirlwind::use(AbstractPlayer *p,AbstractMonster *m)

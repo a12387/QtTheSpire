@@ -16,7 +16,7 @@ CombatRoom::CombatRoom(QWidget *parent) :
     mw = (MainWindow*)parent;
 
     ui->continue_2->hide();
-    ui->death->hide();
+    ui->msg->hide();
     ui->returnBtn->hide();
 
     playerWidget = new CreatureWidget(mw->d.player,this);
@@ -123,7 +123,8 @@ void CombatRoom::update()
         {
             i->close();
         }
-        ui->death->show();
+        ui->msg->setText("YOU DIED");
+        ui->msg->show();
         ui->returnBtn->show();
     }
 }
@@ -136,13 +137,10 @@ void CombatRoom::on_continue_2_clicked()
     }
     else if(mw->d.floor == 4)
     {
-        QLabel *l = new QLabel(mw);
-        l->setText("You Win!");
-
-        l->setGeometry(360,400,360,100);
-        l->setAlignment(Qt::AlignHCenter);
-        l->show();
-        mw->currentScreen->close();
+        ui->msg->setText("YOU WIN");
+        ui->msg->show();
+        ui->returnBtn->show();
+        ui->continue_2->hide();
     }
 }
 void CombatRoom::showContinueButton()

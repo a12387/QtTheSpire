@@ -43,6 +43,11 @@ void AbstractPlayer::drawCard(int num)
             break;
         }
         hand.addToBottom(*(drawPile.group.begin()));
+
+        if(hand.group.back()->id == "Void")
+        {
+            energy--;
+        }
         drawPile.group.pop_front();
     }
 }

@@ -6,15 +6,15 @@ Bash::Bash() :
         (std::string)"痛击",
         (std::string)":/game/resource/cards/bash.png",
         2,
-        (std::string)"攻击\n造成基础数值为8点的伤害\n给予2层易伤",
+        (std::string)"攻击\n造成基础数值为10点的伤害\n给予3层易伤",
         AbstractCard::ATTACK,
         AbstractCard::RED,
         AbstractCard::BASIC,
         AbstractCard::ENEMY,
         DamageInfo::DamageType::NORMAL)
 {
-    baseDamage = 8;
-    baseMagicNumber = 2;
+    baseDamage = 10;
+    baseMagicNumber = 3;
 }
 
 void Bash::use(AbstractPlayer *p,AbstractMonster *m)

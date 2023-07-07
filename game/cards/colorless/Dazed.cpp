@@ -14,7 +14,7 @@ Dazed::Dazed():
         AbstractCard::NONE,
         DamageInfo::DamageType::NORMAL)
 {
-
+    ethereal = true;
 }
 AbstractCard* Dazed::makeCopy(){
     return new Dazed;
