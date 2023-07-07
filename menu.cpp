@@ -26,3 +26,9 @@ void Menu::on_pushButton_clicked()
     emit intoGame();
 }
 
+
+void Menu::on_pushButton_2_clicked()
+{
+    mw->close();
+}
+
