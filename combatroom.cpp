@@ -172,7 +172,7 @@ void CombatRoom::showContinueButton()
 
 void CombatRoom::on_returnBtn_clicked()
 {
-    d->stop();
+    if(d)d->stop();
     mw->init();
     mw->stateBar->close();
     close();

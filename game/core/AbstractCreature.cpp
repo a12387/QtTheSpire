@@ -13,12 +13,7 @@ AbstractCreature::AbstractCreature(std::string imgUrl,std::string name,std::stri
 
 void AbstractCreature::damage(DamageInfo& info)
 {
-    if(isPlayer){
-        QSoundEffect*e=new QSoundEffect();
-        e->setSource(QUrl("qrc:/game/resource/audio/sound/FastBlunt.wav"));
-        e->play();
-    }
-    else {
+    if(!isPlayer) {
         QSoundEffect*e=new QSoundEffect();
         e->setSource(QUrl("qrc:/game/resource/audio/sound/IronClad_Atk.wav"));
         e->play();
@@ -181,8 +176,9 @@ void AbstractCreature::changePower(){
         else if((*i)->name=="Frail"||(*i)->name=="Vulnerable"||(*i)->name=="Weak")(*i)->amount--;
         else if((*i)->name=="Invincible")(*i)->amount=300;
     }
-    for(auto i=buff.begin();i!=buff.end();++i){
-        if((*i)->amount==0)buff.erase(i);
+    for(auto i=buff.begin();i!=buff.end();){
+        if((*i)->amount==0)i=buff.erase(i);
+        else ++i;
     }
 }
 
