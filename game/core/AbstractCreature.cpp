@@ -133,7 +133,6 @@ void AbstractCreature::ApplyPower(AbstractPower *power)
             if((*i)->name=="Artifact"){
                 offset=true;
                 (*i)->amount--;
-                if((*i)->amount==0)buff.erase(i);
                 break;
             }
         }
@@ -143,7 +142,6 @@ void AbstractCreature::ApplyPower(AbstractPower *power)
                 if((*i)->name==power->name){
                     (*i)->amount+=power->amount;
                     if((*i)->amount>999)(*i)->amount=999;
-                    if((*i)->amount==0)buff.erase(i);
                     tag++;break;
                 }
             }
@@ -161,18 +159,21 @@ void AbstractCreature::ApplyPower(AbstractPower *power)
             if((*i)->name==power->name){
                 (*i)->amount+=power->amount;
                 if((*i)->amount>999)(*i)->amount=999;
-                if((*i)->amount==0)buff.erase(i);
                 tag++;break;
             }
         }
         if(!tag)buff.push_back(power);
+    }
+    for(auto i=buff.begin();i!=buff.end();){
+        if((*i)->amount==0&&(*i)->name!="Invincible")i=buff.erase(i);
+        else ++i;
     }
 }
 
 void AbstractCreature::changePower(){
     for(auto i=buff.begin();i!=buff.end();++i){
         if((*i)->name=="DemonForm")ApplyPower(new Strength((*i)->amount));
-        else if((*i)->name=="NoDraw")buff.erase(i);
+        else if((*i)->name=="NoDraw")(*i)->amount=0;
         else if((*i)->name=="Frail"||(*i)->name=="Vulnerable"||(*i)->name=="Weak")(*i)->amount--;
         else if((*i)->name=="Invincible")(*i)->amount=300;
     }
