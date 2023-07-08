@@ -12,6 +12,8 @@
 #include "game/cards/red/Inflame.h"
 #include "game/cards/red/SpotWeakness.h"
 #include "game/cards/red/DarkEmbrace.h"
+#include "game/cards/red/PowerThrough.h"
+#include "game/cards/red/Entrench.h"
 #include "game/cards/red/SecondWind.h"
 #include "game/cards/red/FeelNoPain.h"
 #include "game/cards/red/Whirlwind.h"
@@ -39,7 +41,9 @@ std::vector<AbstractCard*> RandomCard::skill  = {
     new Exhume,
     new LimitBreak,
     new Offering,
+    new PowerThrough,
     new SecondWind,
+    new Entrench,
     new ShrugItOff,
     new SpotWeakness,
     new TrueGrit,
@@ -69,6 +73,8 @@ std::vector<AbstractCard*> RandomCard::pool  =  {
     new LimitBreak,
     new Offering,
     new SecondWind,
+    new PowerThrough,
+    new Entrench,
     new ShrugItOff,
     new SpotWeakness,
     new TrueGrit,

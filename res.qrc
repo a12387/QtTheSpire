@@ -123,5 +123,7 @@
         <file>game/resource/audio/sound/IronClad_Atk.wav</file>
         <file>game/resource/audio/sound/Magic.wav</file>
         <file>game/resource/audio/sound/Strength.wav</file>
+        <file>game/resource/cards/entrench.png</file>
+        <file>game/resource/cards/power_through.png</file>
     </qresource>
 </RCC>

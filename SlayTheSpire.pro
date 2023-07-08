@@ -38,12 +38,14 @@ SOURCES += \
     game/cards/red/DarkEmbrace.cpp \
     game/cards/red/Defend_Red.cpp \
     game/cards/red/DemonForm.cpp \
+    game/cards/red/Entrench.cpp \
     game/cards/red/Exhume.cpp \
     game/cards/red/FeelNoPain.cpp \
     game/cards/red/Inflame.cpp \
     game/cards/red/LimitBreak.cpp \
     game/cards/red/Offering.cpp \
     game/cards/red/PommelStrike.cpp \
+    game/cards/red/PowerThrough.cpp \
     game/cards/red/SecondWind.cpp \
     game/cards/red/ShrugItOff.cpp \
     game/cards/red/SpotWeakness.cpp \
@@ -124,12 +126,14 @@ HEADERS += \
     game/cards/red/DarkEmbrace.h \
     game/cards/red/Defend_Red.h \
     game/cards/red/DemonForm.h \
+    game/cards/red/Entrench.h \
     game/cards/red/Exhume.h \
     game/cards/red/FeelNoPain.h \
     game/cards/red/Inflame.h \
     game/cards/red/LimitBreak.h \
     game/cards/red/Offering.h \
     game/cards/red/PommelStrike.h \
+    game/cards/red/PowerThrough.h \
     game/cards/red/SecondWind.h \
     game/cards/red/ShrugItOff.h \
     game/cards/red/SpotWeakness.h \
