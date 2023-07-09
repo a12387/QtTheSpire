@@ -96,6 +96,7 @@ void CombatRoom::monsterAction(){
     l.exec();
     l.quit();
 
+    mw->d.player->changeDebuff();
     for(auto &i:monstersWidget)
     {
         ((AbstractMonster*)(i->c))->changePower();

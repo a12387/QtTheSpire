@@ -174,7 +174,7 @@ void AbstractCreature::changePower(){
     for(auto i=buff.begin();i!=buff.end();++i){
         if((*i)->name=="DemonForm")ApplyPower(new Strength((*i)->amount));
         else if((*i)->name=="NoDraw")(*i)->amount=0;
-        else if((*i)->name=="Frail"||(*i)->name=="Vulnerable"||(*i)->name=="Weak")(*i)->amount--;
+        //else if((*i)->name=="Frail"||(*i)->name=="Vulnerable"||(*i)->name=="Weak")(*i)->amount--;
         else if((*i)->name=="Invincible")(*i)->amount=300;
     }
     for(auto i=buff.begin();i!=buff.end();){
@@ -182,7 +182,15 @@ void AbstractCreature::changePower(){
         else ++i;
     }
 }
-
+void AbstractCreature::changeDebuff(){
+    for(auto i=buff.begin();i!=buff.end();++i){
+        if((*i)->name=="Frail"||(*i)->name=="Vulnerable"||(*i)->name=="Weak")(*i)->amount--;
+    }
+    for(auto i=buff.begin();i!=buff.end();){
+        if((*i)->amount==0)i=buff.erase(i);
+        else ++i;
+    }
+}
 void AbstractCreature::loseGold(int amount)
 {
     gold -= amount;

@@ -38,6 +38,7 @@ public:
     void ApplyPower(AbstractPower *power);
 
     void changePower();
+    void changeDebuff();
 
     void loseGold(int amount);
 

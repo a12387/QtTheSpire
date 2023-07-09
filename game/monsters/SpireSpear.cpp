@@ -28,7 +28,7 @@ void SpireSpear::act(AbstractPlayer*p){
     }
     else if(intent==BUFF){
         lastMove=1;
-        for(auto &i:mw->d.rooms[mw->d.floor]->monsters.monsters)i->ApplyPower(new Strength(2));
+        for(auto &i:mw->d.rooms[mw->d.floor-1]->monsters.monsters)i->ApplyPower(new Strength(2));
     }
     else if(intent==ATTACK_DEBUFF){
         lastMove=0;
